@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "PopViewController.h"
 #import "CustomBtn.h"
+#import "UrlCacheViewController.h"
 
 @interface ViewController ()<CustomBtnDelegate, CustomBtnDataSource, PopViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -51,7 +52,15 @@
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section
 {
-    return 15* section;
+    return 10* section;
+}
+
+
+#pragma mark 去缓存
+- (IBAction)handleCacheBtn:(id)sender
+{
+    UrlCacheViewController *urlCacheVC = [[UrlCacheViewController alloc] init];
+    [self.navigationController pushViewController:urlCacheVC animated:YES];
 }
 
 @end
