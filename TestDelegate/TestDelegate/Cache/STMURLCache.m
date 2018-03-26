@@ -66,8 +66,8 @@
 #pragma mark 工具
 - (void)requestWebviewWithFirstPreUrl
 {
-//    NSURLRequest *request = [NSURLRequest  requestWithURL:[NSURL URLWithString:self.preLoadWebUrls.firstObject] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-//    [self.wbView   loadRequest:request];
+    NSURLRequest *request = [NSURLRequest  requestWithURL:[NSURL  URLWithString:self.preLoadWebUrls.firstObject] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    [self.wbView   loadRequest:request];
 }
 
 

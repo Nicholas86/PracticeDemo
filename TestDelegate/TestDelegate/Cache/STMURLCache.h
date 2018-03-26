@@ -12,12 +12,12 @@
 
 #import <Foundation/Foundation.h>
 @class ViewController;
-@class STMURLCacheDelegate;
+@protocol STMURLCacheDelegate;
 
 @interface STMURLCache : NSURLCache
 
 @property (nonatomic, strong) ViewController *viewController;
-@property (nonatomic, assign) id<NSStreamDelegate> delegate;
+@property (nonatomic, assign) id<STMURLCacheDelegate> delegate;
 
 //初始化并开启缓存
 - (STMURLCache *)initSTMURLCache;
