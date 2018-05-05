@@ -29,7 +29,7 @@
     
     //接收所有单元格个数 数据源代理是必须实现的,不用判断respondsToSelector
     NSInteger rows = [self.dataSource numberOfRowsInSection:2];
-    NSLog(@"rows:%ld", rows);
+    NSLog(@"rows:%ld", (long)rows);
 
     if ([self.delegate respondsToSelector:@selector(passTitleString:)]) {
         CGFloat height = [self.delegate  passTitleString:@"山楂条"];
