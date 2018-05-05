@@ -109,6 +109,8 @@
                 }
             }];
             
+            NSLog(@"请求数据了: %ld", array.count);
+
             //标识还有更多数据
             self.hasMoreData = YES;
             
@@ -201,22 +203,52 @@
 }
 
 #pragma mark UIScrollViewDelegate
+/*
+ 使用 Threshold 进行预加载是一种最为常见的预加载方式，知乎客户端就使用了这种方式预加载条目，而其原理也非常简单，根据当前 UITableView 的所在位置，除以目前整个 UITableView.contentView 的高度，来判断当前是否需要发起网络请求：
+ */
+/*
+ 下面的代码在当前页面已经划过了 70% 的时候，就请求新的资源，加载数据；但是，仅仅使用这种方法会有另一个问题，尤其是当列表变得很长时，十分明显，比如说：用户从上向下滑动，总共加载了 5 页数据：
+ */
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
     CGFloat contentOffsetY = scrollView.contentOffset.y;
+    //当前所在位置
+    //self.view.frame.size.height: 667.00
+    CGFloat current = contentOffsetY + self.view.frame.size.height;
+
+    //整个 UITableView.contentView 的高度
     CGFloat contentHeight = scrollView.contentSize.height;
-    CGFloat delta = contentOffsetY + self.view.frame.size.height;
+    
+//    NSLog(@"contentOffsetY: %.2f, self.view.frame.size.height: %.2f, contentSize.height: %.2f, ", scrollView.contentOffset.y, self.view.frame.size.height, scrollView.contentSize.height);
+
     if (self.view.frame.size.height == 812.0f) {
         // iPhone X 减去底部安全区域 34.0f
-        delta -= 34.0f;
+        current -= 34.0f;
     }
-    if (delta + 10.0f >= contentHeight && contentHeight > 0) {
+    
+    float ratio = current / contentHeight;
+    
+#define threshold 0.7f    //阅读70%
+#define itemPerPage 10.0f //每页10条数据
+
+//https://zhuanlan.zhihu.com/p/23418800
+    
+    float needRead = itemPerPage * threshold + itemPerPage * (self.page - 1);
+    
+    float totalItem = itemPerPage * self.page;
+    
+    float newThreshold = needRead / totalItem;
+    
+    //NSLog(@"needRead: %.2f, totalItem: %.2f", needRead, totalItem);
+
+    NSLog(@"ratio: %.2f, newThreshold: %.2f", ratio, newThreshold);
+
+    if (ratio >= newThreshold && contentHeight > 0) {
         // 触发上拉加载更多
         if (self.isLoadingData || !self.hasMoreData) {
             return;
         }
-        NSLog(@"滑动。contentOffset.y: %.2f, contentSize.height: %.2f", scrollView.contentOffset.y, scrollView.contentSize.height);
         self.page += 1;
         [self.loadingMoreIndicatorView startAnimating];
         //加载数据

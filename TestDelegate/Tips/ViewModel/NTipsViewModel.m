@@ -33,7 +33,7 @@
 
         id responseDic = [NSJSONSerialization   JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         
-        NSLog(@"responseDic: %@", responseDic);
+        //NSLog(@"responseDic: %@", responseDic);
         
         if ([responseDic  isKindOfClass:[NSDictionary class]] && [[responseDic  allKeys] count] > 0) {
             

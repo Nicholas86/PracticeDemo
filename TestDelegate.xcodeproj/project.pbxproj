@@ -110,7 +110,6 @@
 		C012BF0DAF69981E99DB8449 /* Pods-TestDelegate.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		D1A5134B5E4CD7182D7445B8 /* Pods-TestDelegate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.debug.xcconfig"; sourceTree = "<group>"; };
 		EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDelegate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F36EFCE32078D15A0034FC41 /* TestDelegate copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TestDelegate copy-Info.plist"; path = "/Users/zelou/Desktop/PracticeDemo/TestDelegate/TestDelegate copy-Info.plist"; sourceTree = "<absolute>"; };
 		F3A08C2F209D81F500439244 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		F3A08C30209D81F500439244 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		F3A08C31209D81F500439244 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
@@ -161,7 +160,6 @@
 				001FE0F320284DDC0021FA46 /* TestDelegateTests */,
 				001FE0FE20284DDC0021FA46 /* TestDelegateUITests */,
 				001FE0D920284DDB0021FA46 /* Products */,
-				F36EFCE32078D15A0034FC41 /* TestDelegate copy-Info.plist */,
 				D31B67342624413D37B0FD40 /* Pods */,
 				392444CE800215C065F96A75 /* Frameworks */,
 			);
@@ -183,30 +181,9 @@
 				F3A08C37209D964000439244 /* NetWorking */,
 				F3A08C2E209D81F500439244 /* YYFPSLabel */,
 				003CF2232061F92A005FA219 /* Cache */,
-				001FE0DB20284DDB0021FA46 /* AppDelegate.h */,
-				001FE0DC20284DDB0021FA46 /* AppDelegate.m */,
-				001FE0DE20284DDB0021FA46 /* ViewController.h */,
-				001FE0DF20284DDB0021FA46 /* ViewController.m */,
-				003CF2242061FA40005FA219 /* UrlCacheViewController.h */,
-				003CF2252061FA40005FA219 /* UrlCacheViewController.m */,
-				003CF2262061FA40005FA219 /* UrlCacheViewController.xib */,
-				F3A08C3B209D9A4D00439244 /* NTipsModel.h */,
-				F3A08C3C209D9A4D00439244 /* NTipsModel.m */,
-				F3A08C3E209D9A8700439244 /* NTipsViewModel.h */,
-				F3A08C3F209D9A8700439244 /* NTipsViewModel.m */,
-				F3A08C41209DB00200439244 /* NTipsTableViewCell.h */,
-				F3A08C42209DB00200439244 /* NTipsTableViewCell.m */,
-				F3A08C43209DB00200439244 /* NTipsTableViewCell.xib */,
-				001FE10D20284E820021FA46 /* PopViewController.h */,
-				001FE10E20284E820021FA46 /* PopViewController.m */,
-				001FE1122028546D0021FA46 /* CustomBtn.h */,
-				001FE1132028546D0021FA46 /* CustomBtn.m */,
-				008CD343204F7BE400876974 /* QuanViewController.h */,
-				008CD344204F7BE400876974 /* QuanViewController.m */,
-				008CD348204F7D0F00876974 /* EOCRectangle.h */,
-				008CD349204F7D0F00876974 /* EOCRectangle.m */,
-				008CD34B204F7EE300876974 /* EOCSquare.h */,
-				008CD34C204F7EE300876974 /* EOCSquare.m */,
+				F33AFE2A209E02B5006BDCB6 /* Tips */,
+				F33AFE2B209E02F0006BDCB6 /* AppDelegate */,
+				F33AFE30209E0387006BDCB6 /* RootViewController */,
 				008CD345204F7BE400876974 /* QuanViewController.xib */,
 				001FE10F20284E820021FA46 /* PopViewController.xib */,
 				001FE0E120284DDB0021FA46 /* Main.storyboard */,
@@ -277,6 +254,83 @@
 				0E4DDBD82929BA057648DD1D /* Pods-TestDelegateUITests.stagingrelease.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F33AFE2A209E02B5006BDCB6 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				F33AFE2F209E0341006BDCB6 /* View */,
+				F33AFE2E209E0335006BDCB6 /* Model */,
+				F33AFE2D209E0328006BDCB6 /* ViewModel */,
+				F33AFE2C209E031A006BDCB6 /* ViewComtroller */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
+		F33AFE2B209E02F0006BDCB6 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				001FE0DB20284DDB0021FA46 /* AppDelegate.h */,
+				001FE0DC20284DDB0021FA46 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		F33AFE2C209E031A006BDCB6 /* ViewComtroller */ = {
+			isa = PBXGroup;
+			children = (
+				003CF2242061FA40005FA219 /* UrlCacheViewController.h */,
+				003CF2252061FA40005FA219 /* UrlCacheViewController.m */,
+				003CF2262061FA40005FA219 /* UrlCacheViewController.xib */,
+			);
+			path = ViewComtroller;
+			sourceTree = "<group>";
+		};
+		F33AFE2D209E0328006BDCB6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3A08C3E209D9A8700439244 /* NTipsViewModel.h */,
+				F3A08C3F209D9A8700439244 /* NTipsViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F33AFE2E209E0335006BDCB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3A08C3B209D9A4D00439244 /* NTipsModel.h */,
+				F3A08C3C209D9A4D00439244 /* NTipsModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F33AFE2F209E0341006BDCB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3A08C41209DB00200439244 /* NTipsTableViewCell.h */,
+				F3A08C42209DB00200439244 /* NTipsTableViewCell.m */,
+				F3A08C43209DB00200439244 /* NTipsTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F33AFE30209E0387006BDCB6 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				001FE0DE20284DDB0021FA46 /* ViewController.h */,
+				001FE0DF20284DDB0021FA46 /* ViewController.m */,
+				001FE10D20284E820021FA46 /* PopViewController.h */,
+				001FE10E20284E820021FA46 /* PopViewController.m */,
+				001FE1122028546D0021FA46 /* CustomBtn.h */,
+				001FE1132028546D0021FA46 /* CustomBtn.m */,
+				008CD343204F7BE400876974 /* QuanViewController.h */,
+				008CD344204F7BE400876974 /* QuanViewController.m */,
+				008CD348204F7D0F00876974 /* EOCRectangle.h */,
+				008CD349204F7D0F00876974 /* EOCRectangle.m */,
+				008CD34B204F7EE300876974 /* EOCSquare.h */,
+				008CD34C204F7EE300876974 /* EOCSquare.m */,
+			);
+			path = RootViewController;
 			sourceTree = "<group>";
 		};
 		F3A08C2E209D81F500439244 /* YYFPSLabel */ = {
