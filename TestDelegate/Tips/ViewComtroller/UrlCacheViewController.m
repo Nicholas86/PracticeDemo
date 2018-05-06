@@ -17,8 +17,9 @@
 #import "NTipsViewModel.h"
 #import "NTipsModel.h"
 #import "NTipsTableViewCell.h"
+#import <SafariServices/SafariServices.h>
 
-@interface UrlCacheViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface UrlCacheViewController ()<UITableViewDelegate, UITableViewDataSource, UIViewControllerPreviewingDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIView *tableFooterView;//页脚
 @property (nonatomic, strong) UIActivityIndicatorView *loadingMoreIndicatorView;//滑动指示器
@@ -39,7 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"控制器代码规范";
+    self.title = @"代码规范 && iOS知识小集";
     
     //加载控件
     [self  configureSubViews];
@@ -76,7 +77,8 @@
         // Fallback on earlier versions
     }
     
-    [self.view  addSubview:self.confirmButton];
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem  alloc] initWithCustomView:self.confirmButton];
+    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 #pragma mark 请求数据
@@ -171,6 +173,53 @@
     }
 }
 
+//加载详情数据
+- (SFSafariViewController *)getDetailViewControllerAtIndexPath:(NSIndexPath *)indexPath  API_AVAILABLE(ios(9.0)){
+    if (indexPath.row < self.dataSource.count) {
+        NTipsModel *model = self.dataSource[indexPath.row];
+        if (model.url) {
+            NSURL *url = [NSURL URLWithString:model.url];
+            if (@available(iOS 9.0, *)) {
+                SFSafariViewController *sfViewController = [[SFSafariViewController alloc] initWithURL:url];
+                if (@available(iOS 11.0, *)) {
+                    sfViewController.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+                } else {
+                    // Fallback on earlier versions
+                }
+                if (@available(iOS 11.0, *)) {
+                    sfViewController.dismissButtonStyle = SFSafariViewControllerDismissButtonStyleClose;
+                } else {
+                    // Fallback on earlier versions
+                }
+                return sfViewController;
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    return nil;
+}
+
+
+#pragma mark - UIViewControllerPreviewingDelegate
+
+// 3D Touch 预览模式
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    if (@available(iOS 9.0, *)) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)[previewingContext sourceView]];
+        return [self getDetailViewControllerAtIndexPath:indexPath];
+    } else {
+        // Fallback on earlier versions
+    }
+    return nil;
+}
+
+// 3D Touch 继续按压进入
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
+{
+    [self presentViewController:viewControllerToCommit animated:YES completion:nil];
+}
+
 #pragma mark custom delegate 控制器遵守自定义代理
 
 
@@ -193,13 +242,36 @@
     
     [cell cellForRowWithTipsModel:self.dataSource[indexPath.row]];
     
+    // 为 Cell 添加 3D Touch 支持
+    if (@available(iOS 9.0, *)) {
+        if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+            [self registerForPreviewingWithDelegate:self sourceView:cell];
+        }
+    } else {
+        // Fallback on earlier versions
+    }
+    
     return cell;
 }
 
 //单元格选中事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"单元格选中事件");
+    if (self.dataSource.count == 0) {
+        NSLog(@"数据源为空。。。");
+        return;
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (@available(iOS 9.0, *)) {
+        SFSafariViewController *sfViewController = [self getDetailViewControllerAtIndexPath:indexPath];
+        if (sfViewController) {
+            [self presentViewController:sfViewController animated:YES completion:nil];
+        }
+    } else {
+        // Fallback on earlier versions
+    }
 }
 
 #pragma mark UIScrollViewDelegate
@@ -295,9 +367,10 @@
 {
     if (!_confirmButton) {
         self.confirmButton = [UIButton  buttonWithType:UIButtonTypeCustom];
-        _confirmButton.frame = CGRectMake(100, 300, 200, 60);
+        _confirmButton.frame = CGRectMake(0, 0, 60, 26);
         [_confirmButton  setTitle:@"确认" forState:UIControlStateNormal];
         [_confirmButton  addTarget:self action:@selector(hanleTapEventForConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
+        _confirmButton.backgroundColor = [UIColor  darkGrayColor];
     }return _confirmButton;
 }
 

@@ -25,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.title = @"Demo";
     //高度默认为0,代理方法里面,再动态改变
     CustomBtn *customBtn = [[CustomBtn alloc] initWithFrame:CGRectMake(60, 500, 300, 0)];
     customBtn.backgroundColor = [UIColor  lightGrayColor];

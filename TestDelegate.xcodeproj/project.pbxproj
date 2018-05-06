@@ -673,7 +673,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CusomAppName = "大象期货Debug";
+				CusomAppName = "知识小集Debug";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -729,7 +729,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CusomAppName = "大象期货Release";
+				CusomAppName = "知识小集Release";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -754,6 +754,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CusomAppName = "知识小集Debug";
 				DEVELOPMENT_TEAM = WK6R7V524D;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -770,6 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CusomAppName = "知识小集Release";
 				DEVELOPMENT_TEAM = WK6R7V524D;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -873,7 +875,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CusomAppName = "大象期货StagingDebug";
+				CusomAppName = "知识小集StagingDebug";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -904,6 +906,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CusomAppName = "知识小集StagingDebug";
 				DEVELOPMENT_TEAM = WK6R7V524D;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -976,7 +979,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CusomAppName = "大象期货StagingRelease";
+				CusomAppName = "知识小集StagingRelease";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1001,6 +1004,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CusomAppName = "知识小集StagingRelease";
 				DEVELOPMENT_TEAM = WK6R7V524D;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
