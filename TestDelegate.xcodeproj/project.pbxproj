@@ -23,6 +23,8 @@
 		003CF2282061FA40005FA219 /* UrlCacheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CF2262061FA40005FA219 /* UrlCacheViewController.xib */; };
 		003CF22E2061FB6A005FA219 /* STMURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CF22D2061FB6A005FA219 /* STMURLCache.m */; };
 		003CF2322061FE45005FA219 /* STMURLCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2312061FE45005FA219 /* STMURLCacheModel.m */; };
+		0088804520A198180060B5A2 /* delegateContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088804220A198180060B5A2 /* delegateContainer.m */; };
+		0088804620A198180060B5A2 /* ZHNThresholdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088804420A198180060B5A2 /* ZHNThresholdHelper.m */; };
 		008CD346204F7BE400876974 /* QuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD344204F7BE400876974 /* QuanViewController.m */; };
 		008CD347204F7BE400876974 /* QuanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008CD345204F7BE400876974 /* QuanViewController.xib */; };
 		008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD349204F7D0F00876974 /* EOCRectangle.m */; };
@@ -88,6 +90,10 @@
 		003CF22F2061FBB8005FA219 /* STMURLCacheDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMURLCacheDelegate.h; sourceTree = "<group>"; };
 		003CF2302061FE45005FA219 /* STMURLCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMURLCacheModel.h; sourceTree = "<group>"; };
 		003CF2312061FE45005FA219 /* STMURLCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMURLCacheModel.m; sourceTree = "<group>"; };
+		0088804120A198180060B5A2 /* delegateContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delegateContainer.h; sourceTree = "<group>"; };
+		0088804220A198180060B5A2 /* delegateContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = delegateContainer.m; sourceTree = "<group>"; };
+		0088804320A198180060B5A2 /* ZHNThresholdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNThresholdHelper.h; sourceTree = "<group>"; };
+		0088804420A198180060B5A2 /* ZHNThresholdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNThresholdHelper.m; sourceTree = "<group>"; };
 		008CD343204F7BE400876974 /* QuanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuanViewController.h; sourceTree = "<group>"; };
 		008CD344204F7BE400876974 /* QuanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuanViewController.m; sourceTree = "<group>"; };
 		008CD345204F7BE400876974 /* QuanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuanViewController.xib; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		001FE0DA20284DDB0021FA46 /* TestDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				0088804020A198180060B5A2 /* RefreshTool */,
 				F3A08C37209D964000439244 /* NetWorking */,
 				F3A08C2E209D81F500439244 /* YYFPSLabel */,
 				003CF2232061F92A005FA219 /* Cache */,
@@ -225,6 +232,17 @@
 				003CF22F2061FBB8005FA219 /* STMURLCacheDelegate.h */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		0088804020A198180060B5A2 /* RefreshTool */ = {
+			isa = PBXGroup;
+			children = (
+				0088804120A198180060B5A2 /* delegateContainer.h */,
+				0088804220A198180060B5A2 /* delegateContainer.m */,
+				0088804320A198180060B5A2 /* ZHNThresholdHelper.h */,
+				0088804420A198180060B5A2 /* ZHNThresholdHelper.m */,
+			);
+			path = RefreshTool;
 			sourceTree = "<group>";
 		};
 		392444CE800215C065F96A75 /* Frameworks */ = {
@@ -577,10 +595,12 @@
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
 				003CF22E2061FB6A005FA219 /* STMURLCache.m in Sources */,
 				F3A08C3D209D9A4D00439244 /* NTipsModel.m in Sources */,
+				0088804520A198180060B5A2 /* delegateContainer.m in Sources */,
 				001FE1142028546D0021FA46 /* CustomBtn.m in Sources */,
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
 				F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */,
 				001FE0DD20284DDB0021FA46 /* AppDelegate.m in Sources */,
+				0088804620A198180060B5A2 /* ZHNThresholdHelper.m in Sources */,
 				008CD34D204F7EE300876974 /* EOCSquare.m in Sources */,
 				F3A08C40209D9A8700439244 /* NTipsViewModel.m in Sources */,
 				002B90F4206376440006E4A2 /* STMURLCacheMK.m in Sources */,
