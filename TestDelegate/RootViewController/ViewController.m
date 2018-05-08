@@ -10,6 +10,7 @@
 #import "PopViewController.h"
 #import "CustomBtn.h"
 #import "UrlCacheViewController.h"
+#import "NMatlabViewController.h"//算法
 
 #ifdef DEBUG
 #import "YYFPSLabel.h" //渲染帧 60FPS
@@ -73,6 +74,13 @@
 {
     UrlCacheViewController *urlCacheVC = [[UrlCacheViewController alloc] init];
     [self.navigationController pushViewController:urlCacheVC animated:YES];
+}
+
+#pragma mark 算法
+- (IBAction)matlabButton:(UIButton *)sender
+{
+    NMatlabViewController *matlabVC = [[NMatlabViewController  alloc] init];
+    [self.navigationController  pushViewController:matlabVC animated:YES];
 }
 
 @end

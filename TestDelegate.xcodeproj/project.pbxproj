@@ -37,6 +37,8 @@
 		F3A08C40209D9A8700439244 /* NTipsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C3F209D9A8700439244 /* NTipsViewModel.m */; };
 		F3A08C44209DB00200439244 /* NTipsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C42209DB00200439244 /* NTipsTableViewCell.m */; };
 		F3A08C45209DB00200439244 /* NTipsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A08C43209DB00200439244 /* NTipsTableViewCell.xib */; };
+		F3B49617209EC7E60015D553 /* NMatlabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B49615209EC7E60015D553 /* NMatlabViewController.m */; };
+		F3B49618209EC7E60015D553 /* NMatlabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3B49616209EC7E60015D553 /* NMatlabViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,9 @@
 		F3A08C41209DB00200439244 /* NTipsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTipsTableViewCell.h; sourceTree = "<group>"; };
 		F3A08C42209DB00200439244 /* NTipsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTipsTableViewCell.m; sourceTree = "<group>"; };
 		F3A08C43209DB00200439244 /* NTipsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NTipsTableViewCell.xib; sourceTree = "<group>"; };
+		F3B49614209EC7E60015D553 /* NMatlabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMatlabViewController.h; sourceTree = "<group>"; };
+		F3B49615209EC7E60015D553 /* NMatlabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMatlabViewController.m; sourceTree = "<group>"; };
+		F3B49616209EC7E60015D553 /* NMatlabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMatlabViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +183,7 @@
 		001FE0DA20284DDB0021FA46 /* TestDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				F3B49611209EC7AB0015D553 /* matlab */,
 				F3A08C37209D964000439244 /* NetWorking */,
 				F3A08C2E209D81F500439244 /* YYFPSLabel */,
 				003CF2232061F92A005FA219 /* Cache */,
@@ -353,6 +359,24 @@
 			path = NetWorking;
 			sourceTree = SOURCE_ROOT;
 		};
+		F3B49611209EC7AB0015D553 /* matlab */ = {
+			isa = PBXGroup;
+			children = (
+				F3B49613209EC7D00015D553 /* ViewController */,
+			);
+			path = matlab;
+			sourceTree = "<group>";
+		};
+		F3B49613209EC7D00015D553 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F3B49614209EC7E60015D553 /* NMatlabViewController.h */,
+				F3B49615209EC7E60015D553 /* NMatlabViewController.m */,
+				F3B49616209EC7E60015D553 /* NMatlabViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -464,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B49618209EC7E60015D553 /* NMatlabViewController.xib in Resources */,
 				008CD347204F7BE400876974 /* QuanViewController.xib in Resources */,
 				001FE11120284E820021FA46 /* PopViewController.xib in Resources */,
 				F3A08C45209DB00200439244 /* NTipsTableViewCell.xib in Resources */,
@@ -588,6 +613,7 @@
 				F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */,
 				F3A08C44209DB00200439244 /* NTipsTableViewCell.m in Sources */,
 				008CD346204F7BE400876974 /* QuanViewController.m in Sources */,
+				F3B49617209EC7E60015D553 /* NMatlabViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
