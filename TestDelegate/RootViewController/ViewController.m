@@ -11,6 +11,7 @@
 #import "CustomBtn.h"
 #import "UrlCacheViewController.h"
 #import "NMatlabViewController.h"//算法
+#import "NCacheViewController.h" //内存 / 磁盘缓存
 
 #ifdef DEBUG
 #import "YYFPSLabel.h" //渲染帧 60FPS
@@ -82,6 +83,15 @@
     NMatlabViewController *matlabVC = [[NMatlabViewController  alloc] init];
     [self.navigationController  pushViewController:matlabVC animated:YES];
 }
+
+#pragma mark 内存/磁盘缓存
+
+- (IBAction)handleMemoryDiskCacheButton:(UIButton *)sender
+{
+    NCacheViewController *cacheVC = [[NCacheViewController  alloc] init];
+    [self.navigationController  pushViewController:cacheVC animated:YES];
+}
+
 
 @end
 

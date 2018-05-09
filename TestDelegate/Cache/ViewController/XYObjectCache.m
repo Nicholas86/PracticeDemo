@@ -34,7 +34,7 @@
     static XYObjectCache *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[XYFileCache  alloc] init];
+        instance = [[XYObjectCache  alloc] init];
     });
     return instance;
 }

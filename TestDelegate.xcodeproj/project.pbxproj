@@ -27,6 +27,8 @@
 		007D701C20A2D77B00B79EEB /* XYUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701820A2D77B00B79EEB /* XYUserDefaults.m */; };
 		007D701F20A2D9F600B79EEB /* XYThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701E20A2D9F600B79EEB /* XYThread.m */; };
 		007D702220A2DACE00B79EEB /* NSString+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D702120A2DACD00B79EEB /* NSString+XY.m */; };
+		007D702720A2DE6400B79EEB /* NCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D702520A2DE6400B79EEB /* NCacheViewController.m */; };
+		007D702820A2DE6400B79EEB /* NCacheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007D702620A2DE6400B79EEB /* NCacheViewController.xib */; };
 		0088804520A198180060B5A2 /* delegateContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088804220A198180060B5A2 /* delegateContainer.m */; };
 		0088804620A198180060B5A2 /* ZHNThresholdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088804420A198180060B5A2 /* ZHNThresholdHelper.m */; };
 		008CD346204F7BE400876974 /* QuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD344204F7BE400876974 /* QuanViewController.m */; };
@@ -105,6 +107,9 @@
 		007D701E20A2D9F600B79EEB /* XYThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYThread.m; sourceTree = "<group>"; };
 		007D702020A2DACD00B79EEB /* NSString+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XY.h"; sourceTree = "<group>"; };
 		007D702120A2DACD00B79EEB /* NSString+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XY.m"; sourceTree = "<group>"; };
+		007D702420A2DE6400B79EEB /* NCacheViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCacheViewController.h; sourceTree = "<group>"; };
+		007D702520A2DE6400B79EEB /* NCacheViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCacheViewController.m; sourceTree = "<group>"; };
+		007D702620A2DE6400B79EEB /* NCacheViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NCacheViewController.xib; sourceTree = "<group>"; };
 		0088804120A198180060B5A2 /* delegateContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delegateContainer.h; sourceTree = "<group>"; };
 		0088804220A198180060B5A2 /* delegateContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = delegateContainer.m; sourceTree = "<group>"; };
 		0088804320A198180060B5A2 /* ZHNThresholdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNThresholdHelper.h; sourceTree = "<group>"; };
@@ -242,9 +247,8 @@
 		007D700A20A2D73B00B79EEB /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				007D702320A2DE3E00B79EEB /* ViewController */,
 				007D700E20A2D77B00B79EEB /* cache */,
-				007D700B20A2D74700B79EEB /* XYObjectCache.h */,
-				007D700C20A2D74700B79EEB /* XYObjectCache.m */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -268,6 +272,18 @@
 				007D701820A2D77B00B79EEB /* XYUserDefaults.m */,
 			);
 			path = cache;
+			sourceTree = "<group>";
+		};
+		007D702320A2DE3E00B79EEB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				007D700B20A2D74700B79EEB /* XYObjectCache.h */,
+				007D700C20A2D74700B79EEB /* XYObjectCache.m */,
+				007D702420A2DE6400B79EEB /* NCacheViewController.h */,
+				007D702520A2DE6400B79EEB /* NCacheViewController.m */,
+				007D702620A2DE6400B79EEB /* NCacheViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		0088804020A198180060B5A2 /* RefreshTool */ = {
@@ -542,6 +558,7 @@
 				F3A08C45209DB00200439244 /* NTipsTableViewCell.xib in Resources */,
 				001FE0E820284DDB0021FA46 /* LaunchScreen.storyboard in Resources */,
 				001FE0E520284DDB0021FA46 /* Assets.xcassets in Resources */,
+				007D702820A2DE6400B79EEB /* NCacheViewController.xib in Resources */,
 				001FE0E320284DDB0021FA46 /* Main.storyboard in Resources */,
 				003CF2282061FA40005FA219 /* UrlCacheViewController.xib in Resources */,
 			);
@@ -649,6 +666,7 @@
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
 				007D702220A2DACE00B79EEB /* NSString+XY.m in Sources */,
 				F3A08C3D209D9A4D00439244 /* NTipsModel.m in Sources */,
+				007D702720A2DE6400B79EEB /* NCacheViewController.m in Sources */,
 				0088804520A198180060B5A2 /* delegateContainer.m in Sources */,
 				007D701F20A2D9F600B79EEB /* XYThread.m in Sources */,
 				001FE1142028546D0021FA46 /* CustomBtn.m in Sources */,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="udM-dL-2TB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="udM-dL-2TB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -83,6 +83,19 @@
                                     <action selector="matlabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EYR-Pw-iwo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-7e-S91">
+                                <rect key="frame" x="135" y="278" width="120" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="EvQ-Er-WdB"/>
+                                    <constraint firstAttribute="height" constant="30" id="J8a-TK-ttU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="内存/磁盘缓存"/>
+                                <connections>
+                                    <action selector="handleMemoryDiskCacheButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4tg-nX-FjJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -96,10 +109,12 @@
                             <constraint firstItem="a1Q-Cu-mnm" firstAttribute="top" secondItem="Yja-60-QSs" secondAttribute="bottom" constant="300" id="cdA-oJ-SWV"/>
                             <constraint firstItem="a1Q-Cu-mnm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="eI9-tD-Ens"/>
                             <constraint firstAttribute="trailing" secondItem="T3k-1i-fDu" secondAttribute="trailing" constant="62" id="f3C-DU-34q"/>
+                            <constraint firstItem="hu9-7e-S91" firstAttribute="top" secondItem="pz5-sh-lae" secondAttribute="bottom" constant="20" id="g7y-tq-1C8"/>
                             <constraint firstAttribute="trailing" secondItem="pz5-sh-lae" secondAttribute="trailing" constant="30" id="iMN-45-zGx"/>
                             <constraint firstItem="S7J-3P-c3Z" firstAttribute="top" secondItem="Yja-60-QSs" secondAttribute="bottom" constant="100" id="jV4-iL-PYk"/>
                             <constraint firstItem="09p-hX-ah6" firstAttribute="top" secondItem="T3k-1i-fDu" secondAttribute="bottom" constant="230" id="mcm-Kd-cmZ"/>
                             <constraint firstAttribute="trailing" secondItem="S7J-3P-c3Z" secondAttribute="trailing" constant="50" id="w6e-J1-uyK"/>
+                            <constraint firstItem="hu9-7e-S91" firstAttribute="leading" secondItem="mTw-d2-5RZ" secondAttribute="trailing" constant="15" id="wNx-au-2JX"/>
                             <constraint firstItem="mTw-d2-5RZ" firstAttribute="top" secondItem="pz5-sh-lae" secondAttribute="bottom" constant="20" id="xP9-aK-HsZ"/>
                         </constraints>
                     </view>
