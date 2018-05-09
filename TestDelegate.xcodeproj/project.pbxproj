@@ -18,11 +18,15 @@
 		001FE11020284E820021FA46 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE10E20284E820021FA46 /* PopViewController.m */; };
 		001FE11120284E820021FA46 /* PopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001FE10F20284E820021FA46 /* PopViewController.xib */; };
 		001FE1142028546D0021FA46 /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE1132028546D0021FA46 /* CustomBtn.m */; };
-		002B90F4206376440006E4A2 /* STMURLCacheMK.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B90F3206376440006E4A2 /* STMURLCacheMK.m */; };
 		003CF2272061FA40005FA219 /* UrlCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2252061FA40005FA219 /* UrlCacheViewController.m */; };
 		003CF2282061FA40005FA219 /* UrlCacheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CF2262061FA40005FA219 /* UrlCacheViewController.xib */; };
-		003CF22E2061FB6A005FA219 /* STMURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CF22D2061FB6A005FA219 /* STMURLCache.m */; };
-		003CF2322061FE45005FA219 /* STMURLCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2312061FE45005FA219 /* STMURLCacheModel.m */; };
+		007D700D20A2D74700B79EEB /* XYObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D700C20A2D74700B79EEB /* XYObjectCache.m */; };
+		007D701920A2D77B00B79EEB /* XYAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701020A2D77B00B79EEB /* XYAutoCoding.m */; };
+		007D701A20A2D77B00B79EEB /* XYFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701320A2D77B00B79EEB /* XYFileCache.m */; };
+		007D701B20A2D77B00B79EEB /* XYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701520A2D77B00B79EEB /* XYMemoryCache.m */; };
+		007D701C20A2D77B00B79EEB /* XYUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701820A2D77B00B79EEB /* XYUserDefaults.m */; };
+		007D701F20A2D9F600B79EEB /* XYThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701E20A2D9F600B79EEB /* XYThread.m */; };
+		007D702220A2DACE00B79EEB /* NSString+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D702120A2DACD00B79EEB /* NSString+XY.m */; };
 		0088804520A198180060B5A2 /* delegateContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088804220A198180060B5A2 /* delegateContainer.m */; };
 		0088804620A198180060B5A2 /* ZHNThresholdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088804420A198180060B5A2 /* ZHNThresholdHelper.m */; };
 		008CD346204F7BE400876974 /* QuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD344204F7BE400876974 /* QuanViewController.m */; };
@@ -80,16 +84,25 @@
 		001FE10F20284E820021FA46 /* PopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopViewController.xib; sourceTree = "<group>"; };
 		001FE1122028546D0021FA46 /* CustomBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtn.h; sourceTree = "<group>"; };
 		001FE1132028546D0021FA46 /* CustomBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
-		002B90F2206376440006E4A2 /* STMURLCacheMK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMURLCacheMK.h; sourceTree = "<group>"; };
-		002B90F3206376440006E4A2 /* STMURLCacheMK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMURLCacheMK.m; sourceTree = "<group>"; };
 		003CF2242061FA40005FA219 /* UrlCacheViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrlCacheViewController.h; sourceTree = "<group>"; };
 		003CF2252061FA40005FA219 /* UrlCacheViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlCacheViewController.m; sourceTree = "<group>"; };
 		003CF2262061FA40005FA219 /* UrlCacheViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UrlCacheViewController.xib; sourceTree = "<group>"; };
-		003CF22C2061FB6A005FA219 /* STMURLCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMURLCache.h; sourceTree = "<group>"; };
-		003CF22D2061FB6A005FA219 /* STMURLCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMURLCache.m; sourceTree = "<group>"; };
-		003CF22F2061FBB8005FA219 /* STMURLCacheDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMURLCacheDelegate.h; sourceTree = "<group>"; };
-		003CF2302061FE45005FA219 /* STMURLCacheModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMURLCacheModel.h; sourceTree = "<group>"; };
-		003CF2312061FE45005FA219 /* STMURLCacheModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMURLCacheModel.m; sourceTree = "<group>"; };
+		007D700B20A2D74700B79EEB /* XYObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYObjectCache.h; sourceTree = "<group>"; };
+		007D700C20A2D74700B79EEB /* XYObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYObjectCache.m; sourceTree = "<group>"; };
+		007D700F20A2D77B00B79EEB /* XYAutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAutoCoding.h; sourceTree = "<group>"; };
+		007D701020A2D77B00B79EEB /* XYAutoCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAutoCoding.m; sourceTree = "<group>"; };
+		007D701120A2D77B00B79EEB /* XYCacheProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCacheProtocol.h; sourceTree = "<group>"; };
+		007D701220A2D77B00B79EEB /* XYFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYFileCache.h; sourceTree = "<group>"; };
+		007D701320A2D77B00B79EEB /* XYFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYFileCache.m; sourceTree = "<group>"; };
+		007D701420A2D77B00B79EEB /* XYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMemoryCache.h; sourceTree = "<group>"; };
+		007D701520A2D77B00B79EEB /* XYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMemoryCache.m; sourceTree = "<group>"; };
+		007D701620A2D77B00B79EEB /* XYQuick_Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYQuick_Cache.h; sourceTree = "<group>"; };
+		007D701720A2D77B00B79EEB /* XYUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYUserDefaults.h; sourceTree = "<group>"; };
+		007D701820A2D77B00B79EEB /* XYUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYUserDefaults.m; sourceTree = "<group>"; };
+		007D701D20A2D9F600B79EEB /* XYThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYThread.h; sourceTree = "<group>"; };
+		007D701E20A2D9F600B79EEB /* XYThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYThread.m; sourceTree = "<group>"; };
+		007D702020A2DACD00B79EEB /* NSString+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XY.h"; sourceTree = "<group>"; };
+		007D702120A2DACD00B79EEB /* NSString+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XY.m"; sourceTree = "<group>"; };
 		0088804120A198180060B5A2 /* delegateContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delegateContainer.h; sourceTree = "<group>"; };
 		0088804220A198180060B5A2 /* delegateContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = delegateContainer.m; sourceTree = "<group>"; };
 		0088804320A198180060B5A2 /* ZHNThresholdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNThresholdHelper.h; sourceTree = "<group>"; };
@@ -184,10 +197,10 @@
 		001FE0DA20284DDB0021FA46 /* TestDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				007D700A20A2D73B00B79EEB /* Cache */,
 				0088804020A198180060B5A2 /* RefreshTool */,
 				F3A08C37209D964000439244 /* NetWorking */,
 				F3A08C2E209D81F500439244 /* YYFPSLabel */,
-				003CF2232061F92A005FA219 /* Cache */,
 				F33AFE2A209E02B5006BDCB6 /* Tips */,
 				F33AFE2B209E02F0006BDCB6 /* AppDelegate */,
 				F33AFE30209E0387006BDCB6 /* RootViewController */,
@@ -220,18 +233,35 @@
 			path = TestDelegateUITests;
 			sourceTree = "<group>";
 		};
-		003CF2232061F92A005FA219 /* Cache */ = {
+		007D700A20A2D73B00B79EEB /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				003CF2302061FE45005FA219 /* STMURLCacheModel.h */,
-				003CF2312061FE45005FA219 /* STMURLCacheModel.m */,
-				002B90F2206376440006E4A2 /* STMURLCacheMK.h */,
-				002B90F3206376440006E4A2 /* STMURLCacheMK.m */,
-				003CF22C2061FB6A005FA219 /* STMURLCache.h */,
-				003CF22D2061FB6A005FA219 /* STMURLCache.m */,
-				003CF22F2061FBB8005FA219 /* STMURLCacheDelegate.h */,
+				007D700E20A2D77B00B79EEB /* cache */,
+				007D700B20A2D74700B79EEB /* XYObjectCache.h */,
+				007D700C20A2D74700B79EEB /* XYObjectCache.m */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		007D700E20A2D77B00B79EEB /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				007D702020A2DACD00B79EEB /* NSString+XY.h */,
+				007D702120A2DACD00B79EEB /* NSString+XY.m */,
+				007D701D20A2D9F600B79EEB /* XYThread.h */,
+				007D701E20A2D9F600B79EEB /* XYThread.m */,
+				007D700F20A2D77B00B79EEB /* XYAutoCoding.h */,
+				007D701020A2D77B00B79EEB /* XYAutoCoding.m */,
+				007D701120A2D77B00B79EEB /* XYCacheProtocol.h */,
+				007D701220A2D77B00B79EEB /* XYFileCache.h */,
+				007D701320A2D77B00B79EEB /* XYFileCache.m */,
+				007D701420A2D77B00B79EEB /* XYMemoryCache.h */,
+				007D701520A2D77B00B79EEB /* XYMemoryCache.m */,
+				007D701620A2D77B00B79EEB /* XYQuick_Cache.h */,
+				007D701720A2D77B00B79EEB /* XYUserDefaults.h */,
+				007D701820A2D77B00B79EEB /* XYUserDefaults.m */,
+			);
+			path = cache;
 			sourceTree = "<group>";
 		};
 		0088804020A198180060B5A2 /* RefreshTool */ = {
@@ -591,22 +621,26 @@
 				F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */,
 				001FE11020284E820021FA46 /* PopViewController.m in Sources */,
 				001FE0E020284DDB0021FA46 /* ViewController.m in Sources */,
-				003CF2322061FE45005FA219 /* STMURLCacheModel.m in Sources */,
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
-				003CF22E2061FB6A005FA219 /* STMURLCache.m in Sources */,
+				007D702220A2DACE00B79EEB /* NSString+XY.m in Sources */,
 				F3A08C3D209D9A4D00439244 /* NTipsModel.m in Sources */,
 				0088804520A198180060B5A2 /* delegateContainer.m in Sources */,
+				007D701F20A2D9F600B79EEB /* XYThread.m in Sources */,
 				001FE1142028546D0021FA46 /* CustomBtn.m in Sources */,
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
 				F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */,
+				007D701C20A2D77B00B79EEB /* XYUserDefaults.m in Sources */,
 				001FE0DD20284DDB0021FA46 /* AppDelegate.m in Sources */,
 				0088804620A198180060B5A2 /* ZHNThresholdHelper.m in Sources */,
 				008CD34D204F7EE300876974 /* EOCSquare.m in Sources */,
 				F3A08C40209D9A8700439244 /* NTipsViewModel.m in Sources */,
-				002B90F4206376440006E4A2 /* STMURLCacheMK.m in Sources */,
+				007D701A20A2D77B00B79EEB /* XYFileCache.m in Sources */,
 				003CF2272061FA40005FA219 /* UrlCacheViewController.m in Sources */,
+				007D700D20A2D74700B79EEB /* XYObjectCache.m in Sources */,
+				007D701920A2D77B00B79EEB /* XYAutoCoding.m in Sources */,
 				F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */,
 				F3A08C44209DB00200439244 /* NTipsTableViewCell.m in Sources */,
+				007D701B20A2D77B00B79EEB /* XYMemoryCache.m in Sources */,
 				008CD346204F7BE400876974 /* QuanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
