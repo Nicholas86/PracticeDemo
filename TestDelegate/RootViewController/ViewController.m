@@ -9,9 +9,8 @@
 #import "ViewController.h"
 #import "PopViewController.h"
 #import "CustomBtn.h"
-#import "UrlCacheViewController.h"
-#import "NMatlabViewController.h"//算法
-#import "NCacheViewController.h" //内存 / 磁盘缓存
+
+#import "NDemoTableViewController.h"
 
 #ifdef DEBUG
 #import "YYFPSLabel.h" //渲染帧 60FPS
@@ -70,27 +69,14 @@
 }
 
 
-#pragma mark 去缓存
-- (IBAction)handleCacheBtn:(id)sender
-{
-    UrlCacheViewController *urlCacheVC = [[UrlCacheViewController alloc] init];
-    [self.navigationController pushViewController:urlCacheVC animated:YES];
-}
-
-#pragma mark 算法
+#pragma mark Demo
 - (IBAction)matlabButton:(UIButton *)sender
 {
-    NMatlabViewController *matlabVC = [[NMatlabViewController  alloc] init];
-    [self.navigationController  pushViewController:matlabVC animated:YES];
+    NDemoTableViewController *nDemoVC = [[NDemoTableViewController  alloc] init];
+    [self.navigationController  pushViewController:nDemoVC animated:YES];
 }
 
-#pragma mark 内存/磁盘缓存
 
-- (IBAction)handleMemoryDiskCacheButton:(UIButton *)sender
-{
-    NCacheViewController *cacheVC = [[NCacheViewController  alloc] init];
-    [self.navigationController  pushViewController:cacheVC animated:YES];
-}
 
 
 @end

@@ -18,19 +18,6 @@
 		001FE11020284E820021FA46 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE10E20284E820021FA46 /* PopViewController.m */; };
 		001FE11120284E820021FA46 /* PopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001FE10F20284E820021FA46 /* PopViewController.xib */; };
 		001FE1142028546D0021FA46 /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE1132028546D0021FA46 /* CustomBtn.m */; };
-		003CF2272061FA40005FA219 /* UrlCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2252061FA40005FA219 /* UrlCacheViewController.m */; };
-		003CF2282061FA40005FA219 /* UrlCacheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CF2262061FA40005FA219 /* UrlCacheViewController.xib */; };
-		007D700D20A2D74700B79EEB /* XYObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D700C20A2D74700B79EEB /* XYObjectCache.m */; };
-		007D701920A2D77B00B79EEB /* XYAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701020A2D77B00B79EEB /* XYAutoCoding.m */; };
-		007D701A20A2D77B00B79EEB /* XYFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701320A2D77B00B79EEB /* XYFileCache.m */; };
-		007D701B20A2D77B00B79EEB /* XYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701520A2D77B00B79EEB /* XYMemoryCache.m */; };
-		007D701C20A2D77B00B79EEB /* XYUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701820A2D77B00B79EEB /* XYUserDefaults.m */; };
-		007D701F20A2D9F600B79EEB /* XYThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D701E20A2D9F600B79EEB /* XYThread.m */; };
-		007D702220A2DACE00B79EEB /* NSString+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D702120A2DACD00B79EEB /* NSString+XY.m */; };
-		007D702720A2DE6400B79EEB /* NCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007D702520A2DE6400B79EEB /* NCacheViewController.m */; };
-		007D702820A2DE6400B79EEB /* NCacheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007D702620A2DE6400B79EEB /* NCacheViewController.xib */; };
-		0088804520A198180060B5A2 /* delegateContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088804220A198180060B5A2 /* delegateContainer.m */; };
-		0088804620A198180060B5A2 /* ZHNThresholdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088804420A198180060B5A2 /* ZHNThresholdHelper.m */; };
 		008CD346204F7BE400876974 /* QuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD344204F7BE400876974 /* QuanViewController.m */; };
 		008CD347204F7BE400876974 /* QuanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008CD345204F7BE400876974 /* QuanViewController.xib */; };
 		008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD349204F7D0F00876974 /* EOCRectangle.m */; };
@@ -38,15 +25,28 @@
 		2AE3E444C79BF4B6688A59A4 /* libPods-TestDelegateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D8734745CB9E909F2070D /* libPods-TestDelegateUITests.a */; };
 		9548BCBE00F7F2566FC66A83 /* libPods-TestDelegateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B6AA24EEDCE51711B1D56 /* libPods-TestDelegateTests.a */; };
 		9589FCB21274D3D624C3A592 /* libPods-TestDelegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */; };
+		F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF0A20B034CB00CC579B /* XYMemoryCache.m */; };
+		F37ECF3520B034CB00CC579B /* NSString+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF0B20B034CB00CC579B /* NSString+XY.m */; };
+		F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF0D20B034CB00CC579B /* XYFileCache.m */; };
+		F37ECF3720B034CB00CC579B /* XYAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF1020B034CB00CC579B /* XYAutoCoding.m */; };
+		F37ECF3820B034CB00CC579B /* XYUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF1220B034CB00CC579B /* XYUserDefaults.m */; };
+		F37ECF3920B034CB00CC579B /* XYThread.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF1420B034CB00CC579B /* XYThread.m */; };
+		F37ECF3A20B034CB00CC579B /* XYObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF1820B034CB00CC579B /* XYObjectCache.m */; };
+		F37ECF3B20B034CB00CC579B /* NCacheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37ECF1920B034CB00CC579B /* NCacheViewController.xib */; };
+		F37ECF3C20B034CB00CC579B /* NCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF1A20B034CB00CC579B /* NCacheViewController.m */; };
+		F37ECF3D20B034CB00CC579B /* ZHNThresholdHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF1E20B034CB00CC579B /* ZHNThresholdHelper.m */; };
+		F37ECF3E20B034CB00CC579B /* delegateContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF1F20B034CB00CC579B /* delegateContainer.m */; };
+		F37ECF3F20B034CB00CC579B /* NMatlabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37ECF2220B034CB00CC579B /* NMatlabViewController.xib */; };
+		F37ECF4020B034CB00CC579B /* NMatlabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF2420B034CB00CC579B /* NMatlabViewController.m */; };
+		F37ECF4120B034CB00CC579B /* NTipsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF2820B034CB00CC579B /* NTipsViewModel.m */; };
+		F37ECF4220B034CB00CC579B /* UrlCacheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37ECF2B20B034CB00CC579B /* UrlCacheViewController.xib */; };
+		F37ECF4320B034CB00CC579B /* UrlCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF2C20B034CB00CC579B /* UrlCacheViewController.m */; };
+		F37ECF4420B034CB00CC579B /* NTipsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF2E20B034CB00CC579B /* NTipsModel.m */; };
+		F37ECF4520B034CB00CC579B /* NTipsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37ECF3220B034CB00CC579B /* NTipsTableViewCell.xib */; };
+		F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF3320B034CB00CC579B /* NTipsTableViewCell.m */; };
 		F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C2F209D81F500439244 /* YYWeakProxy.m */; };
 		F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C31209D81F500439244 /* YYFPSLabel.m */; };
 		F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C39209D968C00439244 /* NetWorkingReuest.m */; };
-		F3A08C3D209D9A4D00439244 /* NTipsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C3C209D9A4D00439244 /* NTipsModel.m */; };
-		F3A08C40209D9A8700439244 /* NTipsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C3F209D9A8700439244 /* NTipsViewModel.m */; };
-		F3A08C44209DB00200439244 /* NTipsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C42209DB00200439244 /* NTipsTableViewCell.m */; };
-		F3A08C45209DB00200439244 /* NTipsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A08C43209DB00200439244 /* NTipsTableViewCell.xib */; };
-		F3B49617209EC7E60015D553 /* NMatlabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B49615209EC7E60015D553 /* NMatlabViewController.m */; };
-		F3B49618209EC7E60015D553 /* NMatlabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3B49616209EC7E60015D553 /* NMatlabViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,32 +88,6 @@
 		001FE10F20284E820021FA46 /* PopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopViewController.xib; sourceTree = "<group>"; };
 		001FE1122028546D0021FA46 /* CustomBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtn.h; sourceTree = "<group>"; };
 		001FE1132028546D0021FA46 /* CustomBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
-		003CF2242061FA40005FA219 /* UrlCacheViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrlCacheViewController.h; sourceTree = "<group>"; };
-		003CF2252061FA40005FA219 /* UrlCacheViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlCacheViewController.m; sourceTree = "<group>"; };
-		003CF2262061FA40005FA219 /* UrlCacheViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UrlCacheViewController.xib; sourceTree = "<group>"; };
-		007D700B20A2D74700B79EEB /* XYObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYObjectCache.h; sourceTree = "<group>"; };
-		007D700C20A2D74700B79EEB /* XYObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYObjectCache.m; sourceTree = "<group>"; };
-		007D700F20A2D77B00B79EEB /* XYAutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAutoCoding.h; sourceTree = "<group>"; };
-		007D701020A2D77B00B79EEB /* XYAutoCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAutoCoding.m; sourceTree = "<group>"; };
-		007D701120A2D77B00B79EEB /* XYCacheProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCacheProtocol.h; sourceTree = "<group>"; };
-		007D701220A2D77B00B79EEB /* XYFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYFileCache.h; sourceTree = "<group>"; };
-		007D701320A2D77B00B79EEB /* XYFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYFileCache.m; sourceTree = "<group>"; };
-		007D701420A2D77B00B79EEB /* XYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMemoryCache.h; sourceTree = "<group>"; };
-		007D701520A2D77B00B79EEB /* XYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMemoryCache.m; sourceTree = "<group>"; };
-		007D701620A2D77B00B79EEB /* XYQuick_Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYQuick_Cache.h; sourceTree = "<group>"; };
-		007D701720A2D77B00B79EEB /* XYUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYUserDefaults.h; sourceTree = "<group>"; };
-		007D701820A2D77B00B79EEB /* XYUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYUserDefaults.m; sourceTree = "<group>"; };
-		007D701D20A2D9F600B79EEB /* XYThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYThread.h; sourceTree = "<group>"; };
-		007D701E20A2D9F600B79EEB /* XYThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYThread.m; sourceTree = "<group>"; };
-		007D702020A2DACD00B79EEB /* NSString+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XY.h"; sourceTree = "<group>"; };
-		007D702120A2DACD00B79EEB /* NSString+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XY.m"; sourceTree = "<group>"; };
-		007D702420A2DE6400B79EEB /* NCacheViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCacheViewController.h; sourceTree = "<group>"; };
-		007D702520A2DE6400B79EEB /* NCacheViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCacheViewController.m; sourceTree = "<group>"; };
-		007D702620A2DE6400B79EEB /* NCacheViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NCacheViewController.xib; sourceTree = "<group>"; };
-		0088804120A198180060B5A2 /* delegateContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delegateContainer.h; sourceTree = "<group>"; };
-		0088804220A198180060B5A2 /* delegateContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = delegateContainer.m; sourceTree = "<group>"; };
-		0088804320A198180060B5A2 /* ZHNThresholdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNThresholdHelper.h; sourceTree = "<group>"; };
-		0088804420A198180060B5A2 /* ZHNThresholdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNThresholdHelper.m; sourceTree = "<group>"; };
 		008CD343204F7BE400876974 /* QuanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuanViewController.h; sourceTree = "<group>"; };
 		008CD344204F7BE400876974 /* QuanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuanViewController.m; sourceTree = "<group>"; };
 		008CD345204F7BE400876974 /* QuanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuanViewController.xib; sourceTree = "<group>"; };
@@ -136,22 +110,48 @@
 		C012BF0DAF69981E99DB8449 /* Pods-TestDelegate.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		D1A5134B5E4CD7182D7445B8 /* Pods-TestDelegate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.debug.xcconfig"; sourceTree = "<group>"; };
 		EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDelegate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F37ECF0720B034CB00CC579B /* XYQuick_Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYQuick_Cache.h; sourceTree = "<group>"; };
+		F37ECF0820B034CB00CC579B /* XYCacheProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCacheProtocol.h; sourceTree = "<group>"; };
+		F37ECF0920B034CB00CC579B /* XYAutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAutoCoding.h; sourceTree = "<group>"; };
+		F37ECF0A20B034CB00CC579B /* XYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMemoryCache.m; sourceTree = "<group>"; };
+		F37ECF0B20B034CB00CC579B /* NSString+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XY.m"; sourceTree = "<group>"; };
+		F37ECF0C20B034CB00CC579B /* XYUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYUserDefaults.h; sourceTree = "<group>"; };
+		F37ECF0D20B034CB00CC579B /* XYFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYFileCache.m; sourceTree = "<group>"; };
+		F37ECF0E20B034CB00CC579B /* XYThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYThread.h; sourceTree = "<group>"; };
+		F37ECF0F20B034CB00CC579B /* XYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMemoryCache.h; sourceTree = "<group>"; };
+		F37ECF1020B034CB00CC579B /* XYAutoCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAutoCoding.m; sourceTree = "<group>"; };
+		F37ECF1120B034CB00CC579B /* XYFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYFileCache.h; sourceTree = "<group>"; };
+		F37ECF1220B034CB00CC579B /* XYUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYUserDefaults.m; sourceTree = "<group>"; };
+		F37ECF1320B034CB00CC579B /* NSString+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XY.h"; sourceTree = "<group>"; };
+		F37ECF1420B034CB00CC579B /* XYThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYThread.m; sourceTree = "<group>"; };
+		F37ECF1620B034CB00CC579B /* XYObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYObjectCache.h; sourceTree = "<group>"; };
+		F37ECF1720B034CB00CC579B /* NCacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCacheViewController.h; sourceTree = "<group>"; };
+		F37ECF1820B034CB00CC579B /* XYObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYObjectCache.m; sourceTree = "<group>"; };
+		F37ECF1920B034CB00CC579B /* NCacheViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NCacheViewController.xib; sourceTree = "<group>"; };
+		F37ECF1A20B034CB00CC579B /* NCacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCacheViewController.m; sourceTree = "<group>"; };
+		F37ECF1C20B034CB00CC579B /* ZHNThresholdHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNThresholdHelper.h; sourceTree = "<group>"; };
+		F37ECF1D20B034CB00CC579B /* delegateContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delegateContainer.h; sourceTree = "<group>"; };
+		F37ECF1E20B034CB00CC579B /* ZHNThresholdHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNThresholdHelper.m; sourceTree = "<group>"; };
+		F37ECF1F20B034CB00CC579B /* delegateContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = delegateContainer.m; sourceTree = "<group>"; };
+		F37ECF2220B034CB00CC579B /* NMatlabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NMatlabViewController.xib; sourceTree = "<group>"; };
+		F37ECF2320B034CB00CC579B /* NMatlabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMatlabViewController.h; sourceTree = "<group>"; };
+		F37ECF2420B034CB00CC579B /* NMatlabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMatlabViewController.m; sourceTree = "<group>"; };
+		F37ECF2720B034CB00CC579B /* NTipsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTipsViewModel.h; sourceTree = "<group>"; };
+		F37ECF2820B034CB00CC579B /* NTipsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTipsViewModel.m; sourceTree = "<group>"; };
+		F37ECF2A20B034CB00CC579B /* UrlCacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlCacheViewController.h; sourceTree = "<group>"; };
+		F37ECF2B20B034CB00CC579B /* UrlCacheViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UrlCacheViewController.xib; sourceTree = "<group>"; };
+		F37ECF2C20B034CB00CC579B /* UrlCacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlCacheViewController.m; sourceTree = "<group>"; };
+		F37ECF2E20B034CB00CC579B /* NTipsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTipsModel.m; sourceTree = "<group>"; };
+		F37ECF2F20B034CB00CC579B /* NTipsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTipsModel.h; sourceTree = "<group>"; };
+		F37ECF3120B034CB00CC579B /* NTipsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTipsTableViewCell.h; sourceTree = "<group>"; };
+		F37ECF3220B034CB00CC579B /* NTipsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTipsTableViewCell.xib; sourceTree = "<group>"; };
+		F37ECF3320B034CB00CC579B /* NTipsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTipsTableViewCell.m; sourceTree = "<group>"; };
 		F3A08C2F209D81F500439244 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		F3A08C30209D81F500439244 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		F3A08C31209D81F500439244 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		F3A08C32209D81F500439244 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		F3A08C38209D968C00439244 /* NetWorkingReuest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingReuest.h; sourceTree = "<group>"; };
 		F3A08C39209D968C00439244 /* NetWorkingReuest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingReuest.m; sourceTree = "<group>"; };
-		F3A08C3B209D9A4D00439244 /* NTipsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTipsModel.h; sourceTree = "<group>"; };
-		F3A08C3C209D9A4D00439244 /* NTipsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTipsModel.m; sourceTree = "<group>"; };
-		F3A08C3E209D9A8700439244 /* NTipsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTipsViewModel.h; sourceTree = "<group>"; };
-		F3A08C3F209D9A8700439244 /* NTipsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTipsViewModel.m; sourceTree = "<group>"; };
-		F3A08C41209DB00200439244 /* NTipsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTipsTableViewCell.h; sourceTree = "<group>"; };
-		F3A08C42209DB00200439244 /* NTipsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTipsTableViewCell.m; sourceTree = "<group>"; };
-		F3A08C43209DB00200439244 /* NTipsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NTipsTableViewCell.xib; sourceTree = "<group>"; };
-		F3B49614209EC7E60015D553 /* NMatlabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMatlabViewController.h; sourceTree = "<group>"; };
-		F3B49615209EC7E60015D553 /* NMatlabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMatlabViewController.m; sourceTree = "<group>"; };
-		F3B49616209EC7E60015D553 /* NMatlabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMatlabViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,12 +207,9 @@
 		001FE0DA20284DDB0021FA46 /* TestDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				007D700A20A2D73B00B79EEB /* Cache */,
-				F3B49611209EC7AB0015D553 /* matlab */,
-				0088804020A198180060B5A2 /* RefreshTool */,
+				F37ECEFD20B02FD700CC579B /* Demo */,
 				F3A08C37209D964000439244 /* NetWorking */,
 				F3A08C2E209D81F500439244 /* YYFPSLabel */,
-				F33AFE2A209E02B5006BDCB6 /* Tips */,
 				F33AFE2B209E02F0006BDCB6 /* AppDelegate */,
 				F33AFE30209E0387006BDCB6 /* RootViewController */,
 				008CD345204F7BE400876974 /* QuanViewController.xib */,
@@ -244,59 +241,6 @@
 			path = TestDelegateUITests;
 			sourceTree = "<group>";
 		};
-		007D700A20A2D73B00B79EEB /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-				007D702320A2DE3E00B79EEB /* ViewController */,
-				007D700E20A2D77B00B79EEB /* cache */,
-			);
-			path = Cache;
-			sourceTree = "<group>";
-		};
-		007D700E20A2D77B00B79EEB /* cache */ = {
-			isa = PBXGroup;
-			children = (
-				007D702020A2DACD00B79EEB /* NSString+XY.h */,
-				007D702120A2DACD00B79EEB /* NSString+XY.m */,
-				007D701D20A2D9F600B79EEB /* XYThread.h */,
-				007D701E20A2D9F600B79EEB /* XYThread.m */,
-				007D700F20A2D77B00B79EEB /* XYAutoCoding.h */,
-				007D701020A2D77B00B79EEB /* XYAutoCoding.m */,
-				007D701120A2D77B00B79EEB /* XYCacheProtocol.h */,
-				007D701220A2D77B00B79EEB /* XYFileCache.h */,
-				007D701320A2D77B00B79EEB /* XYFileCache.m */,
-				007D701420A2D77B00B79EEB /* XYMemoryCache.h */,
-				007D701520A2D77B00B79EEB /* XYMemoryCache.m */,
-				007D701620A2D77B00B79EEB /* XYQuick_Cache.h */,
-				007D701720A2D77B00B79EEB /* XYUserDefaults.h */,
-				007D701820A2D77B00B79EEB /* XYUserDefaults.m */,
-			);
-			path = cache;
-			sourceTree = "<group>";
-		};
-		007D702320A2DE3E00B79EEB /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				007D700B20A2D74700B79EEB /* XYObjectCache.h */,
-				007D700C20A2D74700B79EEB /* XYObjectCache.m */,
-				007D702420A2DE6400B79EEB /* NCacheViewController.h */,
-				007D702520A2DE6400B79EEB /* NCacheViewController.m */,
-				007D702620A2DE6400B79EEB /* NCacheViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		0088804020A198180060B5A2 /* RefreshTool */ = {
-			isa = PBXGroup;
-			children = (
-				0088804120A198180060B5A2 /* delegateContainer.h */,
-				0088804220A198180060B5A2 /* delegateContainer.m */,
-				0088804320A198180060B5A2 /* ZHNThresholdHelper.h */,
-				0088804420A198180060B5A2 /* ZHNThresholdHelper.m */,
-			);
-			path = RefreshTool;
-			sourceTree = "<group>";
-		};
 		392444CE800215C065F96A75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,17 +270,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F33AFE2A209E02B5006BDCB6 /* Tips */ = {
-			isa = PBXGroup;
-			children = (
-				F33AFE2F209E0341006BDCB6 /* View */,
-				F33AFE2E209E0335006BDCB6 /* Model */,
-				F33AFE2D209E0328006BDCB6 /* ViewModel */,
-				F33AFE2C209E031A006BDCB6 /* ViewComtroller */,
-			);
-			path = Tips;
-			sourceTree = "<group>";
-		};
 		F33AFE2B209E02F0006BDCB6 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,44 +277,6 @@
 				001FE0DC20284DDB0021FA46 /* AppDelegate.m */,
 			);
 			path = AppDelegate;
-			sourceTree = "<group>";
-		};
-		F33AFE2C209E031A006BDCB6 /* ViewComtroller */ = {
-			isa = PBXGroup;
-			children = (
-				003CF2242061FA40005FA219 /* UrlCacheViewController.h */,
-				003CF2252061FA40005FA219 /* UrlCacheViewController.m */,
-				003CF2262061FA40005FA219 /* UrlCacheViewController.xib */,
-			);
-			path = ViewComtroller;
-			sourceTree = "<group>";
-		};
-		F33AFE2D209E0328006BDCB6 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F3A08C3E209D9A8700439244 /* NTipsViewModel.h */,
-				F3A08C3F209D9A8700439244 /* NTipsViewModel.m */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F33AFE2E209E0335006BDCB6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F3A08C3B209D9A4D00439244 /* NTipsModel.h */,
-				F3A08C3C209D9A4D00439244 /* NTipsModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		F33AFE2F209E0341006BDCB6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F3A08C41209DB00200439244 /* NTipsTableViewCell.h */,
-				F3A08C42209DB00200439244 /* NTipsTableViewCell.m */,
-				F3A08C43209DB00200439244 /* NTipsTableViewCell.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		F33AFE30209E0387006BDCB6 /* RootViewController */ = {
@@ -403,6 +298,137 @@
 			path = RootViewController;
 			sourceTree = "<group>";
 		};
+		F37ECEFD20B02FD700CC579B /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF0520B034CB00CC579B /* Cache */,
+				F37ECF2020B034CB00CC579B /* matlab */,
+				F37ECF1B20B034CB00CC579B /* RefreshTool */,
+				F37ECF2520B034CB00CC579B /* Tips */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		F37ECF0520B034CB00CC579B /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF0620B034CB00CC579B /* cache */,
+				F37ECF1520B034CB00CC579B /* ViewController */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		F37ECF0620B034CB00CC579B /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF0720B034CB00CC579B /* XYQuick_Cache.h */,
+				F37ECF0820B034CB00CC579B /* XYCacheProtocol.h */,
+				F37ECF0920B034CB00CC579B /* XYAutoCoding.h */,
+				F37ECF0A20B034CB00CC579B /* XYMemoryCache.m */,
+				F37ECF0B20B034CB00CC579B /* NSString+XY.m */,
+				F37ECF0C20B034CB00CC579B /* XYUserDefaults.h */,
+				F37ECF0D20B034CB00CC579B /* XYFileCache.m */,
+				F37ECF0E20B034CB00CC579B /* XYThread.h */,
+				F37ECF0F20B034CB00CC579B /* XYMemoryCache.h */,
+				F37ECF1020B034CB00CC579B /* XYAutoCoding.m */,
+				F37ECF1120B034CB00CC579B /* XYFileCache.h */,
+				F37ECF1220B034CB00CC579B /* XYUserDefaults.m */,
+				F37ECF1320B034CB00CC579B /* NSString+XY.h */,
+				F37ECF1420B034CB00CC579B /* XYThread.m */,
+			);
+			path = cache;
+			sourceTree = "<group>";
+		};
+		F37ECF1520B034CB00CC579B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF1620B034CB00CC579B /* XYObjectCache.h */,
+				F37ECF1720B034CB00CC579B /* NCacheViewController.h */,
+				F37ECF1820B034CB00CC579B /* XYObjectCache.m */,
+				F37ECF1920B034CB00CC579B /* NCacheViewController.xib */,
+				F37ECF1A20B034CB00CC579B /* NCacheViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F37ECF1B20B034CB00CC579B /* RefreshTool */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF1C20B034CB00CC579B /* ZHNThresholdHelper.h */,
+				F37ECF1D20B034CB00CC579B /* delegateContainer.h */,
+				F37ECF1E20B034CB00CC579B /* ZHNThresholdHelper.m */,
+				F37ECF1F20B034CB00CC579B /* delegateContainer.m */,
+			);
+			path = RefreshTool;
+			sourceTree = "<group>";
+		};
+		F37ECF2020B034CB00CC579B /* matlab */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF2120B034CB00CC579B /* ViewController */,
+			);
+			path = matlab;
+			sourceTree = "<group>";
+		};
+		F37ECF2120B034CB00CC579B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF2220B034CB00CC579B /* NMatlabViewController.xib */,
+				F37ECF2320B034CB00CC579B /* NMatlabViewController.h */,
+				F37ECF2420B034CB00CC579B /* NMatlabViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F37ECF2520B034CB00CC579B /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF2620B034CB00CC579B /* ViewModel */,
+				F37ECF2920B034CB00CC579B /* ViewComtroller */,
+				F37ECF2D20B034CB00CC579B /* Model */,
+				F37ECF3020B034CB00CC579B /* View */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
+		F37ECF2620B034CB00CC579B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF2720B034CB00CC579B /* NTipsViewModel.h */,
+				F37ECF2820B034CB00CC579B /* NTipsViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F37ECF2920B034CB00CC579B /* ViewComtroller */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF2A20B034CB00CC579B /* UrlCacheViewController.h */,
+				F37ECF2B20B034CB00CC579B /* UrlCacheViewController.xib */,
+				F37ECF2C20B034CB00CC579B /* UrlCacheViewController.m */,
+			);
+			path = ViewComtroller;
+			sourceTree = "<group>";
+		};
+		F37ECF2D20B034CB00CC579B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF2E20B034CB00CC579B /* NTipsModel.m */,
+				F37ECF2F20B034CB00CC579B /* NTipsModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F37ECF3020B034CB00CC579B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F37ECF3120B034CB00CC579B /* NTipsTableViewCell.h */,
+				F37ECF3220B034CB00CC579B /* NTipsTableViewCell.xib */,
+				F37ECF3320B034CB00CC579B /* NTipsTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F3A08C2E209D81F500439244 /* YYFPSLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,24 +448,6 @@
 			);
 			path = NetWorking;
 			sourceTree = SOURCE_ROOT;
-		};
-		F3B49611209EC7AB0015D553 /* matlab */ = {
-			isa = PBXGroup;
-			children = (
-				F3B49613209EC7D00015D553 /* ViewController */,
-			);
-			path = matlab;
-			sourceTree = "<group>";
-		};
-		F3B49613209EC7D00015D553 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F3B49614209EC7E60015D553 /* NMatlabViewController.h */,
-				F3B49615209EC7E60015D553 /* NMatlabViewController.m */,
-				F3B49616209EC7E60015D553 /* NMatlabViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -552,15 +560,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3B49618209EC7E60015D553 /* NMatlabViewController.xib in Resources */,
 				008CD347204F7BE400876974 /* QuanViewController.xib in Resources */,
 				001FE11120284E820021FA46 /* PopViewController.xib in Resources */,
-				F3A08C45209DB00200439244 /* NTipsTableViewCell.xib in Resources */,
+				F37ECF3F20B034CB00CC579B /* NMatlabViewController.xib in Resources */,
+				F37ECF4520B034CB00CC579B /* NTipsTableViewCell.xib in Resources */,
+				F37ECF4220B034CB00CC579B /* UrlCacheViewController.xib in Resources */,
 				001FE0E820284DDB0021FA46 /* LaunchScreen.storyboard in Resources */,
 				001FE0E520284DDB0021FA46 /* Assets.xcassets in Resources */,
-				007D702820A2DE6400B79EEB /* NCacheViewController.xib in Resources */,
 				001FE0E320284DDB0021FA46 /* Main.storyboard in Resources */,
-				003CF2282061FA40005FA219 /* UrlCacheViewController.xib in Resources */,
+				F37ECF3B20B034CB00CC579B /* NCacheViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,32 +668,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37ECF3E20B034CB00CC579B /* delegateContainer.m in Sources */,
+				F37ECF4320B034CB00CC579B /* UrlCacheViewController.m in Sources */,
 				F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */,
 				001FE11020284E820021FA46 /* PopViewController.m in Sources */,
 				001FE0E020284DDB0021FA46 /* ViewController.m in Sources */,
+				F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */,
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
-				007D702220A2DACE00B79EEB /* NSString+XY.m in Sources */,
-				F3A08C3D209D9A4D00439244 /* NTipsModel.m in Sources */,
-				007D702720A2DE6400B79EEB /* NCacheViewController.m in Sources */,
-				0088804520A198180060B5A2 /* delegateContainer.m in Sources */,
-				007D701F20A2D9F600B79EEB /* XYThread.m in Sources */,
+				F37ECF3A20B034CB00CC579B /* XYObjectCache.m in Sources */,
+				F37ECF3D20B034CB00CC579B /* ZHNThresholdHelper.m in Sources */,
 				001FE1142028546D0021FA46 /* CustomBtn.m in Sources */,
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
+				F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */,
 				F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */,
-				007D701C20A2D77B00B79EEB /* XYUserDefaults.m in Sources */,
+				F37ECF4020B034CB00CC579B /* NMatlabViewController.m in Sources */,
+				F37ECF4420B034CB00CC579B /* NTipsModel.m in Sources */,
 				001FE0DD20284DDB0021FA46 /* AppDelegate.m in Sources */,
-				0088804620A198180060B5A2 /* ZHNThresholdHelper.m in Sources */,
 				008CD34D204F7EE300876974 /* EOCSquare.m in Sources */,
-				F3A08C40209D9A8700439244 /* NTipsViewModel.m in Sources */,
-				007D701A20A2D77B00B79EEB /* XYFileCache.m in Sources */,
-				003CF2272061FA40005FA219 /* UrlCacheViewController.m in Sources */,
-				007D700D20A2D74700B79EEB /* XYObjectCache.m in Sources */,
-				007D701920A2D77B00B79EEB /* XYAutoCoding.m in Sources */,
+				F37ECF3820B034CB00CC579B /* XYUserDefaults.m in Sources */,
+				F37ECF4120B034CB00CC579B /* NTipsViewModel.m in Sources */,
+				F37ECF3520B034CB00CC579B /* NSString+XY.m in Sources */,
+				F37ECF3720B034CB00CC579B /* XYAutoCoding.m in Sources */,
+				F37ECF3920B034CB00CC579B /* XYThread.m in Sources */,
+				F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */,
 				F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */,
-				F3A08C44209DB00200439244 /* NTipsTableViewCell.m in Sources */,
-				007D701B20A2D77B00B79EEB /* XYMemoryCache.m in Sources */,
+				F37ECF3C20B034CB00CC579B /* NCacheViewController.m in Sources */,
 				008CD346204F7BE400876974 /* QuanViewController.m in Sources */,
-				F3B49617209EC7E60015D553 /* NMatlabViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
