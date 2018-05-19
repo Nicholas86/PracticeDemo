@@ -44,6 +44,7 @@
 		F37ECF4420B034CB00CC579B /* NTipsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF2E20B034CB00CC579B /* NTipsModel.m */; };
 		F37ECF4520B034CB00CC579B /* NTipsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37ECF3220B034CB00CC579B /* NTipsTableViewCell.xib */; };
 		F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF3320B034CB00CC579B /* NTipsTableViewCell.m */; };
+		F37ECF4920B035EB00CC579B /* NDemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF4820B035EB00CC579B /* NDemoTableViewController.m */; };
 		F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C2F209D81F500439244 /* YYWeakProxy.m */; };
 		F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C31209D81F500439244 /* YYFPSLabel.m */; };
 		F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C39209D968C00439244 /* NetWorkingReuest.m */; };
@@ -146,6 +147,8 @@
 		F37ECF3120B034CB00CC579B /* NTipsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTipsTableViewCell.h; sourceTree = "<group>"; };
 		F37ECF3220B034CB00CC579B /* NTipsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTipsTableViewCell.xib; sourceTree = "<group>"; };
 		F37ECF3320B034CB00CC579B /* NTipsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTipsTableViewCell.m; sourceTree = "<group>"; };
+		F37ECF4720B035EB00CC579B /* NDemoTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NDemoTableViewController.h; sourceTree = "<group>"; };
+		F37ECF4820B035EB00CC579B /* NDemoTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NDemoTableViewController.m; sourceTree = "<group>"; };
 		F3A08C2F209D81F500439244 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		F3A08C30209D81F500439244 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		F3A08C31209D81F500439244 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 			children = (
 				001FE0DE20284DDB0021FA46 /* ViewController.h */,
 				001FE0DF20284DDB0021FA46 /* ViewController.m */,
+				F37ECF4720B035EB00CC579B /* NDemoTableViewController.h */,
+				F37ECF4820B035EB00CC579B /* NDemoTableViewController.m */,
 				001FE10D20284E820021FA46 /* PopViewController.h */,
 				001FE10E20284E820021FA46 /* PopViewController.m */,
 				001FE1122028546D0021FA46 /* CustomBtn.h */,
@@ -676,6 +681,7 @@
 				F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */,
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
 				F37ECF3A20B034CB00CC579B /* XYObjectCache.m in Sources */,
+				F37ECF4920B035EB00CC579B /* NDemoTableViewController.m in Sources */,
 				F37ECF3D20B034CB00CC579B /* ZHNThresholdHelper.m in Sources */,
 				001FE1142028546D0021FA46 /* CustomBtn.m in Sources */,
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
