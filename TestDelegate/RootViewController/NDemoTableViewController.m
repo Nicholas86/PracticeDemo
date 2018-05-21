@@ -10,6 +10,7 @@
 #import "UrlCacheViewController.h"
 #import "NMatlabViewController.h"
 #import "NCacheViewController.h"
+#import "NObserverViewController.h"
 
 static NSString * const ReuseIdentifier = @"ReuseIdentifier";
 
@@ -29,15 +30,11 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     self.title = @"练习";
     [self.tableView  registerClass:[UITableViewCell  class] forCellReuseIdentifier:ReuseIdentifier];
-    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度"];
+    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度", @"观察者"];
+    
+    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +54,7 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     return self.dataSource.count;
 }
 
-
+//单元格赋值
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier forIndexPath:indexPath];
     
@@ -67,6 +64,7 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     return cell;
 }
 
+//单元格选中事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView   selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
@@ -80,6 +78,9 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     }else if (indexPath.row == 2){//tableview流畅度
         UrlCacheViewController *urlCacheVc = [[UrlCacheViewController alloc] init];
         [self.navigationController  pushViewController:urlCacheVc animated:YES];
+    }else if (indexPath.row == 3){//观察者
+        NObserverViewController *nObserverVC = [[NObserverViewController alloc] init];
+        [self.navigationController pushViewController:nObserverVC animated:YES];
     }
     
 }

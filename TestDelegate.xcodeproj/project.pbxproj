@@ -22,6 +22,8 @@
 		008CD347204F7BE400876974 /* QuanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008CD345204F7BE400876974 /* QuanViewController.xib */; };
 		008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD349204F7D0F00876974 /* EOCRectangle.m */; };
 		008CD34D204F7EE300876974 /* EOCSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD34C204F7EE300876974 /* EOCSquare.m */; };
+		00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4A77120B261670023FAB4 /* NObserverViewController.m */; };
+		00A4A77420B261670023FAB4 /* NObserverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A4A77220B261670023FAB4 /* NObserverViewController.xib */; };
 		2AE3E444C79BF4B6688A59A4 /* libPods-TestDelegateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D8734745CB9E909F2070D /* libPods-TestDelegateUITests.a */; };
 		9548BCBE00F7F2566FC66A83 /* libPods-TestDelegateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B6AA24EEDCE51711B1D56 /* libPods-TestDelegateTests.a */; };
 		9589FCB21274D3D624C3A592 /* libPods-TestDelegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */; };
@@ -96,6 +98,9 @@
 		008CD349204F7D0F00876974 /* EOCRectangle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCRectangle.m; sourceTree = "<group>"; };
 		008CD34B204F7EE300876974 /* EOCSquare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCSquare.h; sourceTree = "<group>"; };
 		008CD34C204F7EE300876974 /* EOCSquare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCSquare.m; sourceTree = "<group>"; };
+		00A4A77020B261670023FAB4 /* NObserverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NObserverViewController.h; sourceTree = "<group>"; };
+		00A4A77120B261670023FAB4 /* NObserverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NObserverViewController.m; sourceTree = "<group>"; };
+		00A4A77220B261670023FAB4 /* NObserverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NObserverViewController.xib; sourceTree = "<group>"; };
 		01D8C8DDD5A5E83FFB5C92C6 /* Pods-TestDelegateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateTests/Pods-TestDelegateTests.release.xcconfig"; sourceTree = "<group>"; };
 		0E4DDBD82929BA057648DD1D /* Pods-TestDelegateUITests.stagingrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateUITests.stagingrelease.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateUITests/Pods-TestDelegateUITests.stagingrelease.xcconfig"; sourceTree = "<group>"; };
 		27EC09078864DA12E442317B /* Pods-TestDelegateTests.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateTests.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateTests/Pods-TestDelegateTests.stagingdebug.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +249,24 @@
 			path = TestDelegateUITests;
 			sourceTree = "<group>";
 		};
+		00A4A76E20B2612D0023FAB4 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				00A4A76F20B2614B0023FAB4 /* ViewController */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		00A4A76F20B2614B0023FAB4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				00A4A77020B261670023FAB4 /* NObserverViewController.h */,
+				00A4A77120B261670023FAB4 /* NObserverViewController.m */,
+				00A4A77220B261670023FAB4 /* NObserverViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		392444CE800215C065F96A75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +329,7 @@
 		F37ECEFD20B02FD700CC579B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				00A4A76E20B2612D0023FAB4 /* Observer */,
 				F37ECF0520B034CB00CC579B /* Cache */,
 				F37ECF2020B034CB00CC579B /* matlab */,
 				F37ECF1B20B034CB00CC579B /* RefreshTool */,
@@ -568,6 +592,7 @@
 				008CD347204F7BE400876974 /* QuanViewController.xib in Resources */,
 				001FE11120284E820021FA46 /* PopViewController.xib in Resources */,
 				F37ECF3F20B034CB00CC579B /* NMatlabViewController.xib in Resources */,
+				00A4A77420B261670023FAB4 /* NObserverViewController.xib in Resources */,
 				F37ECF4520B034CB00CC579B /* NTipsTableViewCell.xib in Resources */,
 				F37ECF4220B034CB00CC579B /* UrlCacheViewController.xib in Resources */,
 				001FE0E820284DDB0021FA46 /* LaunchScreen.storyboard in Resources */,
@@ -698,6 +723,7 @@
 				F37ECF3920B034CB00CC579B /* XYThread.m in Sources */,
 				F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */,
 				F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */,
+				00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */,
 				F37ECF3C20B034CB00CC579B /* NCacheViewController.m in Sources */,
 				008CD346204F7BE400876974 /* QuanViewController.m in Sources */,
 			);
