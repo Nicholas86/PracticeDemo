@@ -28,6 +28,9 @@
 		2AE3E444C79BF4B6688A59A4 /* libPods-TestDelegateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D8734745CB9E909F2070D /* libPods-TestDelegateUITests.a */; };
 		9548BCBE00F7F2566FC66A83 /* libPods-TestDelegateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B6AA24EEDCE51711B1D56 /* libPods-TestDelegateTests.a */; };
 		9589FCB21274D3D624C3A592 /* libPods-TestDelegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */; };
+		F37A4FC320B43FDE0076825D /* NCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC220B43FDE0076825D /* NCacheManager.m */; };
+		F37A4FC720B442FD0076825D /* NMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC620B442FD0076825D /* NMemoryCache.m */; };
+		F37A4FCA20B450ED0076825D /* NFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC920B450ED0076825D /* NFileCache.m */; };
 		F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF0A20B034CB00CC579B /* XYMemoryCache.m */; };
 		F37ECF3520B034CB00CC579B /* NSString+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF0B20B034CB00CC579B /* NSString+XY.m */; };
 		F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37ECF0D20B034CB00CC579B /* XYFileCache.m */; };
@@ -121,6 +124,12 @@
 		C012BF0DAF69981E99DB8449 /* Pods-TestDelegate.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		D1A5134B5E4CD7182D7445B8 /* Pods-TestDelegate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.debug.xcconfig"; sourceTree = "<group>"; };
 		EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDelegate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F37A4FC120B43FDE0076825D /* NCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCacheManager.h; sourceTree = "<group>"; };
+		F37A4FC220B43FDE0076825D /* NCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCacheManager.m; sourceTree = "<group>"; };
+		F37A4FC520B442FD0076825D /* NMemoryCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMemoryCache.h; sourceTree = "<group>"; };
+		F37A4FC620B442FD0076825D /* NMemoryCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMemoryCache.m; sourceTree = "<group>"; };
+		F37A4FC820B450ED0076825D /* NFileCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFileCache.h; sourceTree = "<group>"; };
+		F37A4FC920B450ED0076825D /* NFileCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFileCache.m; sourceTree = "<group>"; };
 		F37ECF0720B034CB00CC579B /* XYQuick_Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYQuick_Cache.h; sourceTree = "<group>"; };
 		F37ECF0820B034CB00CC579B /* XYCacheProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCacheProtocol.h; sourceTree = "<group>"; };
 		F37ECF0920B034CB00CC579B /* XYAutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAutoCoding.h; sourceTree = "<group>"; };
@@ -344,6 +353,19 @@
 			path = RootViewController;
 			sourceTree = "<group>";
 		};
+		F37A4FC420B4408E0076825D /* NCache */ = {
+			isa = PBXGroup;
+			children = (
+				F37A4FC120B43FDE0076825D /* NCacheManager.h */,
+				F37A4FC220B43FDE0076825D /* NCacheManager.m */,
+				F37A4FC520B442FD0076825D /* NMemoryCache.h */,
+				F37A4FC620B442FD0076825D /* NMemoryCache.m */,
+				F37A4FC820B450ED0076825D /* NFileCache.h */,
+				F37A4FC920B450ED0076825D /* NFileCache.m */,
+			);
+			path = NCache;
+			sourceTree = "<group>";
+		};
 		F37ECEFD20B02FD700CC579B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +382,7 @@
 		F37ECF0520B034CB00CC579B /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				F37A4FC420B4408E0076825D /* NCache */,
 				F37ECF0620B034CB00CC579B /* cache */,
 				F37ECF1520B034CB00CC579B /* ViewController */,
 			);
@@ -764,6 +787,7 @@
 				F37ECF4320B034CB00CC579B /* UrlCacheViewController.m in Sources */,
 				F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */,
 				001FE11020284E820021FA46 /* PopViewController.m in Sources */,
+				F37A4FC720B442FD0076825D /* NMemoryCache.m in Sources */,
 				001FE0E020284DDB0021FA46 /* ViewController.m in Sources */,
 				F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */,
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
@@ -781,7 +805,9 @@
 				008CD34D204F7EE300876974 /* EOCSquare.m in Sources */,
 				F37ECF3820B034CB00CC579B /* XYUserDefaults.m in Sources */,
 				F37ECF4120B034CB00CC579B /* NTipsViewModel.m in Sources */,
+				F37A4FC320B43FDE0076825D /* NCacheManager.m in Sources */,
 				F37ECF3520B034CB00CC579B /* NSString+XY.m in Sources */,
+				F37A4FCA20B450ED0076825D /* NFileCache.m in Sources */,
 				F37ECF3720B034CB00CC579B /* XYAutoCoding.m in Sources */,
 				F37ECF3920B034CB00CC579B /* XYThread.m in Sources */,
 				F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */,
