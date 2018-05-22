@@ -10,6 +10,7 @@
 #import "UrlCacheViewController.h"
 #import "NMatlabViewController.h"
 #import "NCacheViewController.h"
+#import "NComposeViewController.h"
 
 static NSString * const ReuseIdentifier = @"ReuseIdentifier";
 
@@ -37,7 +38,7 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     
     self.title = @"练习";
     [self.tableView  registerClass:[UITableViewCell  class] forCellReuseIdentifier:ReuseIdentifier];
-    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度"];
+    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度", @"组件化"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,6 +81,9 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     }else if (indexPath.row == 2){//tableview流畅度
         UrlCacheViewController *urlCacheVc = [[UrlCacheViewController alloc] init];
         [self.navigationController  pushViewController:urlCacheVc animated:YES];
+    }else if (indexPath.row == 3){
+        NComposeViewController  *nComposeVC = [[NComposeViewController  alloc] init];
+        [self.navigationController  pushViewController:nComposeVC animated:YES];
     }
     
 }
