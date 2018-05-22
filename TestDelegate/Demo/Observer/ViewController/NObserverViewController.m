@@ -103,40 +103,57 @@
 
 #pragma mark - Public
 //runtime动态创建类
+//https://blog.csdn.net/fucheng56/article/details/24032409
 - (void)createCustomClass{
     // 创建类
     Class customClass = objc_allocateClassPair([NSObject class], "NCustomClass", 0);
     
-    // 添加实例变量
+    //1. 添加实例变量
 #warning 参数//https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1
-    
+    //添加一个NSString的变量，第四个参数是对其方式，第五个参数是参数类型
     class_addIvar(customClass, "age", sizeof(int), 0, "i");
     class_addIvar(customClass, "name", sizeof(NSString *), 0, "@");
     
-    // 添加方法
-    class_addMethod(customClass, @selector(custom_method), (IMP)custom_imp, "V@:");
-    
-    id myObjc = [[customClass alloc] init];
-    
-    // 注册到运行时环境
+    //2. 添加方法 "v@:"这种写法见参数类型连接
+    class_addMethod(customClass, @selector(custom_method:), (IMP)custom_imp, "V@:");
+    //3. 注册到运行时环境
     objc_registerClassPair(customClass);
+    
+    
+    //4. 生成一个实例化对象
+    id myObjc = [[customClass alloc] init];
+    [myObjc  setValue:@10 forKey:@"age"];
+    [myObjc  setValue:@"江山" forKey:@"name"];
+    
     NSLog(@"自定义类对象: %@", myObjc);
     
     NSLog(@"自定义类对象方法: %@", [self copyMethodsByClass:customClass]);
     NSLog(@"自定义类对象属性: %@", [self copyIvarsByClass:customClass]);
     
-    [myObjc performSelector:@selector(custom_method)];
+    
+    //5.调用第2步添加的custom_method方法，也就是给myobj这个接受者发送custom_method这个消息
+    [myObjc  custom_method:10];
 }
 
-void custom_imp(id self, SEL _cmd)
+//这个方法实际上没有被调用,但是必须实现否则不会调用下面的方法
+- (void)custom_method:(int )a
 {
-    NSLog(@"custom_imp====");
+    NSLog(@"自定义方法, a:%d", a);
 }
 
-- (void)custom_method
+//调用的是这个方法 self和_cmd是必须的，在之后可以随意添加其他参数
+void custom_imp(id self, SEL _cmd, int a)
 {
-    NSLog(@"自定义方法");
+    NSLog(@"custom_imp ==== ");
+    Ivar v = class_getInstanceVariable([self class], "name");
+    //返回名为name的ivar的变量的值
+    id o = object_getIvar(self, v);
+    //成功打印出结果
+    NSLog(@"name: %@", o);
+    NSLog(@"int a: %d", a);
 }
+
+
 
 #pragma mark - Util
 
