@@ -18,10 +18,13 @@
 		001FE11020284E820021FA46 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE10E20284E820021FA46 /* PopViewController.m */; };
 		001FE11120284E820021FA46 /* PopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001FE10F20284E820021FA46 /* PopViewController.xib */; };
 		001FE1142028546D0021FA46 /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE1132028546D0021FA46 /* CustomBtn.m */; };
+		0052080820B3BF0200AE3AB2 /* NPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0052080720B3BF0200AE3AB2 /* NPerson.m */; };
 		008CD346204F7BE400876974 /* QuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD344204F7BE400876974 /* QuanViewController.m */; };
 		008CD347204F7BE400876974 /* QuanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008CD345204F7BE400876974 /* QuanViewController.xib */; };
 		008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD349204F7D0F00876974 /* EOCRectangle.m */; };
 		008CD34D204F7EE300876974 /* EOCSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD34C204F7EE300876974 /* EOCSquare.m */; };
+		00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4A77120B261670023FAB4 /* NObserverViewController.m */; };
+		00A4A77420B261670023FAB4 /* NObserverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A4A77220B261670023FAB4 /* NObserverViewController.xib */; };
 		2AE3E444C79BF4B6688A59A4 /* libPods-TestDelegateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D8734745CB9E909F2070D /* libPods-TestDelegateUITests.a */; };
 		9548BCBE00F7F2566FC66A83 /* libPods-TestDelegateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B6AA24EEDCE51711B1D56 /* libPods-TestDelegateTests.a */; };
 		9589FCB21274D3D624C3A592 /* libPods-TestDelegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */; };
@@ -91,6 +94,8 @@
 		001FE10F20284E820021FA46 /* PopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopViewController.xib; sourceTree = "<group>"; };
 		001FE1122028546D0021FA46 /* CustomBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtn.h; sourceTree = "<group>"; };
 		001FE1132028546D0021FA46 /* CustomBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
+		0052080620B3BF0200AE3AB2 /* NPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPerson.h; sourceTree = "<group>"; };
+		0052080720B3BF0200AE3AB2 /* NPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPerson.m; sourceTree = "<group>"; };
 		008CD343204F7BE400876974 /* QuanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuanViewController.h; sourceTree = "<group>"; };
 		008CD344204F7BE400876974 /* QuanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuanViewController.m; sourceTree = "<group>"; };
 		008CD345204F7BE400876974 /* QuanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuanViewController.xib; sourceTree = "<group>"; };
@@ -98,6 +103,9 @@
 		008CD349204F7D0F00876974 /* EOCRectangle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCRectangle.m; sourceTree = "<group>"; };
 		008CD34B204F7EE300876974 /* EOCSquare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCSquare.h; sourceTree = "<group>"; };
 		008CD34C204F7EE300876974 /* EOCSquare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCSquare.m; sourceTree = "<group>"; };
+		00A4A77020B261670023FAB4 /* NObserverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NObserverViewController.h; sourceTree = "<group>"; };
+		00A4A77120B261670023FAB4 /* NObserverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NObserverViewController.m; sourceTree = "<group>"; };
+		00A4A77220B261670023FAB4 /* NObserverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NObserverViewController.xib; sourceTree = "<group>"; };
 		01D8C8DDD5A5E83FFB5C92C6 /* Pods-TestDelegateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateTests/Pods-TestDelegateTests.release.xcconfig"; sourceTree = "<group>"; };
 		0E4DDBD82929BA057648DD1D /* Pods-TestDelegateUITests.stagingrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateUITests.stagingrelease.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateUITests/Pods-TestDelegateUITests.stagingrelease.xcconfig"; sourceTree = "<group>"; };
 		27EC09078864DA12E442317B /* Pods-TestDelegateTests.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateTests.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateTests/Pods-TestDelegateTests.stagingdebug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +257,34 @@
 			path = TestDelegateUITests;
 			sourceTree = "<group>";
 		};
+		0052080520B3BEE800AE3AB2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0052080620B3BF0200AE3AB2 /* NPerson.h */,
+				0052080720B3BF0200AE3AB2 /* NPerson.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00A4A76E20B2612D0023FAB4 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				0052080520B3BEE800AE3AB2 /* Model */,
+				00A4A76F20B2614B0023FAB4 /* ViewController */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		00A4A76F20B2614B0023FAB4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				00A4A77020B261670023FAB4 /* NObserverViewController.h */,
+				00A4A77120B261670023FAB4 /* NObserverViewController.m */,
+				00A4A77220B261670023FAB4 /* NObserverViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		392444CE800215C065F96A75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				F37ECF4A20B0426400CC579B /* Composable */,
+				00A4A76E20B2612D0023FAB4 /* Observer */,
 				F37ECF0520B034CB00CC579B /* Cache */,
 				F37ECF2020B034CB00CC579B /* matlab */,
 				F37ECF1B20B034CB00CC579B /* RefreshTool */,
@@ -616,6 +653,7 @@
 				008CD347204F7BE400876974 /* QuanViewController.xib in Resources */,
 				001FE11120284E820021FA46 /* PopViewController.xib in Resources */,
 				F37ECF3F20B034CB00CC579B /* NMatlabViewController.xib in Resources */,
+				00A4A77420B261670023FAB4 /* NObserverViewController.xib in Resources */,
 				F37ECF4520B034CB00CC579B /* NTipsTableViewCell.xib in Resources */,
 				F37ECF4220B034CB00CC579B /* UrlCacheViewController.xib in Resources */,
 				001FE0E820284DDB0021FA46 /* LaunchScreen.storyboard in Resources */,
@@ -730,6 +768,7 @@
 				F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */,
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
 				F37ECF3A20B034CB00CC579B /* XYObjectCache.m in Sources */,
+				0052080820B3BF0200AE3AB2 /* NPerson.m in Sources */,
 				F37ECF4920B035EB00CC579B /* NDemoTableViewController.m in Sources */,
 				F37ECF3D20B034CB00CC579B /* ZHNThresholdHelper.m in Sources */,
 				001FE1142028546D0021FA46 /* CustomBtn.m in Sources */,
@@ -747,6 +786,7 @@
 				F37ECF3920B034CB00CC579B /* XYThread.m in Sources */,
 				F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */,
 				F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */,
+				00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */,
 				F37ECF3C20B034CB00CC579B /* NCacheViewController.m in Sources */,
 				F37ECF5220B0428600CC579B /* NComposeViewController.m in Sources */,
 				008CD346204F7BE400876974 /* QuanViewController.m in Sources */,

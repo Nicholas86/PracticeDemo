@@ -65,7 +65,7 @@
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section
 {
-    return 10* section;
+    return 5* section;
 }
 
 
