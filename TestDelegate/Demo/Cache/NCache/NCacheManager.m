@@ -66,70 +66,113 @@
 /// 添加key-value
 - (void)setObject:(id)object forKey:(NSString *)key isAsync:(BOOL)isAsync
 {
-    
+    if (isAsync) {//异步缓存
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self setFileCacheObject:object forKey:key];
+            [self setMemoryCacheObject:object forKey:key];
+        });
+    }else{
+        //同步缓存
+        [self setFileCacheObject:object forKey:key];
+        [self setMemoryCacheObject:object forKey:key];
+    }
 }
 
 - (void)setObject:(id)object forKey:(NSString *)key
 {
-    
+    //默认同步保存
+    [self  setObject:object forKey:key isAsync:NO];
 }
 
 - (void)setFileCacheObject:(id)object forKey:(NSString *)key
 {
-    
+    NSString *md5Key = [self  md5HashWithString:key];
+    [self.fileCache setObject:object forKey:md5Key];
 }
 
 - (void)setMemoryCacheObject:(id)object forKey:(NSString *)key
 {
-    
+    NSString *md5Key = [self  md5HashWithString:key];
+    [self.memoryCache setObject:object forKey:md5Key];
 }
 
 /// 取key对应的value
 - (id)objectForKey:(NSString *)key
 {
-    return nil;
+    //先读内存缓存
+    id object = [self  memoryCacheObjectForKey:key];
+    if (object == nil) {
+        //内存缓存为空, 再读文件缓存
+        object = [self fileCacheObjectForKey:key];
+    }
+    return object;
 }
 
 - (id)fileCacheObjectForKey:(NSString *)key
 {
-    return nil;
+    NSString *md5Key = [self  md5HashWithString:key];
+    id object = nil;
+    //判断是否有value
+    if ([self.fileCache  hasObjectForKey:md5Key]) {
+        //取出对象, 并知道对象类型
+        object = [self.fileCache  objectForKey:md5Key objectClass:_aClass];
+        return object;
+    }
+    
+    return object;
 }
 
-- (id)memoryObjectForKey:(NSString *)key
+- (id)memoryCacheObjectForKey:(NSString *)key
 {
-    return nil;
+    NSString *md5Key = [self  md5HashWithString:key];
+    id object = nil;
+    //判断内存缓存是否有value
+    if ([self.memoryCache  hasObjectForKey:md5Key]) {
+        object = [self.memoryCache  objectForKey:md5Key];
+        if (object && [object isKindOfClass:_aClass]) {
+            //返回对象, 并且知道对象类型
+            return object;
+        }else if (object && 1){
+            return object;
+        }
+    }
+    return object;
 }
 
 /// 删除对应key的值
 - (void)removeObjectForKey:(NSString *)key
 {
-    
+    [self  removeFileCacheObjectForKey:key];
+    [self  removeMemoryCacheObjectForKey:key];
 }
 
 - (void)removeFileCacheObjectForKey:(NSString *)key
 {
-    
+    NSString *md5Key = [self  md5HashWithString:key];
+    [self.fileCache  removeObjectForKey:md5Key];
 }
 
-- (void)removeMemoryObjectForKey:(NSString *)key
+- (void)removeMemoryCacheObjectForKey:(NSString *)key
 {
-    
+    NSString *md5Key = [self  md5HashWithString:key];
+    [self.memoryCache  removeObjectForKey:md5Key];
 }
 
 /// 删除全部数据 - 清除当前 diskCachePath 所有的文件
 - (void)removeAllObjects
 {
-    
+    [self  removeAllFileCacheObjects];
+    [self  removeAllMemoryCacheObjects];
 }
 
 - (void)removeAllFileCacheObjects
 {
-    
+    [self.fileCache  removeAllObjects];
 }
 
-- (void)removeAllMemoryObjects
+- (void)removeAllMemoryCacheObjects
 {
-    
+    [self.memoryCache  removeAllObjects];
 }
 
 #pragma mark - Function Helper

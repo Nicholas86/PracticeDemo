@@ -39,17 +39,17 @@
 /// 取key对应的value
 - (id)objectForKey:(NSString *)key;
 - (id)fileCacheObjectForKey:(NSString *)key;
-- (id)memoryObjectForKey:(NSString *)key;
+- (id)memoryCacheObjectForKey:(NSString *)key;
 
 /// 删除对应key的值
 - (void)removeObjectForKey:(NSString *)key;
 - (void)removeFileCacheObjectForKey:(NSString *)key;
-- (void)removeMemoryObjectForKey:(NSString *)key;
+- (void)removeMemoryCacheObjectForKey:(NSString *)key;
 
 /// 删除全部数据 - 清除当前 diskCachePath 所有的文件
 - (void)removeAllObjects;
 - (void)removeAllFileCacheObjects;
-- (void)removeAllMemoryObjects;
+- (void)removeAllMemoryCacheObjects;
 
 @end
 

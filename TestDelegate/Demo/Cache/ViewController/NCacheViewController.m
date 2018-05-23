@@ -76,24 +76,6 @@
     
     NSString *object = [cacheManager objectForKey:@"name"];
     NSLog(@"object: %@", object);
-
-    
-//    NFileCache *fileCache = [NFileCache  fileCacheWithDiskPath:@"nicholas"];
-//    //先清空缓存
-//    //[fileCache removeAllObjects];
-//
-////    [fileCache clearDiskOnCompletion:^{
-////        NSLog(@"清空缓存成功");
-////    }];
-//
-//    //添加数据到本地
-//    [fileCache  setObject:@"谢霆锋" forKey:@"name"];
-//    //[fileCache  setObject:@"娄泽" forKey:@"age"];
-//
-//    //id object = [fileCache  objectForKey:@"name"];
-//    NSString *object = [fileCache objectForKey:@"name" objectClass:[NSString class]];
-//
-//    NSLog(@"object: %@", object);
 }
 
 
