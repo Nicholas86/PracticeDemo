@@ -989,7 +989,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Debug";
-				DEVELOPMENT_TEAM = Z2PP5K6334;
+				DEVELOPMENT_TEAM = WK6R7V524D;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1006,7 +1006,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Release";
-				DEVELOPMENT_TEAM = Z2PP5K6334;
+				DEVELOPMENT_TEAM = WK6R7V524D;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1141,7 +1141,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingDebug";
-				DEVELOPMENT_TEAM = Z2PP5K6334;
+				DEVELOPMENT_TEAM = WK6R7V524D;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1239,7 +1239,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingRelease";
-				DEVELOPMENT_TEAM = Z2PP5K6334;
+				DEVELOPMENT_TEAM = WK6R7V524D;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

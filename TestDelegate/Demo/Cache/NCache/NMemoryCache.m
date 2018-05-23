@@ -54,7 +54,7 @@
         return;
     }
     
-    if ([object length] == 0) {
+    if (object == nil) {
         NSLog(@"object is null");
         return;
     }

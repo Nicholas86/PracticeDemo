@@ -29,6 +29,7 @@
     if (self) {
         self.memoryCache = [NMemoryCache  share];
         self.fileCache = [NFileCache share];
+        [self  registerClass:[NSException  class]];//默认类
     }return self;
 }
 
@@ -43,7 +44,7 @@
 - (BOOL)hasObjectForKey:(NSString *)key
 {
     //去内存读
-    BOOL isHave= [self  hasMemoryCacheForKey:key];
+    BOOL isHave = [self  hasMemoryCacheForKey:key];
     NSLog(@"从内存读的,isHave: %d", isHave);
 
     if (NO == isHave) {

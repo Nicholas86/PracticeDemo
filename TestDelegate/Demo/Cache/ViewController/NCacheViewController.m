@@ -23,10 +23,6 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"内存/磁盘缓存";
-    
-    
-    //文件缓存
-    [self  cacheObjcForFile];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +32,8 @@
 
 - (IBAction)handleCacheButton:(UIButton *)sender
 {
+    
+    /*
     XYObjectCache *cache = [XYObjectCache shareInstance];
     [cache registerObjectClass:[NSString class]];
     
@@ -60,17 +58,12 @@
     //[cache  saveObject:str forKey:key];//异步保存
     
     [cache  saveObject:str forKey:key async:NO];//同步保存
+    */
     
-    //更新按钮标题
-    [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@", [cache objectForKey:key]] forState:UIControlStateNormal];
-    NSLog(@"获取本地缓存:%@", [cache objectForKey:key]);
-}
-
-//文件缓存
-- (void)cacheObjcForFile
-{
+    
     NCacheManager *cacheManager = [NCacheManager  share];
-    [cacheManager  registerClass:[NSString class]];
+    //[cacheManager  registerClass:[NSData class]];
+    //[cacheManager  registerClass:[NSDictionary  class]];
     
     NSString *key = @"name";
     NSString *value = nil;
@@ -79,17 +72,36 @@
         value = [cacheManager  objectForKey:key];
         NSLog(@"本地有缓存: %@", value);
     }else{
-        /*
-            value = @"李克强";
-            [cacheManager  setObject:value forKey:key];
-            NSLog(@"本地无缓存: %@", value);
-         */
+         value = @"李克强";
+         [cacheManager  setObject:value forKey:key];
+         NSLog(@"本地无缓存: %@", value);
     }
+    
+    NSString *key_dic = @"dic";
+    NSDictionary *value_dic = nil;
+    
+    if ([cacheManager  hasObjectForKey:key_dic]) {
+        value_dic = [cacheManager  objectForKey:key_dic];
+        NSLog(@"本地有缓存: %@", value_dic);
+        
+    }else{
+        value_dic = @{
+                      @"name": @"李克强",
+                      @"age": @12
+                  };
+        [cacheManager  setObject:value_dic forKey:key_dic];
+        NSLog(@"本地无缓存: %@", value_dic);
+    }
+    
+    NSLog(@"value_dic: %@", [cacheManager   objectForKey:key_dic]);
     /*
-        NSString *object = [cacheManager  objectForKey:key];
-        NSLog(@"object: %@", object);
+     NSString *object = [cacheManager  objectForKey:key];
+     NSLog(@"object: %@", object);
      */
+    //更新按钮标题
+    [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@", [cacheManager objectForKey:key]] forState:UIControlStateNormal];
 }
+
 
 
 @end
