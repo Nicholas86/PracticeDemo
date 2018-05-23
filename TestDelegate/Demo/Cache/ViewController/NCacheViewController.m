@@ -72,10 +72,23 @@
     NCacheManager *cacheManager = [NCacheManager  share];
     [cacheManager  registerClass:[NSString class]];
     
-    [cacheManager  setObject:@"江山" forKey:@"name"];
+    NSString *key = @"name";
+    NSString *value = nil;
     
-    NSString *object = [cacheManager objectForKey:@"name"];
-    NSLog(@"object: %@", object);
+    if ([cacheManager  hasObjectForKey:key]) {
+        value = [cacheManager  objectForKey:key];
+        NSLog(@"本地有缓存: %@", value);
+    }else{
+        /*
+            value = @"李克强";
+            [cacheManager  setObject:value forKey:key];
+            NSLog(@"本地无缓存: %@", value);
+         */
+    }
+    /*
+        NSString *object = [cacheManager  objectForKey:key];
+        NSLog(@"object: %@", object);
+     */
 }
 
 

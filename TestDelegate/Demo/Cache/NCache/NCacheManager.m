@@ -44,9 +44,12 @@
 {
     //去内存读
     BOOL isHave= [self  hasMemoryCacheForKey:key];
+    NSLog(@"从内存读的,isHave: %d", isHave);
+
     if (NO == isHave) {
         //去磁盘里读
         isHave = [self  hasFileCacheForKey:key];
+        NSLog(@"从文件读的, isHave: %d", isHave);
     }
     return isHave;
 }
@@ -101,9 +104,11 @@
 {
     //先读内存缓存
     id object = [self  memoryCacheObjectForKey:key];
+    NSLog(@"从内存读, object:%@", object);
     if (object == nil) {
         //内存缓存为空, 再读文件缓存
         object = [self fileCacheObjectForKey:key];
+        NSLog(@"从文件读, object:%@", object);
     }
     return object;
 }
@@ -116,6 +121,10 @@
     if ([self.fileCache  hasObjectForKey:md5Key]) {
         //取出对象, 并知道对象类型
         object = [self.fileCache  objectForKey:md5Key objectClass:_aClass];
+        if (object) {
+            //读取到对象后, 写进内存缓存, 保证下次从内存缓存里读
+            [self.memoryCache  setObject:object forKey:md5Key];
+        }
         return object;
     }
     

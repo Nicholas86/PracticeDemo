@@ -41,7 +41,7 @@
         //缓存的磁盘路径
         _diskCachePath = [[self defaultDiskCachePath] stringByAppendingPathComponent:diskPath];
         
-        NSLog(@"缓存的磁盘路径: %@", _diskCachePath);
+        //NSLog(@"缓存的磁盘路径: %@", _diskCachePath);
 
         //缓存时长, 默认1天
         _maxCacheTimeInterval = NFileCache_fileExpires;
@@ -89,7 +89,7 @@
     
     NSAssert(filePath.length > 0, @"路径得有");
     
-    NSLog(@"key对应的文件路径: %@", filePath);
+    //NSLog(@"key对应的文件路径: %@", filePath);
     return filePath;
 }
 
