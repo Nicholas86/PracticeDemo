@@ -18,6 +18,7 @@
 		001FE11020284E820021FA46 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE10E20284E820021FA46 /* PopViewController.m */; };
 		001FE11120284E820021FA46 /* PopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001FE10F20284E820021FA46 /* PopViewController.xib */; };
 		001FE1142028546D0021FA46 /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE1132028546D0021FA46 /* CustomBtn.m */; };
+		00266EF320B5227200E64EFB /* NSObject+NAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 00266EF220B5227200E64EFB /* NSObject+NAutoCoding.m */; };
 		0052080820B3BF0200AE3AB2 /* NPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0052080720B3BF0200AE3AB2 /* NPerson.m */; };
 		008CD346204F7BE400876974 /* QuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD344204F7BE400876974 /* QuanViewController.m */; };
 		008CD347204F7BE400876974 /* QuanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008CD345204F7BE400876974 /* QuanViewController.xib */; };
@@ -97,6 +98,8 @@
 		001FE10F20284E820021FA46 /* PopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopViewController.xib; sourceTree = "<group>"; };
 		001FE1122028546D0021FA46 /* CustomBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtn.h; sourceTree = "<group>"; };
 		001FE1132028546D0021FA46 /* CustomBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
+		00266EF120B5227200E64EFB /* NSObject+NAutoCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+NAutoCoding.h"; sourceTree = "<group>"; };
+		00266EF220B5227200E64EFB /* NSObject+NAutoCoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NAutoCoding.m"; sourceTree = "<group>"; };
 		0052080620B3BF0200AE3AB2 /* NPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPerson.h; sourceTree = "<group>"; };
 		0052080720B3BF0200AE3AB2 /* NPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPerson.m; sourceTree = "<group>"; };
 		008CD343204F7BE400876974 /* QuanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuanViewController.h; sourceTree = "<group>"; };
@@ -362,6 +365,8 @@
 				F37A4FC620B442FD0076825D /* NMemoryCache.m */,
 				F37A4FC820B450ED0076825D /* NFileCache.h */,
 				F37A4FC920B450ED0076825D /* NFileCache.m */,
+				00266EF120B5227200E64EFB /* NSObject+NAutoCoding.h */,
+				00266EF220B5227200E64EFB /* NSObject+NAutoCoding.m */,
 			);
 			path = NCache;
 			sourceTree = "<group>";
@@ -784,6 +789,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F37ECF3E20B034CB00CC579B /* delegateContainer.m in Sources */,
+				00266EF320B5227200E64EFB /* NSObject+NAutoCoding.m in Sources */,
 				F37ECF4320B034CB00CC579B /* UrlCacheViewController.m in Sources */,
 				F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */,
 				001FE11020284E820021FA46 /* PopViewController.m in Sources */,
@@ -983,7 +989,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Debug";
-				DEVELOPMENT_TEAM = WK6R7V524D;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1000,7 +1006,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Release";
-				DEVELOPMENT_TEAM = WK6R7V524D;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1135,7 +1141,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingDebug";
-				DEVELOPMENT_TEAM = WK6R7V524D;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1233,7 +1239,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingRelease";
-				DEVELOPMENT_TEAM = WK6R7V524D;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -27,10 +27,23 @@
 /// 用新路径建立一个cache
 - (id)initWithDiskPath:(NSString *)diskPath;
 
+///便利构造器
++ (id)fileCacheWithDiskPath:(NSString *)diskPath;
+
 /// 返回key对应的文件路径
 - (NSString *)filePathForKey:(NSString *)key;
 
+/// 返回value: 存字符串, 返回字符串类型; 存UIImage, 返回UIImage类型。
+- (id)objectForKey:(NSString *)key objectClass:(Class)aClass;
 
+/// 清除当前 diskCachePath 所有的文件
+- (void)clearDisk;
+
+/// 清除当前 diskCachePath 所有的文件
+- (void)clearDiskOnCompletion:(void(^)(void))completion;
+
+
+#pragma mark - Private Methods
 //是否含有某个key对应的值
 - (BOOL)hasObjectForKey:(NSString *)key;
 
@@ -43,7 +56,9 @@
 //删除对应key的值
 - (void)removeObjectForKey:(NSString *)key;
 
-//删除全部数据
+//删除全部数据 - 清除当前 diskCachePath 所有的文件
 - (void)removeAllObjects;
 
 @end
+
+
