@@ -424,10 +424,10 @@
 			isa = PBXGroup;
 			children = (
 				F37ECF1620B034CB00CC579B /* XYObjectCache.h */,
-				F37ECF1720B034CB00CC579B /* NCacheViewController.h */,
 				F37ECF1820B034CB00CC579B /* XYObjectCache.m */,
-				F37ECF1920B034CB00CC579B /* NCacheViewController.xib */,
+				F37ECF1720B034CB00CC579B /* NCacheViewController.h */,
 				F37ECF1A20B034CB00CC579B /* NCacheViewController.m */,
+				F37ECF1920B034CB00CC579B /* NCacheViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

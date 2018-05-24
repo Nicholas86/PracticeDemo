@@ -69,14 +69,40 @@
 /// 添加key-value
 - (void)setObject:(id)object forKey:(NSString *)key isAsync:(BOOL)isAsync
 {
-    if (isAsync) {//异步缓存
+#warning copy https://blog.csdn.net/u013883974/article/details/77645212
+    if (isAsync) {
+        /////////////////////// 异步缓存 /////////////////
+        /*
+         外部 直接for循环,  程序会崩溃。
+         原因:[self setMemoryCacheObject:object forKey:key]方法里面, 属性cacheObjDic字典的语义是
+         nonatomic, 不保证线程安全
+         */
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 [self setFileCacheObject:object forKey:key];
                 [self setMemoryCacheObject:object forKey:key];
         });
     }else{
+        
+        /////////////////////// 二种同步缓存方法 /////////////////
+        
+        /*第一种: 外部 直接for循环 调用setObject:(id)object forKey:(NSString *)key isAsync:(BOOL)isAsync时, for循环内部不开启子线程时, 程序不崩溃; for 内部开启子线程时, 程序会崩溃。
+        
+         原因:[self setMemoryCacheObject:object forKey:key]方法里面, 属性cacheObjDic字典的语义是
+         nonatomic, 不保证线程安全
+         推荐第一种, 但是 for 循序内部 一定不要开启子线程, 创建数据本身就是同步事件
+         下一步需要学习barrier函数, 解决线程安全问题
+         */
+        
         [self setFileCacheObject:object forKey:key];
         [self setMemoryCacheObject:object forKey:key];
+        
+        /*第二种: 外部 直接for循环 调用setObject:(id)object forKey:(NSString *)key isAsync:(BOOL)isAsync时,
+         for循环内部禁止开启子线程, 因为这里已经开启了子线程;
+         for 内部开启子线程时, 程序会崩溃。
+         
+         不建议使用第二种方式, 因为会开启大量子线程, 性能消耗大。
+         */
+        
         /*
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             //同步缓存

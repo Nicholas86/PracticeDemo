@@ -11,8 +11,11 @@
 #import <UIKit/UIKit.h>//导入UIkit框架
 #import "NMemoryCache.h"
 
-@interface NMemoryCache ()
-    
+@interface NMemoryCache (){
+    dispatch_queue_t _serial_queue; //串行队列
+    NSLock *_lock;//锁🔐
+}
+
 @property (nonatomic, strong) NSMutableArray *cacheKeyArray; //保存所有key
 @property (nonatomic, strong) NSMutableDictionary *cacheObjDic;//保存key-value
 @end
@@ -36,6 +39,11 @@
         _clearWhenMemoryLow = YES;//是否清除内存,默认YES
         _maxCacheCount = XYMemoryCache_DEFAULT_MAX_COUNT;//最大缓存个数
         _cachedCount = 0; //缓存个数, 默认为0
+        //创建串行队列
+        _serial_queue = dispatch_queue_create("com.nicholas.memory.cache", DISPATCH_QUEUE_SERIAL);
+        //创建并初始化锁🔐
+        _lock = [[NSLock alloc] init];
+        _lock.name = @"memory.cache.lock";
         [self  registerMemoryCacheNotification];
     }return self;
 }
@@ -56,7 +64,18 @@
 //是否含有某个key对应的值
 - (BOOL)hasObjectForKey:(NSString *)key
 {
-    return [self.cacheObjDic  objectForKey:key] ? YES : NO;
+    if ([key length] == 0) {
+        NSLog(@"key is null");
+        return NO;
+    }
+    //加锁
+    [_lock  lock];
+    BOOL isHave = [self.cacheObjDic  objectForKey:key] ? YES : NO;
+    NSLog(@"加锁");
+    //解锁
+    [_lock  unlock];
+    NSLog(@"解锁, isHave: %d", isHave);
+    return isHave;
 }
 
 //添加key-value
@@ -81,15 +100,19 @@
      )
      */
     
+    
+    //加锁🔐
+    [_lock  lock];
+    
     //本地内存数组已经有key, 先删除key, 保存内存数组元素唯一, 一个key对应一个value
-    if ([self  hasObjectForKey:key]) {
+    if ([self.cacheObjDic  objectForKey:key]) {
         [self.cacheKeyArray  removeObject:key];
+        NSLog(@"重复key");
     }else{
         //缓存个数 +1
         _cachedCount += 1;
     }
     
-
     @autoreleasepool{
         while (_cachedCount >= _maxCacheCount) {
             // 本地已经缓存个数 >= 最大缓存个数
@@ -103,34 +126,53 @@
         }
     }
     
-    //保存key到数组
     [self.cacheKeyArray  addObject:key];
-    //保存key-value到字典
     [self.cacheObjDic  setObject:object forKey:key];
+    NSLog(@"self.cacheObjDic: %@", self.cacheObjDic);
+    //解锁🔐
+    [_lock  unlock];
 }
 
 //取对应key的value
 - (id)objectForKey:(NSString *)key
 {
-    return [self.cacheObjDic  objectForKey:key];
+    if ([key length] == 0) {
+        NSLog(@"key is null");
+        return nil;
+    }
+    
+    [_lock lock];
+    id object = [self.cacheObjDic  objectForKey:key];
+    [_lock unlock];
+    return object;
 }
 
 //删除对应key的值
 - (void)removeObjectForKey:(NSString *)key
 {
-    if ([self  hasObjectForKey:key]) {
+    if ([key length] == 0) {
+        NSLog(@"key is null");
+        return ;
+    }
+    [_lock  lock];
+    NSLog(@"加锁啦");
+    if ([self.cacheObjDic  objectForKey:key]) {
         [self.cacheObjDic  removeObjectForKey:key];
         [self.cacheKeyArray  removeObjectIdenticalTo:key];
         _cachedCount -= 1;//缓存个数-1
     }
+    NSLog(@"解锁啦");
+    [_lock  unlock];
 }
 
 //删除全部数据
 - (void)removeAllObjects
 {
+    [_lock  lock];
     [self.cacheObjDic  removeAllObjects];
     [self.cacheKeyArray  removeAllObjects];
     _cachedCount = 0;
+    [_lock  unlock];
 }
 
 #pragma mark event response 事件响应
@@ -151,34 +193,43 @@
 //缓存的所有key
 - (NSMutableArray *)cacheKeyArray
 {
+    [_lock  lock];
     if (!_cacheKeyArray) {
         self.cacheKeyArray = [NSMutableArray  arrayWithCapacity:0];
-    }return _cacheKeyArray;
+    }
+    [_lock  unlock];
+    return _cacheKeyArray;
 }
 
 //缓存字典 key-value形式
 - (NSMutableDictionary *)cacheObjDic
 {
+    [_lock  lock];
     if (!_cacheObjDic) {
         self.cacheObjDic = [NSMutableDictionary dictionaryWithCapacity:0];
-    }return _cacheObjDic;
+    }
+    [_lock  unlock];
+    return _cacheObjDic;
 }
 
 //是否清空内存
 - (void)setClearWhenMemoryLow:(BOOL)clearWhenMemoryLow
 {
+    [_lock  lock];
     if (clearWhenMemoryLow == YES){
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMemoryCacheNotification:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }else{
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     _clearWhenMemoryLow = clearWhenMemoryLow;
+    [_lock  unlock];
 }
 
 
 //最大缓存个数-外部设置后, 在这里处理, 重写setter方法
 - (void)setMaxCacheCount:(NSUInteger)maxCacheCount
 {
+    [_lock  lock];
     while (_cachedCount > maxCacheCount) {
         //当 本地已经缓存的个数 > 外部设置的最大缓存个数, 就循环删除开始的数据
         NSLog(@"循环删除本地数据");
@@ -191,6 +242,7 @@
     
     //设置最大缓存数据
     _maxCacheCount = maxCacheCount;
+    [_lock  unlock];
 }
 
 
@@ -200,10 +252,6 @@
 }
 
 @end
-
-
-
-
 
 
 
