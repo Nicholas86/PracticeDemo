@@ -20,6 +20,7 @@
 		001FE1142028546D0021FA46 /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FE1132028546D0021FA46 /* CustomBtn.m */; };
 		00266EF320B5227200E64EFB /* NSObject+NAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 00266EF220B5227200E64EFB /* NSObject+NAutoCoding.m */; };
 		0052080820B3BF0200AE3AB2 /* NPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0052080720B3BF0200AE3AB2 /* NPerson.m */; };
+		008C187420B68FAC00836817 /* XYFileCacheBackgroundClean.m in Sources */ = {isa = PBXBuildFile; fileRef = 008C187320B68FAC00836817 /* XYFileCacheBackgroundClean.m */; };
 		008CD346204F7BE400876974 /* QuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD344204F7BE400876974 /* QuanViewController.m */; };
 		008CD347204F7BE400876974 /* QuanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008CD345204F7BE400876974 /* QuanViewController.xib */; };
 		008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD349204F7D0F00876974 /* EOCRectangle.m */; };
@@ -102,6 +103,8 @@
 		00266EF220B5227200E64EFB /* NSObject+NAutoCoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NAutoCoding.m"; sourceTree = "<group>"; };
 		0052080620B3BF0200AE3AB2 /* NPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPerson.h; sourceTree = "<group>"; };
 		0052080720B3BF0200AE3AB2 /* NPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPerson.m; sourceTree = "<group>"; };
+		008C187220B68FAC00836817 /* XYFileCacheBackgroundClean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYFileCacheBackgroundClean.h; sourceTree = "<group>"; };
+		008C187320B68FAC00836817 /* XYFileCacheBackgroundClean.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYFileCacheBackgroundClean.m; sourceTree = "<group>"; };
 		008CD343204F7BE400876974 /* QuanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuanViewController.h; sourceTree = "<group>"; };
 		008CD344204F7BE400876974 /* QuanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuanViewController.m; sourceTree = "<group>"; };
 		008CD345204F7BE400876974 /* QuanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuanViewController.xib; sourceTree = "<group>"; };
@@ -400,17 +403,19 @@
 				F37ECF0720B034CB00CC579B /* XYQuick_Cache.h */,
 				F37ECF0820B034CB00CC579B /* XYCacheProtocol.h */,
 				F37ECF0920B034CB00CC579B /* XYAutoCoding.h */,
-				F37ECF0A20B034CB00CC579B /* XYMemoryCache.m */,
+				F37ECF1020B034CB00CC579B /* XYAutoCoding.m */,
+				F37ECF1320B034CB00CC579B /* NSString+XY.h */,
 				F37ECF0B20B034CB00CC579B /* NSString+XY.m */,
 				F37ECF0C20B034CB00CC579B /* XYUserDefaults.h */,
-				F37ECF0D20B034CB00CC579B /* XYFileCache.m */,
-				F37ECF0E20B034CB00CC579B /* XYThread.h */,
-				F37ECF0F20B034CB00CC579B /* XYMemoryCache.h */,
-				F37ECF1020B034CB00CC579B /* XYAutoCoding.m */,
-				F37ECF1120B034CB00CC579B /* XYFileCache.h */,
 				F37ECF1220B034CB00CC579B /* XYUserDefaults.m */,
-				F37ECF1320B034CB00CC579B /* NSString+XY.h */,
+				F37ECF0E20B034CB00CC579B /* XYThread.h */,
 				F37ECF1420B034CB00CC579B /* XYThread.m */,
+				F37ECF0F20B034CB00CC579B /* XYMemoryCache.h */,
+				F37ECF0A20B034CB00CC579B /* XYMemoryCache.m */,
+				F37ECF1120B034CB00CC579B /* XYFileCache.h */,
+				F37ECF0D20B034CB00CC579B /* XYFileCache.m */,
+				008C187220B68FAC00836817 /* XYFileCacheBackgroundClean.h */,
+				008C187320B68FAC00836817 /* XYFileCacheBackgroundClean.m */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -802,6 +807,7 @@
 				F37ECF4920B035EB00CC579B /* NDemoTableViewController.m in Sources */,
 				F37ECF3D20B034CB00CC579B /* ZHNThresholdHelper.m in Sources */,
 				001FE1142028546D0021FA46 /* CustomBtn.m in Sources */,
+				008C187420B68FAC00836817 /* XYFileCacheBackgroundClean.m in Sources */,
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
 				F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */,
 				F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */,

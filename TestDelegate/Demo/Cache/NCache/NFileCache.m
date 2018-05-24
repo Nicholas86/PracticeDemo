@@ -118,6 +118,7 @@
 /// 清除当前 diskCachePath 所有的文件
 - (void)clearDiskOnCompletion:(void(^)(void))completion
 {
+    //异步清除
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         /*
          /Users/a/Library/Developer/CoreSimulator/Devices/E4B24D7E-0219-4045-80B0-1384734EA209/data/Containers/Data/Application/5EC72421-1E0D-4601-BB2A-606E63910EC4/Library/Caches/nicholas/
@@ -158,8 +159,8 @@
     }else{
         // 用的是NSObject + NAutoCoding里的方法
         // 写进本地文件
-        //[object writeToFile:[self filePathForKey:key] atomically:YES];
-        [object nwriteToFile:[self filePathForKey:key] atomically:YES];
+        [object writeToFile:[self filePathForKey:key] atomically:YES];
+        //[object nwriteToFile:[self filePathForKey:key] atomically:YES];
     }
 }
 

@@ -6,8 +6,9 @@
 //  Copyright © 2018年 a. All rights reserved.
 //
 
-#define XYMemoryCache_DEFAULT_MAX_COUNT  (48)
 
+#define XYMemoryCache_DEFAULT_MAX_COUNT  (3)
+#import <UIKit/UIKit.h>//导入UIkit框架
 #import "NMemoryCache.h"
 
 @interface NMemoryCache ()
@@ -32,12 +33,24 @@
 {
     self = [super init];
     if (self) {
-        _clearWhenMemoryLow = YES;
+        _clearWhenMemoryLow = YES;//是否清除内存,默认YES
         _maxCacheCount = XYMemoryCache_DEFAULT_MAX_COUNT;//最大缓存个数
         _cachedCount = 0; //缓存个数, 默认为0
+        [self  registerMemoryCacheNotification];
     }return self;
 }
 
+- (void)registerMemoryCacheNotification
+{
+#if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+    //内存警告
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMemoryCacheNotification:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+    //终止
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMemoryCacheNotification:) name:UIApplicationWillTerminateNotification object:nil];
+    //进入后台
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMemoryCacheNotification:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+#endif    // #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+}
 
 #pragma mark - Private Methods
 //是否含有某个key对应的值
@@ -59,17 +72,34 @@
         return;
     }
     
-    //缓存个数 +1
-    _cachedCount += 1;
+    /*
+    self.cacheKeyArray: (
+         470dcd7b646bfcf16d7f0e85bd145ac4,
+         470dcd7b646bfcf16d7f0e85bd145ac4,
+         470dcd7b646bfcf16d7f0e85bd145ac4,
+         470dcd7b646bfcf16d7f0e85bd145ac4
+     )
+     */
     
-    while (_cachedCount >= _maxCacheCount) {
-        // 本地已经缓存个数 >= 最大缓存个数
-        //从第一个开始清除, 知道 本地已经缓存个数 < 最大缓存个数
-        @autoreleasepool{
-            NSString *tempKey = [self.cacheKeyArray  objectAtIndex:0];
-            [self.cacheKeyArray  removeObjectAtIndex:0];
-            [self.cacheObjDic  removeObjectForKey:tempKey];
-            _cachedCount -= 1; //本地缓存个数-1
+    //本地内存数组已经有key, 先删除key, 保存内存数组元素唯一, 一个key对应一个value
+    if ([self  hasObjectForKey:key]) {
+        [self.cacheKeyArray  removeObject:key];
+    }else{
+        //缓存个数 +1
+        _cachedCount += 1;
+    }
+    
+
+    @autoreleasepool{
+        while (_cachedCount >= _maxCacheCount) {
+            // 本地已经缓存个数 >= 最大缓存个数
+            //从第一个开始清除, 知道 本地已经缓存个数 < 最大缓存个数
+            @autoreleasepool{
+                NSString *tempKey = [self.cacheKeyArray  objectAtIndex:0];
+                [self.cacheKeyArray  removeObjectAtIndex:0];
+                [self.cacheObjDic  removeObjectForKey:tempKey];
+                _cachedCount -= 1; //本地缓存个数-1
+            }
         }
     }
     
@@ -103,6 +133,19 @@
     _cachedCount = 0;
 }
 
+#pragma mark event response 事件响应
+//接收内存警告通知
+- (void)handleMemoryCacheNotification:(NSNotification *)notification
+{
+#if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+    if ([notification.name isEqualToString:UIApplicationDidReceiveMemoryWarningNotification]){
+        if ( _clearWhenMemoryLow ){
+            NSLog(@"收到内存警告通知");
+            [self removeAllObjects];
+        }
+    }
+#endif    // #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+}
 
 #pragma mark setter & getter
 //缓存的所有key
@@ -121,23 +164,39 @@
     }return _cacheObjDic;
 }
 
+//是否清空内存
+- (void)setClearWhenMemoryLow:(BOOL)clearWhenMemoryLow
+{
+    if (clearWhenMemoryLow == YES){
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMemoryCacheNotification:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+    }else{
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+    }
+    _clearWhenMemoryLow = clearWhenMemoryLow;
+}
+
+
 //最大缓存个数-外部设置后, 在这里处理, 重写setter方法
 - (void)setMaxCacheCount:(NSUInteger)maxCacheCount
 {
     while (_cachedCount > maxCacheCount) {
         //当 本地已经缓存的个数 > 外部设置的最大缓存个数, 就循环删除开始的数据
         NSLog(@"循环删除本地数据");
-        @autoreleasepool{
-            //用数组、字典结合, 就是为了循环处理这种情况。
-            NSString *tempKey = [self.cacheKeyArray  objectAtIndex:0];
-            [self.cacheKeyArray  removeObjectAtIndex:0];
-            [self.cacheObjDic  removeObjectForKey:tempKey];
-            _cachedCount -= 1;//个数-1
-        }
+        //用数组、字典结合, 就是为了循环处理这种情况。
+        NSString *tempKey = [self.cacheKeyArray  objectAtIndex:0];
+        [self.cacheKeyArray  removeObjectAtIndex:0];
+        [self.cacheObjDic  removeObjectForKey:tempKey];
+        _cachedCount -= 1;//个数-1
     }
     
     //设置最大缓存数据
     _maxCacheCount = maxCacheCount;
+}
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

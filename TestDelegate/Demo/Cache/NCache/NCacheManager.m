@@ -46,7 +46,6 @@
     //去内存读
     BOOL isHave = [self  hasMemoryCacheForKey:key];
     NSLog(@"从内存读的,isHave: %d", isHave);
-
     if (NO == isHave) {
         //去磁盘里读
         isHave = [self  hasFileCacheForKey:key];
@@ -72,13 +71,22 @@
 {
     if (isAsync) {//异步缓存
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self setFileCacheObject:object forKey:key];
-            [self setMemoryCacheObject:object forKey:key];
+                [self setFileCacheObject:object forKey:key];
+                [self setMemoryCacheObject:object forKey:key];
         });
     }else{
-        //同步缓存
         [self setFileCacheObject:object forKey:key];
         [self setMemoryCacheObject:object forKey:key];
+        /*
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            //同步缓存
+            //加锁, 保证线程同步, 必须将所有参数放在锁里面
+            @synchronized(self){
+                [self setFileCacheObject:object forKey:key];
+                [self setMemoryCacheObject:object forKey:key];
+            }
+        });
+         */
     }
 }
 
