@@ -10,9 +10,13 @@
 #import "NSObject+NAutoCoding.h"
 
 @interface NFileCache()
+{
+    dispatch_semaphore_t _semaphonre_t;//信号量, 相当于锁🔐
+}
 @property (nonatomic, strong) NSFileManager *fileManager;//文件对象
 - (NSDictionary *)info;
 @end
+
 
 @implementation NFileCache
 //单例
@@ -50,6 +54,8 @@
         //文件对象
         _fileManager = [NSFileManager defaultManager];
         
+        //初始化信号量
+        _semaphonre_t = dispatch_semaphore_create(1);
 //        [[XYFileCacheBackgroundClean sharedInstance] setFileCacheInfo:[self info] forKey:_diskCachePath];
     }
     return self;

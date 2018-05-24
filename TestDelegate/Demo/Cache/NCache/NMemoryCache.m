@@ -39,7 +39,7 @@
         _clearWhenMemoryLow = YES;//是否清除内存,默认YES
         _maxCacheCount = XYMemoryCache_DEFAULT_MAX_COUNT;//最大缓存个数
         _cachedCount = 0; //缓存个数, 默认为0
-        //创建串行队列
+        //创建串行队列:再创建异步子线程,具备开启子线程能力, 队列里的任务按顺序执行
         _serial_queue = dispatch_queue_create("com.nicholas.memory.cache", DISPATCH_QUEUE_SERIAL);
         //创建并初始化锁🔐
         _lock = [[NSLock alloc] init];
@@ -47,6 +47,12 @@
         [self  registerMemoryCacheNotification];
     }return self;
 }
+
+/*
+ NSLock 不能当做 循环锁
+ (也有称作递归锁或嵌套锁的，主要特点是允许相同线程 多次上锁，并通过多次 unlock来解锁）来使用
+ 同一线程在 lock之后 未unlock 之前 再次 lock 会造成 永久性死锁。
+ */
 
 - (void)registerMemoryCacheNotification
 {
@@ -107,7 +113,6 @@
     //本地内存数组已经有key, 先删除key, 保存内存数组元素唯一, 一个key对应一个value
     if ([self.cacheObjDic  objectForKey:key]) {
         [self.cacheKeyArray  removeObject:key];
-        NSLog(@"重复key");
     }else{
         //缓存个数 +1
         _cachedCount += 1;
@@ -193,22 +198,18 @@
 //缓存的所有key
 - (NSMutableArray *)cacheKeyArray
 {
-    [_lock  lock];
     if (!_cacheKeyArray) {
         self.cacheKeyArray = [NSMutableArray  arrayWithCapacity:0];
     }
-    [_lock  unlock];
     return _cacheKeyArray;
 }
 
 //缓存字典 key-value形式
 - (NSMutableDictionary *)cacheObjDic
 {
-    [_lock  lock];
     if (!_cacheObjDic) {
         self.cacheObjDic = [NSMutableDictionary dictionaryWithCapacity:0];
     }
-    [_lock  unlock];
     return _cacheObjDic;
 }
 

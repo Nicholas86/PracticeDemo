@@ -70,6 +70,7 @@
     NSString *key = @"name";
     NSString *value = nil;
 
+    /*
     if ([cacheManager  hasObjectForKey:key]) {
         value = [cacheManager  objectForKey:key];
         NSLog(@"本地有缓存: %@", value);
@@ -78,12 +79,15 @@
          value = @"西门吹雪";
          [cacheManager  setObject:value forKey:key];
     }
-
-    //更新按钮标题
-     [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@", [cacheManager objectForKey:key]] forState:UIControlStateNormal];
     
     //删除key对应值
     [cacheManager  removeObjectForKey:key];
+    
+    [cacheManager  setObject:value forKey:key];
+
+    [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@", [cacheManager objectForKey:key]] forState:UIControlStateNormal];
+
+     */
     
     /*
     if ([cacheManager  hasObjectForKey:key_dic]) {
@@ -100,19 +104,23 @@
     */
     
 #warning 线程安全 copy https://blog.csdn.net/u013883974/article/details/77645212
-    /*
-     NSString *key_dic = [NSString stringWithFormat:@"dic_%d", self.count++];
-     NSString *key_dic = nil;
-     NSDictionary *value_dic = nil;
-    for (int i = 0; i < 100; i++) {
-        key_dic = [NSString stringWithFormat:@"dic_%d", i + 1];
-        value_dic = @{
-                      @"name": [NSString  stringWithFormat:@"线程安全是大问题-%d", i + 1],
-                      @"age": @12
-                      };
-        [cacheManager  setObject:value_dic forKey:key_dic isAsync:NO];
+     //NSString *key_dic = [NSString stringWithFormat:@"dic_%d", self.count++];
+//    __block NSString *key_dic = nil;
+//    __block NSDictionary *value_dic = nil;
+    
+    //模拟并发执行, 处理线程安全
+    for (int i = 0; i < 100000; i++) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+             NSString *key_dic = nil;
+             NSDictionary *value_dic = nil;
+             key_dic = [NSString stringWithFormat:@"dic_%d", i + 1];
+             value_dic = @{
+                          @"name": [NSString  stringWithFormat:@"线程安全是大问题-%d", i + 1],
+                          @"age": @12
+                          };
+            [cacheManager  setObject:value_dic forKey:key_dic isAsync:NO];
+        });
     }
-    */
     
     //NSLog(@"value_dic: %@", [cacheManager   objectForKey:key_dic]);
     /*
@@ -129,9 +137,6 @@
      */
 }
 
-
-
 @end
-
 
 
