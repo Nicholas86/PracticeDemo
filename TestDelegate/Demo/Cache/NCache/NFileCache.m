@@ -9,9 +9,16 @@
 #import "NFileCache.h"
 #import "NSObject+NAutoCoding.h"
 
+//加锁(默认信号量为1, 现在减1)
+#define Lock(semaphonre_t) dispatch_semaphore_wait(semaphonre_t, DISPATCH_TIME_FOREVER)
+//解锁
+#define UnLock(semaphonre_t) dispatch_semaphore_signal(semaphonre_t)
+
+
 @interface NFileCache()
 {
     dispatch_semaphore_t _semaphonre_t;//信号量, 相当于锁🔐
+    dispatch_queue_t _queue;//队列
 }
 @property (nonatomic, strong) NSFileManager *fileManager;//文件对象
 - (NSDictionary *)info;
@@ -56,6 +63,9 @@
         
         //初始化信号量
         _semaphonre_t = dispatch_semaphore_create(1);
+        //创建并行队列: YYMemoryCache用的串行队列
+        _queue = dispatch_queue_create("com.nicholas.disk.cache", DISPATCH_QUEUE_CONCURRENT);
+        
 //        [[XYFileCacheBackgroundClean sharedInstance] setFileCacheInfo:[self info] forKey:_diskCachePath];
     }
     return self;
@@ -108,7 +118,11 @@
 {
     if (aClass != nil) {
         //返回传入的数据类型, 类方法
-        return [aClass objectWithContentsOfFile:[self  filePathForKey:key]];
+        //加锁🔐
+        Lock(_semaphonre_t);
+        id object = [aClass objectWithContentsOfFile:[self  filePathForKey:key]];
+        UnLock(_semaphonre_t);
+        return object;
     }else{
         //默认返回NSData数据类型
         return [self  objectForKey:key];
@@ -148,11 +162,20 @@
 //是否含有某个key对应的文件
 - (BOOL)hasObjectForKey:(NSString *)key
 {
-    return [self.fileManager  fileExistsAtPath:[self filePathForKey:key]];
+    if ([key length] == 0) {
+        NSLog(@"key is null");
+        return NO;
+    }
+    //加锁🔐
+    Lock(_semaphonre_t);
+    BOOL isHave = [self.fileManager  fileExistsAtPath:[self filePathForKey:key]];
+    //解锁
+    UnLock(_semaphonre_t);
+    return isHave;
 }
 
 //添加key-value
-- (void)setObject:(id)object forKey:(NSString *)key
+- (void)setObject:(NSObject *)object forKey:(NSString *)key
 {
     if ([key length] == 0) {
         NSLog(@"key is null");
@@ -163,10 +186,15 @@
         //清空文件下的数据
         [self removeObjectForKey:key];
     }else{
+        
+#warning 加锁🔐(信号量) _semaphonre_t 减 1 = 0 , 一直等待, 直到信号量 _semaphonre_t = 1
+        dispatch_semaphore_wait(_semaphonre_t, DISPATCH_TIME_FOREVER);
         // 用的是NSObject + NAutoCoding里的方法
-        // 写进本地文件
+        // 写进本地文件,object类型必须是NSObject *子类, 不可以是id类型
+        //id类型就进不了NSObject + NAutoCoding里的方法
         [object writeToFile:[self filePathForKey:key] atomically:YES];
-        //[object nwriteToFile:[self filePathForKey:key] atomically:YES];
+#warning 解锁🔐(信号量) _semaphonre_t 加 1 = 1 , 1_semaphonre_t = 1
+        dispatch_semaphore_signal(_semaphonre_t);
     }
 }
 
@@ -175,13 +203,38 @@
 {
     // 建议用 objectForKey:objectClass: 可以直接返回对象
     // 默认返回NSData数据类型
-    return [NSData dataWithContentsOfFile:[self filePathForKey:key]];
+    if ([key length] == 0) {
+        NSLog(@"key is null");
+        return nil;
+    }
+    //加锁🔐
+    Lock(_semaphonre_t);
+    NSData *data = [NSData dataWithContentsOfFile:[self filePathForKey:key]];
+    UnLock(_semaphonre_t);
+    return data;
 }
 
 //删除对应key的值
 - (void)removeObjectForKey:(NSString *)key
 {
+    if ([key length] == 0) {
+        NSLog(@"key is null");
+        return ;
+    }
+    //加锁🔐
+    Lock(_semaphonre_t);
     [self.fileManager removeItemAtPath:[self filePathForKey:key] error:nil];
+    //解锁
+    UnLock(_semaphonre_t);
+}
+
+- (void)removeObjectForKey:(NSString *)key withBlock:(void(^)(NSString *key))block {
+    __weak typeof(self) _self = self;
+    dispatch_async(_queue, ^{
+        __strong typeof(_self) self = _self;
+        [self removeObjectForKey:key];
+        if (block) block(key);
+    });
 }
 
 //删除全部数据

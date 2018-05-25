@@ -34,7 +34,7 @@
     if ([self.delegate respondsToSelector:@selector(passTitleString:)]) {
         CGFloat height = [self.delegate  passTitleString:@"山楂条"];
         [self  setTitle:[NSString stringWithFormat:@"标题:%.2f", height] forState:UIControlStateNormal];
-        NSLog(@"接收返回值height:%.2f", height);
+        //NSLog(@"接收返回值height:%.2f", height);
         //根据单元格个数,每个单元格高度,返回总高度
         CGRect btnFrame = self.frame;
         btnFrame.size.height = height * rows;
@@ -50,7 +50,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    NSLog(@"layoutSubviews后执行");
+    //NSLog(@"layoutSubviews后执行");
 }
 
 @end

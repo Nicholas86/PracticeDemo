@@ -8,8 +8,6 @@
 
 #import "NCacheViewController.h"
 #import "XYObjectCache.h"
-
-#import "NFileCache.h"//文件缓存
 #import "NCacheManager.h"//文件缓存管理类
 
 @interface NCacheViewController ()
@@ -34,107 +32,82 @@
 
 - (IBAction)handleCacheButton:(UIButton *)sender
 {
-    
-    /*
-    XYObjectCache *cache = [XYObjectCache shareInstance];
-    [cache registerObjectClass:[NSString class]];
-    
-    NSString *key = @"key";
-    
-    NSString *str = nil;
-    
-    if ([cache hasCachedForKey:key] == NO) {
-        NSLog(@"本地没有缓存");
-        
-        str = @"hello world";
-        
-    }else{
-        
-        NSLog(@"本地有缓存");
-        
-        // str = [cache objectForKey:key];
-        
-        str = @"这是本地缓存值";
-    }
-    
-    //[cache  saveObject:str forKey:key];//异步保存
-    
-    [cache  saveObject:str forKey:key async:NO];//同步保存
-    */
-    
-    
     NCacheManager *cacheManager = [NCacheManager  share];
-    //[cacheManager  registerClass:[NSData class]];
-    //[cacheManager  registerClass:[NSDictionary  class]];
     
-    NSString *key = @"name";
-    NSString *value = nil;
-
     /*
+    NSString *key = @"name";
+    NSDictionary *value_dic;
     if ([cacheManager  hasObjectForKey:key]) {
-        value = [cacheManager  objectForKey:key];
-        NSLog(@"本地有缓存: %@", value);
+        value_dic = [cacheManager  objectForKey:key];
+        NSLog(@"本地有缓存: %@", value_dic);
     }else{
          NSLog(@"本地无缓存");
-         value = @"西门吹雪";
-         [cacheManager  setObject:value forKey:key];
+        NSDictionary *value_dic = @{
+                                    @"name": [NSString  stringWithFormat:@"线程安全是大问题-%d",1],
+                                    @"age": @12
+                                    };
+         [cacheManager  setObject:value_dic forKey:key];
     }
     
-    //删除key对应值
-    [cacheManager  removeObjectForKey:key];
-    
-    [cacheManager  setObject:value forKey:key];
-
-    [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@", [cacheManager objectForKey:key]] forState:UIControlStateNormal];
-
+    NSDictionary *dic = [cacheManager objectForKey:key];
+    [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@",dic[@"name"]] forState:UIControlStateNormal];
      */
-    
-    /*
-    if ([cacheManager  hasObjectForKey:key_dic]) {
-        value_dic = [cacheManager  objectForKey:key_dic];
-        //NSLog(@"本地有缓存: %@", value_dic);
-    }else{
-        value_dic = @{
-                      @"name": @"李克强",
-                      @"age": @12
-                  };
-        [cacheManager  setObject:value_dic forKey:key_dic];
-        //NSLog(@"本地无缓存");
-    }
-    */
     
 #warning 线程安全 copy https://blog.csdn.net/u013883974/article/details/77645212
-     //NSString *key_dic = [NSString stringWithFormat:@"dic_%d", self.count++];
-//    __block NSString *key_dic = nil;
-//    __block NSDictionary *value_dic = nil;
+    //模拟并发执行, 写操作, 处理线程安全
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for (int i = 0; i < 10; i++) {
+            NSLog(@"第一个");
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSString *key_dic = [NSString stringWithFormat:@"dic_%d", i + 1];
+                NSDictionary *value_dic = @{
+                                            @"name": [NSString  stringWithFormat:@"线程安全是大问题-%d", i + 1],
+                                            @"age": @12
+                                            };
+                [cacheManager  setObject:value_dic forKey:key_dic];
+            });
+        }
+    });
     
-    //模拟并发执行, 处理线程安全
-    for (int i = 0; i < 100000; i++) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-             NSString *key_dic = nil;
-             NSDictionary *value_dic = nil;
-             key_dic = [NSString stringWithFormat:@"dic_%d", i + 1];
-             value_dic = @{
-                          @"name": [NSString  stringWithFormat:@"线程安全是大问题-%d", i + 1],
-                          @"age": @12
-                          };
-            [cacheManager  setObject:value_dic forKey:key_dic isAsync:NO];
-        });
-    }
+    //模拟并发执行, 删除操作, 处理线程安全
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for (int i = 0; i < 9; i++) {
+            NSLog(@"第二个");
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSString *key_dic = [NSString stringWithFormat:@"dic_%d", i + 1];
+                if ([cacheManager  hasObjectForKey:key_dic]) {
+                    NSDictionary *dic = [cacheManager objectForKey:key_dic];
+                    [cacheManager  removeObjectForKey:key_dic];
+                    NSLog(@"第二个, name: %@", dic[@"name"]);
+                }
+            });
+        }
+    });
     
-    //NSLog(@"value_dic: %@", [cacheManager   objectForKey:key_dic]);
-    /*
-     NSString *object = [cacheManager  objectForKey:key];
-     NSLog(@"object: %@", object);
-     */
+    //模拟并发执行, 读操作, 处理线程安全
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for (int i = 0; i < 100; i++) {
+            NSLog(@"第仨个");
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSString *key_dic = [NSString stringWithFormat:@"dic_%d", i + 1];
+                if ([cacheManager  hasObjectForKey:key_dic]) {
+                    NSDictionary *dic = [cacheManager objectForKey:key_dic];
+                    //主线程刷新UI
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"第三个, name: %@", dic[@"name"]);
+                     [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@",dic[@"name"]] forState:UIControlStateNormal];
+                    });
+                }else{
+                    //主线程刷新UI
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [sender  setTitle:[NSString stringWithFormat:@"测试缓存/没有缓存了"] forState:UIControlStateNormal];
+                    });
+                }
+            });
+        }
+    });
     
-//    NSDictionary *dic = (NSDictionary *)[cacheManager   objectForKey:key_dic];
-//
-//    [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@",dic[@"name"]] forState:UIControlStateNormal];
-    //更新按钮标题
-    /*
-    [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@", [cacheManager objectForKey:key]] forState:UIControlStateNormal];
-     */
+    
 }
 
 @end

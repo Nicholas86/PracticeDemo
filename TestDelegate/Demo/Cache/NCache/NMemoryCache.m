@@ -77,10 +77,8 @@
     //加锁
     [_lock  lock];
     BOOL isHave = [self.cacheObjDic  objectForKey:key] ? YES : NO;
-    NSLog(@"加锁");
     //解锁
     [_lock  unlock];
-    NSLog(@"解锁, isHave: %d", isHave);
     return isHave;
 }
 
@@ -160,13 +158,11 @@
         return ;
     }
     [_lock  lock];
-    NSLog(@"加锁啦");
     if ([self.cacheObjDic  objectForKey:key]) {
         [self.cacheObjDic  removeObjectForKey:key];
         [self.cacheKeyArray  removeObjectIdenticalTo:key];
         _cachedCount -= 1;//缓存个数-1
     }
-    NSLog(@"解锁啦");
     [_lock  unlock];
 }
 

@@ -58,7 +58,7 @@
 
 - (CGFloat)passTitleString:(NSString *)titleString
 {
-    NSLog(@"传过来:%@", titleString);
+    //NSLog(@"传过来:%@", titleString);
     self.titleLabel.text = titleString;
     return 5.0;
 }

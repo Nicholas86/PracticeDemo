@@ -60,7 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  * `NSCoding` protocol and write out the file as a NSCoded binary Plist archive.
  * Returns `YES` on success and `NO` on failure.
  */
-- (BOOL)nwriteToFile:(NSString *)filePath atomically:(BOOL)useAuxiliaryFile;
 
 - (BOOL)writeToFile:(NSString *)filePath atomically:(BOOL)useAuxiliaryFile;
 @end

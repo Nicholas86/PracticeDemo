@@ -48,13 +48,14 @@
 - (BOOL)hasObjectForKey:(NSString *)key;
 
 //添加key-value
-- (void)setObject:(id)object forKey:(NSString *)key;
+- (void)setObject:(NSObject *)object forKey:(NSString *)key;
 
 //取key对应的value
 - (id)objectForKey:(NSString *)key;
 
 //删除对应key的值
 - (void)removeObjectForKey:(NSString *)key;
+- (void)removeObjectForKey:(NSString *)key withBlock:(void(^)(NSString *key))block;
 
 //删除全部数据 - 清除当前 diskCachePath 所有的文件
 - (void)removeAllObjects;
