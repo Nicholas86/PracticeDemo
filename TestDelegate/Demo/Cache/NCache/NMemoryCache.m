@@ -7,7 +7,7 @@
 //
 
 
-#define XYMemoryCache_DEFAULT_MAX_COUNT  (3)
+#define XYMemoryCache_DEFAULT_MAX_COUNT  (48)
 #import <UIKit/UIKit.h>//导入UIkit框架
 #import "NMemoryCache.h"
 
@@ -131,7 +131,7 @@
     
     [self.cacheKeyArray  addObject:key];
     [self.cacheObjDic  setObject:object forKey:key];
-    NSLog(@"self.cacheObjDic: %@", self.cacheObjDic);
+    //NSLog(@"self.cacheObjDic: %@", self.cacheObjDic);
     //解锁🔐
     [_lock  unlock];
 }

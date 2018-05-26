@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "PopViewController.h"
 #import "CustomBtn.h"
-
+#import "NCacheManager.h"
 #import "NDemoTableViewController.h"
 
 #ifdef DEBUG
@@ -76,7 +76,11 @@
     [self.navigationController  pushViewController:nDemoVC animated:YES];
 }
 
-
+///清除缓存
+- (IBAction)handleClearCache:(UIButton *)sender
+{
+    [[NCacheManager  share] removeAllObjects];
+}
 
 
 @end

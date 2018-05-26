@@ -1,5 +1,5 @@
 //
-//  NetWorkingReuest.h
+//  NetWorkingSessionManager.h
 //  TestDelegate
 //
 //  Created by 泽娄 on 2018/5/5.
@@ -15,8 +15,10 @@ typedef NS_ENUM(NSInteger, NetworkErrorCode) {
     NUnknownCode = -1,     //!< 未知错误
 };
 
-//成功回调
-typedef void(^SuccessBlock)(NSDictionary *responseObject);
+//缓存回调
+typedef void(^CacheBlock)(id responseObject);
+//成功回调, 默认没有更多数据了
+typedef void(^SuccessBlock)(id responseObject, BOOL hasMoreData);
 //失败回调
 typedef void(^FailureBlock)(NSError *error);
 
@@ -28,8 +30,8 @@ typedef void(^FailureBlock)(NSError *error);
 #define FEED_List @"feed/listAll"
 
 
-@interface NetWorkingReuest : AFHTTPSessionManager
+@interface NetWorkingSessionManager : AFHTTPSessionManager
 //单例
-+ (NetWorkingReuest *)shareInstance;
++ (NetWorkingSessionManager *)shareInstance;
 
 @end

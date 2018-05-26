@@ -33,26 +33,6 @@
 - (IBAction)handleCacheButton:(UIButton *)sender
 {
     NCacheManager *cacheManager = [NCacheManager  share];
-    
-    /*
-    NSString *key = @"name";
-    NSDictionary *value_dic;
-    if ([cacheManager  hasObjectForKey:key]) {
-        value_dic = [cacheManager  objectForKey:key];
-        NSLog(@"本地有缓存: %@", value_dic);
-    }else{
-         NSLog(@"本地无缓存");
-        NSDictionary *value_dic = @{
-                                    @"name": [NSString  stringWithFormat:@"线程安全是大问题-%d",1],
-                                    @"age": @12
-                                    };
-         [cacheManager  setObject:value_dic forKey:key];
-    }
-    
-    NSDictionary *dic = [cacheManager objectForKey:key];
-    [sender  setTitle:[NSString stringWithFormat:@"测试缓存/%@",dic[@"name"]] forState:UIControlStateNormal];
-     */
-    
 #warning 线程安全 copy https://blog.csdn.net/u013883974/article/details/77645212
     //模拟并发执行, 写操作, 处理线程安全
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -71,7 +51,7 @@
     
     //模拟并发执行, 删除操作, 处理线程安全
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 20; i++) {
             NSLog(@"第二个");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 NSString *key_dic = [NSString stringWithFormat:@"dic_%d", i + 1];

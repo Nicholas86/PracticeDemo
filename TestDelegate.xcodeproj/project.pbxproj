@@ -57,7 +57,8 @@
 		F37ECF5320B0428600CC579B /* NComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37ECF5120B0428600CC579B /* NComposeViewController.xib */; };
 		F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C2F209D81F500439244 /* YYWeakProxy.m */; };
 		F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C31209D81F500439244 /* YYFPSLabel.m */; };
-		F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C39209D968C00439244 /* NetWorkingReuest.m */; };
+		F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C39209D968C00439244 /* NetWorkingSessionManager.m */; };
+		F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,8 +182,10 @@
 		F3A08C30209D81F500439244 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		F3A08C31209D81F500439244 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		F3A08C32209D81F500439244 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
-		F3A08C38209D968C00439244 /* NetWorkingReuest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingReuest.h; sourceTree = "<group>"; };
-		F3A08C39209D968C00439244 /* NetWorkingReuest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingReuest.m; sourceTree = "<group>"; };
+		F3A08C38209D968C00439244 /* NetWorkingSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingSessionManager.h; sourceTree = "<group>"; };
+		F3A08C39209D968C00439244 /* NetWorkingSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingSessionManager.m; sourceTree = "<group>"; };
+		F3D18D6B20B86567009B4681 /* NetWorkingRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingRequest.h; sourceTree = "<group>"; };
+		F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,8 +488,8 @@
 			isa = PBXGroup;
 			children = (
 				F37ECF2A20B034CB00CC579B /* UrlCacheViewController.h */,
-				F37ECF2B20B034CB00CC579B /* UrlCacheViewController.xib */,
 				F37ECF2C20B034CB00CC579B /* UrlCacheViewController.m */,
+				F37ECF2B20B034CB00CC579B /* UrlCacheViewController.xib */,
 			);
 			path = ViewComtroller;
 			sourceTree = "<group>";
@@ -566,8 +569,10 @@
 		F3A08C37209D964000439244 /* NetWorking */ = {
 			isa = PBXGroup;
 			children = (
-				F3A08C38209D968C00439244 /* NetWorkingReuest.h */,
-				F3A08C39209D968C00439244 /* NetWorkingReuest.m */,
+				F3A08C38209D968C00439244 /* NetWorkingSessionManager.h */,
+				F3A08C39209D968C00439244 /* NetWorkingSessionManager.m */,
+				F3D18D6B20B86567009B4681 /* NetWorkingRequest.h */,
+				F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */,
 			);
 			path = NetWorking;
 			sourceTree = SOURCE_ROOT;
@@ -796,6 +801,7 @@
 				F37ECF3E20B034CB00CC579B /* delegateContainer.m in Sources */,
 				00266EF320B5227200E64EFB /* NSObject+NAutoCoding.m in Sources */,
 				F37ECF4320B034CB00CC579B /* UrlCacheViewController.m in Sources */,
+				F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */,
 				F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */,
 				001FE11020284E820021FA46 /* PopViewController.m in Sources */,
 				F37A4FC720B442FD0076825D /* NMemoryCache.m in Sources */,
@@ -823,7 +829,7 @@
 				F37ECF3720B034CB00CC579B /* XYAutoCoding.m in Sources */,
 				F37ECF3920B034CB00CC579B /* XYThread.m in Sources */,
 				F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */,
-				F3A08C3A209D968C00439244 /* NetWorkingReuest.m in Sources */,
+				F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */,
 				00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */,
 				F37ECF3C20B034CB00CC579B /* NCacheViewController.m in Sources */,
 				F37ECF5220B0428600CC579B /* NComposeViewController.m in Sources */,

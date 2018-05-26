@@ -71,6 +71,17 @@
                                     <action selector="matlabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EYR-Pw-iwo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEp-7t-u5D">
+                                <rect key="frame" x="35" y="294" width="305" height="30"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1Y3-3M-mAC"/>
+                                </constraints>
+                                <state key="normal" title="清除缓存"/>
+                                <connections>
+                                    <action selector="handleClearCache:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6L-w5-f7m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -82,8 +93,11 @@
                             <constraint firstItem="a1Q-Cu-mnm" firstAttribute="top" secondItem="Yja-60-QSs" secondAttribute="bottom" constant="300" id="cdA-oJ-SWV"/>
                             <constraint firstItem="a1Q-Cu-mnm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="eI9-tD-Ens"/>
                             <constraint firstAttribute="trailing" secondItem="T3k-1i-fDu" secondAttribute="trailing" constant="62" id="f3C-DU-34q"/>
+                            <constraint firstAttribute="trailing" secondItem="VEp-7t-u5D" secondAttribute="trailing" constant="35" id="gUz-dH-J1j"/>
                             <constraint firstAttribute="trailing" secondItem="mTw-d2-5RZ" secondAttribute="trailing" constant="60" id="iMP-uo-wpr"/>
+                            <constraint firstItem="VEp-7t-u5D" firstAttribute="top" secondItem="mTw-d2-5RZ" secondAttribute="bottom" constant="35" id="jDl-NE-GeQ"/>
                             <constraint firstItem="S7J-3P-c3Z" firstAttribute="top" secondItem="Yja-60-QSs" secondAttribute="bottom" constant="100" id="jV4-iL-PYk"/>
+                            <constraint firstItem="VEp-7t-u5D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="35" id="jfV-BC-8sq"/>
                             <constraint firstItem="09p-hX-ah6" firstAttribute="top" secondItem="T3k-1i-fDu" secondAttribute="bottom" constant="230" id="mcm-Kd-cmZ"/>
                             <constraint firstItem="mTw-d2-5RZ" firstAttribute="top" secondItem="S7J-3P-c3Z" secondAttribute="bottom" constant="30" id="uOf-z6-6wi"/>
                             <constraint firstAttribute="trailing" secondItem="S7J-3P-c3Z" secondAttribute="trailing" constant="50" id="w6e-J1-uyK"/>

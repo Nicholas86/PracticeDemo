@@ -85,58 +85,46 @@
 //请求数据
 - (void)requestUrlCacheData
 {
-    
     if (self.isLoadingData) {
         NSLog(@"正在加载数据。。。");
         return;
     }
     self.isLoadingData = YES;
-    
     __weak typeof(self) weakSelf = self;
-    
     if (self.page == 1) {
         [self.dataSource  removeAllObjects];
     }
-    
-    [self.tipsViewModel  requestTipsDataWithPage:self.page successBlock:^(NSDictionary *responseObject) {
-        
-        NSArray *array = responseObject[@"feeds"];
-        
-        //快速便利数组
-        if ([array isKindOfClass:[NSArray class]] && [array count] > 0) {
-            [array enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NTipsModel *model = [NTipsModel tipsModelWithDictionary:obj];
-                if (model) {
-                    [self.dataSource addObject:model];
-                }
-            }];
-            
-            NSLog(@"请求数据了: %ld", array.count);
+    NSLog(@"page: %ld", self.page);
 
-            //标识还有更多数据
-            self.hasMoreData = YES;
-            
-            //添加页脚
-            [self showTableViewFooter];
-            
-        }else{
-            //没有更多数据了
-            self.hasMoreData = NO;
-            
-            //清除页脚
-            [self cleanTableViewFooter];
-        }
-        
-        //结束刷新
-        [self tipsDidEndRefresh];
-        
-        // 默认在主线程 刷新数据
+    [self.tipsViewModel  requestTipsDataWithPage:self.page
+                                           cache:^(NSMutableArray *responseObject) {
+    if ([responseObject isKindOfClass:[NSArray class]] && [responseObject count] > 0) {
+            NSLog(@"缓存的数据: %@", responseObject);
+        weakSelf.dataSource = (NSMutableArray *)responseObject;
         [weakSelf.tableView  reloadData];
-        
+    }
+    }successBlock:^(NSMutableArray <NTipsModel *>*responseObject, BOOL hasMoreData) {
+        if (hasMoreData) {
+            //还有更多数据
+            weakSelf.dataSource = responseObject;
+            weakSelf.hasMoreData = YES;
+            [weakSelf showTableViewFooter];
+            NSLog(@"请求数据啦: %ld", weakSelf.dataSource.count);
+        }else{
+            //无更多数据
+            weakSelf.hasMoreData = NO;
+            [weakSelf cleanTableViewFooter];
+        }
+//        if ([responseObject isKindOfClass:[NSArray class]] && [responseObject count] > 0) {
+//
+//        }else{
+//            weakSelf.hasMoreData = NO;
+//            [weakSelf cleanTableViewFooter];
+//        }
+        [weakSelf tipsDidEndRefresh];
+        [weakSelf.tableView  reloadData];
     } failureBlock:^(NSError *error) {
-        
-        //结束刷新
-        [self  tipsDidEndRefresh];
+        [weakSelf  tipsDidEndRefresh];
         NSLog(@"网络请求失败: %@", error);
     }];
     
@@ -234,9 +222,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NTipsTableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier:@"NTipsTableViewCell" forIndexPath:indexPath];
-   
+    
     if (self.dataSource.count == 0) {
-        
         return cell;
     }
     
@@ -446,4 +433,39 @@
 }
 */
 
+
+/*
+ 
+ 
+ NSArray *array = responseObject[@"feeds"];
+ //快速便利数组
+ if ([array isKindOfClass:[NSArray class]] && [array count] > 0) {
+ [array enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ NTipsModel *model = [NTipsModel tipsModelWithDictionary:obj];
+ if (model) {
+ [self.dataSource addObject:model];
+ }
+ }];
+ NSLog(@"请求数据了: %ld", array.count);
+ //标识还有更多数据
+ self.hasMoreData = YES;
+ //添加页脚
+ [self showTableViewFooter];
+ }else{
+ //没有更多数据了
+ self.hasMoreData = NO;
+ //清除页脚
+ [self cleanTableViewFooter];
+ }
+ //结束刷新
+ [self tipsDidEndRefresh];
+ // 默认在主线程 刷新数据
+ [weakSelf.tableView  reloadData];
+ 
+ */
+
 @end
+
+
+
+
