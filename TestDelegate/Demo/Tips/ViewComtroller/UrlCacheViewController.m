@@ -94,7 +94,6 @@
     if (self.page == 1) {
         [self.dataSource  removeAllObjects];
     }
-    NSLog(@"page: %ld", self.page);
 
     [self.tipsViewModel  requestTipsDataWithPage:self.page
                                            cache:^(NSMutableArray *responseObject) {
@@ -115,12 +114,6 @@
             weakSelf.hasMoreData = NO;
             [weakSelf cleanTableViewFooter];
         }
-//        if ([responseObject isKindOfClass:[NSArray class]] && [responseObject count] > 0) {
-//
-//        }else{
-//            weakSelf.hasMoreData = NO;
-//            [weakSelf cleanTableViewFooter];
-//        }
         [weakSelf tipsDidEndRefresh];
         [weakSelf.tableView  reloadData];
     } failureBlock:^(NSError *error) {

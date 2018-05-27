@@ -182,6 +182,7 @@
 {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     if ([notification.name isEqualToString:UIApplicationDidReceiveMemoryWarningNotification]){
+        //只有内存警告才清空缓存, 进入后台不清空缓存
         if ( _clearWhenMemoryLow ){
             NSLog(@"收到内存警告通知");
             [self removeAllObjects];

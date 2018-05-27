@@ -8,6 +8,7 @@
 
 #import "NFileCache.h"
 #import "NSObject+NAutoCoding.h"
+#import "NFileCacheBackgroundClean.h"
 
 //加锁(默认信号量为1, 现在减1)
 #define Lock(semaphonre_t) dispatch_semaphore_wait(semaphonre_t, DISPATCH_TIME_FOREVER)
@@ -66,7 +67,7 @@
         //创建并行队列: YYMemoryCache用的串行队列
         _queue = dispatch_queue_create("com.nicholas.disk.cache", DISPATCH_QUEUE_CONCURRENT);
         
-//        [[XYFileCacheBackgroundClean sharedInstance] setFileCacheInfo:[self info] forKey:_diskCachePath];
+        [[NFileCacheBackgroundClean share] setFileCacheInfo:[self info] forKey:_diskCachePath];
     }
     return self;
 }
