@@ -67,6 +67,12 @@
                     if (isCache) {
                         //如果是缓存的数据, 添加到缓存数组
                         [self.cacheDataSource  addObject:model];
+                        /*
+                         懒加载的原理:使用时, 必须self.cacheDataSource调用。self.cacheDataSource先调用
+                         getter方法(不是先调用setter方法),相当于[self  cacheDataSource]也是先调用getter方法。
+                         //[[self  cacheDataSource] addObject:model];
+                         */
+                        
                     }else{
                         //如果是网络请求的数据, 添加到网络请求的数组
                         [self.httpDataSource addObject:model];
@@ -74,7 +80,6 @@
                 }];
 #warning 标识还有更多数据
                 hasMoreData = YES;
-                NSLog(@"请求数据了: %ld", array.count);
             }else{
 #warning 标识没有更多数据了
                 hasMoreData = NO;

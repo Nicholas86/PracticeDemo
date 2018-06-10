@@ -98,7 +98,6 @@
     [self.tipsViewModel  requestTipsDataWithPage:self.page
                                            cache:^(NSMutableArray *responseObject) {
     if ([responseObject isKindOfClass:[NSArray class]] && [responseObject count] > 0) {
-            NSLog(@"缓存的数据: %@", responseObject);
         weakSelf.dataSource = (NSMutableArray *)responseObject;
         [weakSelf.tableView  reloadData];
     }
@@ -108,7 +107,6 @@
             weakSelf.dataSource = responseObject;
             weakSelf.hasMoreData = YES;
             [weakSelf showTableViewFooter];
-            NSLog(@"请求数据啦: %ld", weakSelf.dataSource.count);
         }else{
             //无更多数据
             weakSelf.hasMoreData = NO;
