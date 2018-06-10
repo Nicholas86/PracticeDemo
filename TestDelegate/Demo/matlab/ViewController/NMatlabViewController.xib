@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NMatlabViewController">
             <connections>
+                <outlet property="titleLabel" destination="Ai7-yE-wPT" id="iDf-W6-mrc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +19,80 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oml-Ag-4Ti">
+                    <rect key="frame" x="100" y="301" width="175" height="36"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="jaQ-hp-N4h"/>
+                    </constraints>
+                    <state key="normal" title="添加到缓存"/>
+                    <connections>
+                        <action selector="handleSaveObject:" destination="-1" eventType="touchUpInside" id="eQn-yE-alR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="La8-j0-rpA">
+                    <rect key="frame" x="100" y="357" width="175" height="36"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="LjU-r8-9Ec"/>
+                    </constraints>
+                    <state key="normal" title="获取某一缓存"/>
+                    <connections>
+                        <action selector="handleGetObject:" destination="-1" eventType="touchUpInside" id="t3b-d0-IfF"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加载缓存" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ai7-yE-wPT">
+                    <rect key="frame" x="30" y="245" width="315" height="36"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="ifR-lC-Mp5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJP-dq-qEW">
+                    <rect key="frame" x="100" y="413" width="175" height="36"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="Bkw-gE-2Kr"/>
+                    </constraints>
+                    <state key="normal" title="删除某个缓存"/>
+                    <connections>
+                        <action selector="handlRemoveObject:" destination="-1" eventType="touchUpInside" id="jIR-ab-MZ4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYR-1B-7fG">
+                    <rect key="frame" x="100" y="469" width="175" height="35"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="juW-CB-JbA"/>
+                    </constraints>
+                    <state key="normal" title="删除尾部节点"/>
+                    <connections>
+                        <action selector="handleRemoveTailObject:" destination="-1" eventType="touchUpInside" id="6rW-Pq-Vez"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Oml-Ag-4Ti" firstAttribute="top" secondItem="Ai7-yE-wPT" secondAttribute="bottom" constant="20" id="18n-jH-sYw"/>
+                <constraint firstItem="wYR-1B-7fG" firstAttribute="top" secondItem="zJP-dq-qEW" secondAttribute="bottom" constant="20" id="7ut-xM-leq"/>
+                <constraint firstItem="La8-j0-rpA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="Bxp-dW-EJe"/>
+                <constraint firstAttribute="trailing" secondItem="wYR-1B-7fG" secondAttribute="trailing" constant="100" id="G1h-lS-6f0"/>
+                <constraint firstItem="zJP-dq-qEW" firstAttribute="top" secondItem="La8-j0-rpA" secondAttribute="bottom" constant="20" id="IOr-KO-3Xk"/>
+                <constraint firstItem="zJP-dq-qEW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="K5A-SN-1nE"/>
+                <constraint firstItem="Oml-Ag-4Ti" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="Uem-eR-7B5"/>
+                <constraint firstItem="La8-j0-rpA" firstAttribute="top" secondItem="Oml-Ag-4Ti" secondAttribute="bottom" constant="20" id="Xo5-vr-sRi"/>
+                <constraint firstItem="Oml-Ag-4Ti" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="301" id="Xun-uT-a2J"/>
+                <constraint firstAttribute="trailing" secondItem="Ai7-yE-wPT" secondAttribute="trailing" constant="30" id="dco-Oa-q1p"/>
+                <constraint firstItem="Ai7-yE-wPT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="g77-3J-vBn"/>
+                <constraint firstAttribute="trailing" secondItem="Oml-Ag-4Ti" secondAttribute="trailing" constant="100" id="mAv-H9-jzn"/>
+                <constraint firstItem="wYR-1B-7fG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="sjY-Kt-qRS"/>
+                <constraint firstAttribute="trailing" secondItem="La8-j0-rpA" secondAttribute="trailing" constant="100" id="uBQ-4Q-fX9"/>
+                <constraint firstAttribute="trailing" secondItem="zJP-dq-qEW" secondAttribute="trailing" constant="100" id="zWL-St-sWt"/>
+            </constraints>
         </view>
     </objects>
 </document>

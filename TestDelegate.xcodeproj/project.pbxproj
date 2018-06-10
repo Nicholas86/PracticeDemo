@@ -30,6 +30,7 @@
 		2AE3E444C79BF4B6688A59A4 /* libPods-TestDelegateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D8734745CB9E909F2070D /* libPods-TestDelegateUITests.a */; };
 		9548BCBE00F7F2566FC66A83 /* libPods-TestDelegateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B6AA24EEDCE51711B1D56 /* libPods-TestDelegateTests.a */; };
 		9589FCB21274D3D624C3A592 /* libPods-TestDelegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */; };
+		F31AF4C020CABE4E00284A67 /* NStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AF4BF20CABE4E00284A67 /* NStudent.m */; };
 		F37A4FC320B43FDE0076825D /* NCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC220B43FDE0076825D /* NCacheManager.m */; };
 		F37A4FC720B442FD0076825D /* NMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC620B442FD0076825D /* NMemoryCache.m */; };
 		F37A4FCA20B450ED0076825D /* NFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC920B450ED0076825D /* NFileCache.m */; };
@@ -60,6 +61,8 @@
 		F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C39209D968C00439244 /* NetWorkingSessionManager.m */; };
 		F3B5F9C620BA5774006B6039 /* NFileCacheBackgroundClean.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B5F9C520BA5774006B6039 /* NFileCacheBackgroundClean.m */; };
 		F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */; };
+		F3E2241920CB854600B26A5A /* NEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E2241820CB854600B26A5A /* NEmployee.m */; };
+		F3E2241C20CB868C00B26A5A /* NEmployeeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E2241B20CB868C00B26A5A /* NEmployeeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +135,8 @@
 		C012BF0DAF69981E99DB8449 /* Pods-TestDelegate.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		D1A5134B5E4CD7182D7445B8 /* Pods-TestDelegate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.debug.xcconfig"; sourceTree = "<group>"; };
 		EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDelegate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31AF4BE20CABE4E00284A67 /* NStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NStudent.h; sourceTree = "<group>"; };
+		F31AF4BF20CABE4E00284A67 /* NStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NStudent.m; sourceTree = "<group>"; };
 		F37A4FC120B43FDE0076825D /* NCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCacheManager.h; sourceTree = "<group>"; };
 		F37A4FC220B43FDE0076825D /* NCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCacheManager.m; sourceTree = "<group>"; };
 		F37A4FC520B442FD0076825D /* NMemoryCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMemoryCache.h; sourceTree = "<group>"; };
@@ -189,6 +194,10 @@
 		F3B5F9C520BA5774006B6039 /* NFileCacheBackgroundClean.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFileCacheBackgroundClean.m; sourceTree = "<group>"; };
 		F3D18D6B20B86567009B4681 /* NetWorkingRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingRequest.h; sourceTree = "<group>"; };
 		F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingRequest.m; sourceTree = "<group>"; };
+		F3E2241720CB854600B26A5A /* NEmployee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEmployee.h; sourceTree = "<group>"; };
+		F3E2241820CB854600B26A5A /* NEmployee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEmployee.m; sourceTree = "<group>"; };
+		F3E2241A20CB868C00B26A5A /* NEmployeeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEmployeeManager.h; sourceTree = "<group>"; };
+		F3E2241B20CB868C00B26A5A /* NEmployeeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEmployeeManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +344,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F31AF4BD20CABE3600284A67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F31AF4BE20CABE4E00284A67 /* NStudent.h */,
+				F31AF4BF20CABE4E00284A67 /* NStudent.m */,
+				F3E2241720CB854600B26A5A /* NEmployee.h */,
+				F3E2241820CB854600B26A5A /* NEmployee.m */,
+				F3E2241A20CB868C00B26A5A /* NEmployeeManager.h */,
+				F3E2241B20CB868C00B26A5A /* NEmployeeManager.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F33AFE2B209E02F0006BDCB6 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +476,7 @@
 		F37ECF2020B034CB00CC579B /* matlab */ = {
 			isa = PBXGroup;
 			children = (
+				F31AF4BD20CABE3600284A67 /* Model */,
 				F37ECF2120B034CB00CC579B /* ViewController */,
 			);
 			path = matlab;
@@ -811,6 +834,7 @@
 				001FE11020284E820021FA46 /* PopViewController.m in Sources */,
 				F37A4FC720B442FD0076825D /* NMemoryCache.m in Sources */,
 				001FE0E020284DDB0021FA46 /* ViewController.m in Sources */,
+				F3E2241920CB854600B26A5A /* NEmployee.m in Sources */,
 				F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */,
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
 				F37ECF3A20B034CB00CC579B /* XYObjectCache.m in Sources */,
@@ -835,8 +859,10 @@
 				F37ECF3720B034CB00CC579B /* XYAutoCoding.m in Sources */,
 				F37ECF3920B034CB00CC579B /* XYThread.m in Sources */,
 				F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */,
+				F3E2241C20CB868C00B26A5A /* NEmployeeManager.m in Sources */,
 				F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */,
 				00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */,
+				F31AF4C020CABE4E00284A67 /* NStudent.m in Sources */,
 				F37ECF3C20B034CB00CC579B /* NCacheViewController.m in Sources */,
 				F37ECF5220B0428600CC579B /* NComposeViewController.m in Sources */,
 				008CD346204F7BE400876974 /* QuanViewController.m in Sources */,
@@ -1007,7 +1033,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Debug";
-				DEVELOPMENT_TEAM = WK6R7V524D;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1024,7 +1050,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Release";
-				DEVELOPMENT_TEAM = WK6R7V524D;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1159,7 +1185,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingDebug";
-				DEVELOPMENT_TEAM = WK6R7V524D;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1257,7 +1283,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingRelease";
-				DEVELOPMENT_TEAM = WK6R7V524D;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				INFOPLIST_FILE = TestDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
