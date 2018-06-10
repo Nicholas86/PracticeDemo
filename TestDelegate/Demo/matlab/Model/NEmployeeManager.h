@@ -17,12 +17,11 @@
 //插入新节点到链表头部
 - (void)insertEmployeeAtHead:(NEmployee *)employee;
 
-//插入新节点到链表中间
-- (void)insertEmployeeAtMiddle:(NEmployee *)employee;
-
 //插入新节点到链表尾部
 - (void)insertEmployeeAtTail:(NEmployee *)employee;
 
+//是否包含某个节点
+- (BOOL)hasEmployeeForKey:(NSString *)key;
 //查找某个节点
 - (NEmployee *)employeeForKey:(NSString *)key;
 
@@ -33,9 +32,9 @@
 - (void)removeEmployeeAtMiddle:(NEmployee *)employee;
 
 //移除尾部节点
-- (void)removeEmployeeAtTail;
+- (NEmployee *)removeEmployeeAtTail;
 
-//移除尾部节点
+//移除某个节点
 - (void)removeEmployee:(NEmployee *)employee;
 
 //移除所有节点

@@ -81,22 +81,6 @@
      */
 }
 
-//插入新节点到链表中间
-- (void)insertEmployeeAtMiddle:(NEmployee *)employee
-{
-    if (employee == nil) {
-        NSLog(@"employee is null");
-        return;
-    }
-    //添加到缓存字典
-    CFDictionarySetValue(_dic, (__bridge const void *)(employee.key), (__bridge const void *)(employee));
-    
-    /*
-     首先将中间节点(从外部传进来或者内存中间位置任一个临时变量, 这里用ptr代替)的右指针指向新节点,
-     再将新节点的左指针指向ptr节点, 接着将ptr节点的下一个节点的左指针指向新节点, 最后将新节点的
-     右指针的指向ptr的下一个节点
-     */
-}
 
 //插入新节点到链表尾部
 - (void)insertEmployeeAtTail:(NEmployee *)employee
@@ -127,9 +111,25 @@
      */
 }
 
+//是否包含某个节点
+- (BOOL)hasEmployeeForKey:(NSString *)key
+{
+    if ([key length] == 0) {
+        NSLog(@"key is null");
+        return NO;
+    }
+    
+    BOOL isHave = CFDictionaryContainsKey(_dic, (__bridge const void *)(key));
+    return isHave;
+}
+
 //查找某个节点
 - (NEmployee *)employeeForKey:(NSString *)key
 {
+    if ([key length] == 0) {
+        NSLog(@"key is null");
+        return nil;
+    }
     NEmployee *employee = CFDictionaryGetValue(_dic, (__bridge const void *)(key));
     return employee;
 }
@@ -157,20 +157,50 @@
 //移除中间节点
 - (void)removeEmployeeAtMiddle:(NEmployee *)employee
 {
+    if (_head == nil) {
+        NSLog(@"双向链表是空的");
+        return;
+    }
     
+    if (_head == employee) {
+        NSLog(@"移除的是链表头, 直接返回");
+        return;
+    }
+    
+    if (_ptr == employee) {
+        NSLog(@"移除的是尾部节点, 直接返回");
+        return;
+    }
+    
+    //移除的是中间节点 -- 画图理解
+    if (employee.lLink && employee.rLink) {
+        NSLog(@"移除的是中间节点");
+        employee.lLink.rLink = employee.rLink;
+        employee.rLink.lLink = employee.lLink;
+    }
+    
+    employee = nil;
 }
 
 //移除尾部节点
-- (void)removeEmployeeAtTail
+- (NEmployee *)removeEmployeeAtTail
 {
+    if (_head == nil) {
+        NSLog(@"双向链表是空的");
+        return nil;
+    }
+    
     if (!_ptr) {
         /*
          如果_ptr为nil, 也有可能先从左向右遍历所有节点导致的。
          */
         NSLog(@"_ptr is null");
-        return;
+        return nil;
     }
 
+    //保存尾部节点, 并将尾部节点返回去
+    NEmployee *ptr = _ptr;
+    
     CFDictionaryRemoveValue(_dic, (__bridge const void *)(_ptr.key));
     if (_head == _ptr) {
         _head = _ptr = nil;
@@ -182,6 +212,9 @@
          _ptr.lLink.rLink = nil 这个操作没有重新赋值尾部节点
          */
     }
+    
+    //外部需要销毁这个变量, 再或者返回bool变量
+    return ptr;
 }
 
 //移除某个节点
@@ -202,12 +235,12 @@
     
     if (_ptr == employee) {
         //删除的节点恰好是末尾节点, 末尾节点 重新指向 末尾节点的上一个节点
-        _ptr = employee.lLink;
+        _ptr = employee.lLink; //_ptr尾部节点重新赋值
         _ptr.rLink = nil;//清除尾部节点
     }
     
     if (_head == employee) {
-        //删除的是头部节点
+        //删除的是头部节点, _head重新赋值
         _head = employee.rLink;
         _head.lLink = nil;
     }
@@ -226,7 +259,12 @@
 //移除所有节点
 - (void)removeAllEmployee
 {
-    
+    _head = _ptr = nil;
+    if (CFDictionaryGetCount(_dic) > 0) {
+        //清空缓存字典
+        CFDictionaryRemoveAllValues(_dic);
+        NSLog(@"清空缓存字典:%@", _dic);
+    }
 }
 
 //遍历所有节点数据

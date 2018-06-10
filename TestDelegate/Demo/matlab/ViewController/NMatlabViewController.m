@@ -194,14 +194,28 @@
     [self  lru_head_tail_midd];
 }
 
-#pragma mark 获取缓存
-
+#pragma mark 获取某一缓存
 - (IBAction)handleGetObject:(UIButton *)sender
 {
-    NEmployee *get_employee = [employeeManager  employeeForKey:@"员工8"];
-    if (get_employee) {
-        //如果内存字典中有, 移动到链表头部
-        [employeeManager  bringEmployeeToHead:get_employee];
+    //获取节点
+    NSString *key = @"员工8";
+    BOOL isHave = [employeeManager  hasEmployeeForKey:key];
+    NEmployee *get_employee = nil;
+    if (isHave) {
+        get_employee = [employeeManager  employeeForKey:key];
+        if (get_employee) {
+            //如果内存字典中有, 移动到链表头部
+            [employeeManager  bringEmployeeToHead:get_employee];
+            [sender  setTitle:[NSString  stringWithFormat:@"移动到头部节点:%@", get_employee.key] forState:UIControlStateNormal];
+        }else{
+            get_employee = [[NEmployee  alloc] init];
+            get_employee.name = @"刘德华8";
+            get_employee.salary = 8;
+            get_employee.no = @"编号8";
+            get_employee.key = @"员工8";
+            //如果内存字典中没有, 添加到链表头部
+            [employeeManager  insertEmployeeAtHead:get_employee];
+        }
     }else{
         get_employee = [[NEmployee  alloc] init];
         get_employee.name = @"刘德华8";
@@ -210,21 +224,29 @@
         get_employee.key = @"员工8";
         //如果内存字典中没有, 添加到链表头部
         [employeeManager  insertEmployeeAtHead:get_employee];
+        [sender  setTitle:[NSString  stringWithFormat:@"添加头部节点:%@", get_employee.key] forState:UIControlStateNormal];
     }
     self.titleLabel.text = get_employee.name;
     //便利所有节点数据
     [employeeManager  enumAllEmployee];
 }
 
-#pragma mark 删除缓存
-
+#pragma mark 删除某个删除
 - (IBAction)handlRemoveObject:(UIButton *)sender
 {
     //获取节点
-    NEmployee *get_employee = [employeeManager  employeeForKey:@"员工8"];
-    if (get_employee) {
-        //移除节点
-        [employeeManager  removeEmployee:get_employee];
+    NSString *key = @"员工8";
+    BOOL isHave = [employeeManager  hasEmployeeForKey:key];
+    NEmployee *get_employee = nil;
+    if (isHave) {
+        get_employee = [employeeManager  employeeForKey:key];
+        if (get_employee) {
+            //移除节点
+            [employeeManager  removeEmployee:get_employee];
+            [sender  setTitle:[NSString  stringWithFormat:@"获取并删除节点:%@", get_employee.key] forState:UIControlStateNormal];
+        }
+    }else{
+        [sender  setTitle:[NSString  stringWithFormat:@"已删除节点:%@", get_employee.key] forState:UIControlStateNormal];
     }
     [employeeManager  enumAllEmployee];
 }
@@ -233,8 +255,19 @@
 - (IBAction)handleRemoveTailObject:(UIButton *)sender
 {
     //删除尾部节点缓存
-    [employeeManager  removeEmployeeAtTail];
+    NEmployee *ptr = [employeeManager  removeEmployeeAtTail];
+    if (ptr) {
+        [sender  setTitle:[NSString  stringWithFormat:@"删除尾部节点:%@", ptr.key] forState:UIControlStateNormal];
+    }else{
+        [sender  setTitle:@"全部清空节点了" forState:UIControlStateNormal];
+    }
     [employeeManager  enumAllEmployee];
+}
+
+#pragma mark 删除全部缓存
+- (IBAction)handleRemoveAllObject:(UIButton *)sender
+{
+    [employeeManager  removeAllEmployee];
 }
 
 
