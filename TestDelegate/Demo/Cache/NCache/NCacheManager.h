@@ -17,7 +17,6 @@
 
 @property (nonatomic, strong) NMemoryCache *memoryCache;
 
-
 //单例
 + (instancetype)share;
 

@@ -232,4 +232,12 @@
                            ];
     return md5Result;
 }
+
+- (void)dealloc
+{
+    NSLog(@"NcacheManager dealloc");
+}
+
 @end
+
+

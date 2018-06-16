@@ -39,16 +39,21 @@
         for (int i = 0; i < 10; i++) {
             NSLog(@"第一个");
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                NSString *key_dic = [NSString stringWithFormat:@"dic_%d", i + 1];
+                NSString *key_dic = [NSString stringWithFormat:@"dic_%d", i];
                 NSDictionary *value_dic = @{
-                                            @"name": [NSString  stringWithFormat:@"线程安全是大问题-%d", i + 1],
-                                            @"age": @12
+                                            @"name": [NSString  stringWithFormat:@"线程安全是大问题-%d", i],
+                                            @"age": @(i)
                                             };
                 [cacheManager  setObject:value_dic forKey:key_dic];
+                //主线程刷新UI
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [sender  setTitle:[[cacheManager  objectForKey:@"dic_2"] objectForKey:@"name"] forState:UIControlStateNormal];
+                });
             });
         }
     });
     
+    /*
     //模拟并发执行, 删除操作, 处理线程安全
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         for (int i = 0; i < 20; i++) {
@@ -87,7 +92,7 @@
         }
     });
     
-    
+    */
 }
 
 @end

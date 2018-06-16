@@ -10,6 +10,8 @@
 #define XYMemoryCache_DEFAULT_MAX_COUNT  (48)
 #import <UIKit/UIKit.h>//导入UIkit框架
 #import "NMemoryCache.h"
+#import "NNode.h" //节点
+#import "NNodeManager.h" //节点管理器
 
 @interface NMemoryCache (){
     dispatch_queue_t _serial_queue; //串行队列
@@ -39,6 +41,7 @@
         _clearWhenMemoryLow = YES;//是否清除内存,默认YES
         _maxCacheCount = XYMemoryCache_DEFAULT_MAX_COUNT;//最大缓存个数
         _cachedCount = 0; //缓存个数, 默认为0
+        _nodeManager = [[NNodeManager  alloc] init];//节点管理器
         //创建串行队列:再创建异步子线程,具备开启子线程能力, 队列里的任务按顺序执行
         _serial_queue = dispatch_queue_create("com.nicholas.memory.cache", DISPATCH_QUEUE_SERIAL);
         //创建并初始化锁🔐
@@ -76,7 +79,8 @@
     }
     //加锁
     [_lock  lock];
-    BOOL isHave = [self.cacheObjDic  objectForKey:key] ? YES : NO;
+    //BOOL isHave = [self.cacheObjDic  objectForKey:key] ? YES : NO;
+    BOOL isHave = [self.nodeManager  nodeForKey:key] ? YES : NO;
     //解锁
     [_lock  unlock];
     return isHave;
@@ -95,19 +99,10 @@
         return;
     }
     
-    /*
-    self.cacheKeyArray: (
-         470dcd7b646bfcf16d7f0e85bd145ac4,
-         470dcd7b646bfcf16d7f0e85bd145ac4,
-         470dcd7b646bfcf16d7f0e85bd145ac4,
-         470dcd7b646bfcf16d7f0e85bd145ac4
-     )
-     */
-    
-    
     //加锁🔐
     [_lock  lock];
     
+    /*
     //本地内存数组已经有key, 先删除key, 保存内存数组元素唯一, 一个key对应一个value
     if ([self.cacheObjDic  objectForKey:key]) {
         [self.cacheKeyArray  removeObject:key];
@@ -132,6 +127,39 @@
     [self.cacheKeyArray  addObject:key];
     [self.cacheObjDic  setObject:object forKey:key];
     //NSLog(@"self.cacheObjDic: %@", self.cacheObjDic);
+     */
+
+    //先判断内存中是否也此节点
+    NNode *node = [self.nodeManager  nodeForKey:key];
+    if (node) {
+        //有节点, 移动节点到链表头部
+        [self.nodeManager  bringNodeToHead:node];
+    }else{
+        //无节点, 创建、封装数据到节点
+        node = [[NNode  alloc] init];
+        node.key = key;
+        node.value = object;
+        [self.nodeManager  insertNodeAtHead:node];//添加节点到头部
+        //缓存个数 +1
+        _cachedCount += 1;
+    }
+    
+    //NSLog(@"self.cacheObjDic: %@", self.cacheObjDic);
+    
+    @autoreleasepool{
+        while (_cachedCount >= _maxCacheCount) {
+            // 本地已经缓存个数 >= 最大缓存个数
+            //清除尾部节点, 直到 本地已经缓存个数 < 最大缓存个数
+            @autoreleasepool{
+                [self.nodeManager  removeNodeAtTail];
+                _cachedCount -= 1; //本地缓存个数-1
+            }
+        }
+    }
+    
+    //打印所有节点
+    [self.nodeManager  enumAllNode];
+    
     //解锁🔐
     [_lock  unlock];
 }
@@ -145,7 +173,9 @@
     }
     
     [_lock lock];
-    id object = [self.cacheObjDic  objectForKey:key];
+    //id object = [self.cacheObjDic  objectForKey:key];
+    
+    id object = [self.nodeManager  nodeForKey:key].value;
     [_lock unlock];
     return object;
 }
@@ -158,9 +188,15 @@
         return ;
     }
     [_lock  lock];
+    /*
     if ([self.cacheObjDic  objectForKey:key]) {
         [self.cacheObjDic  removeObjectForKey:key];
         [self.cacheKeyArray  removeObjectIdenticalTo:key];
+        _cachedCount -= 1;//缓存个数-1
+    }*/
+    NNode *node = [self.nodeManager  nodeForKey:key];
+    if (node) {
+        [self.nodeManager  removeNode:node];
         _cachedCount -= 1;//缓存个数-1
     }
     [_lock  unlock];
@@ -170,8 +206,9 @@
 - (void)removeAllObjects
 {
     [_lock  lock];
-    [self.cacheObjDic  removeAllObjects];
-    [self.cacheKeyArray  removeAllObjects];
+    //[self.cacheObjDic  removeAllObjects];
+    //[self.cacheKeyArray  removeAllObjects];
+    [self.nodeManager  removeAllNode];
     _cachedCount = 0;
     [_lock  unlock];
 }

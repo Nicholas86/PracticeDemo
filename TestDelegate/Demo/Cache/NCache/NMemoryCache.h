@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class NNodeManager;
 
 @interface NMemoryCache : NSObject
 
@@ -16,6 +17,8 @@
 @property (nonatomic, assign, readonly) NSUInteger cachedCount;//缓存个数
 @property (nonatomic, strong, readonly) NSMutableArray *cacheKeyArray; //保存所有key
 @property (nonatomic, strong, readonly) NSMutableDictionary *cacheObjDic;//保存key-value
+
+@property (nonatomic, strong) NNodeManager *nodeManager;
 
 //单例
 + (instancetype)share;
