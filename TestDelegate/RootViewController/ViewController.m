@@ -18,7 +18,6 @@
 
 @interface ViewController ()<CustomBtnDelegate, CustomBtnDataSource, PopViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
 /*
  copy、retain、strong、assin、weak
  copy、retain、strong修饰数组, 正常
@@ -29,6 +28,7 @@
 
 @property (nonatomic, assign) NSInteger  page;
 
+@property (nonatomic, copy) NSString *titleString;
 @end
 
 @implementation ViewController
@@ -45,10 +45,8 @@
     customBtn.dataSource = self;
     [self.view   addSubview:customBtn];
     
-    self.page = 1;
-    self.array = @[@"一", @"二"];
-    NSLog(@"page, %ld", (long)self.page);
-    NSLog(@"数组, %@", self.array);
+    ///__weak、 __strong
+    [self  weak_strong];
 
     //线程组
     //[self  dispatch_group];
@@ -101,7 +99,53 @@
     [[NCacheManager  share] removeAllObjects];
 }
 
-//线程组
+///__weak、 __strong
+- (void)weak_strong
+{
+    self.page = 1; // 1不是对象
+    
+    /*
+     将自己生成并持有的 (对象) 赋值给 __weak 修饰符的变量array, 即变量array持有对象的弱引用。
+     因为带 __weak 修饰符的变量 (即弱引用) 不持有对象, 所以self.array会立即被释放。
+     编译器会给出警告。
+     */
+    self.array = [[NSArray  alloc] initWithObjects:@"一", @"二",  nil];;
+    NSLog(@"page, %ld", (long)self.page);
+    NSLog(@"数组, %@", self.array);
+    
+    
+    /*
+     strong修饰字符串:
+     我们只给self.titleString附了一次值,但是 self.titleString 的值改变了,
+     这是因为把可变字符的地址指向了titleString,
+     所以mutableString的值改变了,self.titleString也跟着改变。
+     
+     打印日志
+     2018-07-27 09:48:03.217610+0800 TestDelegate[7946:2615834] *0, 看看指针地址, 指针地址:0x100100240
+     2018-07-27 09:48:03.217627+0800 TestDelegate[7946:2615834] *1, hello, 指针地址:0x174270c80
+     2018-07-27 09:48:03.217638+0800 TestDelegate[7946:2615834] *2, hello, 指针地址:0x174270c80
+     2018-07-27 09:48:03.217649+0800 TestDelegate[7946:2615834] *3, helloWorld, 指针地址:0x174270c80
+     
+     copy修饰字符串: 正常
+     所以正规用法: copy修饰字符串
+     */
+    
+    self.titleString = @"看看指针地址";
+    NSLog(@"*0, %@, 指针地址:%p", self.titleString, _titleString);
+    
+    NSMutableString *mutableString = [NSMutableString string];
+    [mutableString appendString:@"hello"];
+    NSLog(@"*1, %@, 指针地址:%p", mutableString, mutableString);
+
+    self.titleString = mutableString;
+    NSLog(@"*2, %@, 指针地址:%p",self.titleString, _titleString);
+    
+    [mutableString appendString:@"World"];
+    NSLog(@"*3, %@, 指针地址:%p",self.titleString, _titleString);
+}
+
+
+///线程组
 - (void)dispatch_group
 {
     NSArray *titles = @[@"1", @"2", @"3", @"5", @"6", @"7"];
