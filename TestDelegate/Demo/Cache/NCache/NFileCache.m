@@ -229,7 +229,8 @@
     UnLock(_semaphonre_t);
 }
 
-- (void)removeObjectForKey:(NSString *)key withBlock:(void(^)(NSString *key))block {
+- (void)removeObjectForKey:(NSString *)key withBlock:(void(^)(NSString *key))block
+{
     __weak typeof(self) _self = self;
     dispatch_async(_queue, ^{
         __strong typeof(_self) self = _self;
