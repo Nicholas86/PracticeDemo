@@ -32,7 +32,7 @@
     [self  addObserverForPerson];
     
     //动态生成类
-    [self  createCustomClass];
+    //[self  createCustomClass];
 }
 
 - (void)didReceiveMemoryWarning {

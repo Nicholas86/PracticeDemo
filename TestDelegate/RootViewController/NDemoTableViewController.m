@@ -12,6 +12,7 @@
 #import "NCacheViewController.h"
 #import "NComposeViewController.h"
 #import "NObserverViewController.h"
+#import "NImageDecodeViewController.h"
 
 static NSString * const ReuseIdentifier = @"ReuseIdentifier";
 
@@ -34,7 +35,7 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     self.title = @"练习";
     [self.tableView  registerClass:[UITableViewCell  class] forCellReuseIdentifier:ReuseIdentifier];
 
-    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度", @"组件化", @"观察者"];
+    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度", @"组件化", @"观察者", @"大图解码"];
     self.tableView.tableFooterView = [UIView new];
 }
 
@@ -85,6 +86,9 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     }else if (indexPath.row == 4){//观察者
         NObserverViewController *nObserverVC = [[NObserverViewController alloc] init];
         [self.navigationController pushViewController:nObserverVC animated:YES];
+    }else if (indexPath.row == 5){//大图解码
+        NImageDecodeViewController *nImageVC = [[NImageDecodeViewController  alloc] init];
+        [self.navigationController pushViewController:nImageVC animated:YES];
     }
     
 }

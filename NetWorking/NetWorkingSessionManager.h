@@ -6,7 +6,7 @@
 //  Copyright © 2018年 a. All rights reserved.
 //
 
-#import "AFHTTPSessionManager.h"
+#import "NetWorkingSessionManager.h"
 #import <AFNetworking/AFNetworking.h>
 
 typedef NS_ENUM(NSInteger, NetworkErrorCode) {
