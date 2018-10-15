@@ -30,6 +30,8 @@
 		2AE3E444C79BF4B6688A59A4 /* libPods-TestDelegateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D8734745CB9E909F2070D /* libPods-TestDelegateUITests.a */; };
 		9548BCBE00F7F2566FC66A83 /* libPods-TestDelegateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B6AA24EEDCE51711B1D56 /* libPods-TestDelegateTests.a */; };
 		9589FCB21274D3D624C3A592 /* libPods-TestDelegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */; };
+		F30C1B6C21735391004710DC /* NUIViewCALayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C1B6B21735391004710DC /* NUIViewCALayerViewController.m */; };
+		F30C1B6F217355A1004710DC /* NBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C1B6E217355A1004710DC /* NBackView.m */; };
 		F3145C0D2171E84000F8712F /* nicholas.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F3145C0C2171E84000F8712F /* nicholas.PNG */; };
 		F3145C132172308000F8712F /* NImageDecodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3145C112172308000F8712F /* NImageDecodeViewController.m */; };
 		F3145C672172374400F8712F /* gift_cupid_1_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3145C172172374400F8712F /* gift_cupid_1_9@2x.png */; };
@@ -219,6 +221,10 @@
 		C012BF0DAF69981E99DB8449 /* Pods-TestDelegate.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		D1A5134B5E4CD7182D7445B8 /* Pods-TestDelegate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.debug.xcconfig"; sourceTree = "<group>"; };
 		EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDelegate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30C1B6A21735391004710DC /* NUIViewCALayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NUIViewCALayerViewController.h; sourceTree = "<group>"; };
+		F30C1B6B21735391004710DC /* NUIViewCALayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NUIViewCALayerViewController.m; sourceTree = "<group>"; };
+		F30C1B6D217355A1004710DC /* NBackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBackView.h; sourceTree = "<group>"; };
+		F30C1B6E217355A1004710DC /* NBackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBackView.m; sourceTree = "<group>"; };
 		F3145C0C2171E84000F8712F /* nicholas.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nicholas.PNG; sourceTree = "<group>"; };
 		F3145C102172308000F8712F /* NImageDecodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NImageDecodeViewController.h; sourceTree = "<group>"; };
 		F3145C112172308000F8712F /* NImageDecodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NImageDecodeViewController.m; sourceTree = "<group>"; };
@@ -517,6 +523,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F30C1B682173536C004710DC /* UIViewCALayer */ = {
+			isa = PBXGroup;
+			children = (
+				F30C1B692173536C004710DC /* ViewController */,
+			);
+			path = UIViewCALayer;
+			sourceTree = "<group>";
+		};
+		F30C1B692173536C004710DC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F30C1B6A21735391004710DC /* NUIViewCALayerViewController.h */,
+				F30C1B6B21735391004710DC /* NUIViewCALayerViewController.m */,
+				F30C1B6D217355A1004710DC /* NBackView.h */,
+				F30C1B6E217355A1004710DC /* NBackView.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		F3145C0E21722FF300F8712F /* ImageDecode */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +721,7 @@
 		F37ECEFD20B02FD700CC579B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				F30C1B682173536C004710DC /* UIViewCALayer */,
 				F3145C0E21722FF300F8712F /* ImageDecode */,
 				F37ECF4A20B0426400CC579B /* Composable */,
 				00A4A76E20B2612D0023FAB4 /* Observer */,
@@ -1199,6 +1225,7 @@
 			files = (
 				F37ECF3E20B034CB00CC579B /* delegateContainer.m in Sources */,
 				00266EF320B5227200E64EFB /* NSObject+NAutoCoding.m in Sources */,
+				F30C1B6F217355A1004710DC /* NBackView.m in Sources */,
 				F37ECF4320B034CB00CC579B /* UrlCacheViewController.m in Sources */,
 				F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */,
 				F393BB1A20D4FA30003BBE93 /* NNode.m in Sources */,
@@ -1217,6 +1244,7 @@
 				F3145C132172308000F8712F /* NImageDecodeViewController.m in Sources */,
 				008C187420B68FAC00836817 /* XYFileCacheBackgroundClean.m in Sources */,
 				F3B5F9C620BA5774006B6039 /* NFileCacheBackgroundClean.m in Sources */,
+				F30C1B6C21735391004710DC /* NUIViewCALayerViewController.m in Sources */,
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
 				F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */,
 				F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */,

@@ -35,6 +35,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.title = @"图片解码";
     CGRect frame = CGRectMake(80, 150, 200, 200);
     self.imageView = [[UIImageView alloc] initWithFrame:frame];
     _imageView.backgroundColor = [UIColor  redColor];
