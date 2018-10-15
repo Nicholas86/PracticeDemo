@@ -33,6 +33,32 @@
     }return self;
 }
 
+/*
+ 那么问题就来了，我们通过不同的途径得到不同的对象，显然是不行的。我们必须要确保对象的唯一性，所以我们就需要封锁用户通过alloc和init以及copy来构造对象这条道路。
+ 
+ 我们知道，创建对象的步骤分为申请内存(alloc)、初始化(init)这两个步骤，我们要确保对象的唯一性，因此在第一步这个阶段我们就要拦截它。当我们调用alloc方法时，oc内部会调用allocWithZone这个方法来申请内存，我们覆写这个方法，然后在这个方法中调用shareInstance方法返回单例对象，这样就可以达到我们的目的。拷贝对象也是同样的原理，覆写copyWithZone方法，然后在这个方法中调用shareInstance方法返回单例对象。
+ ---------------------
+ 作者：MrSimp1e
+ 来源：CSDN
+ 原文：https://blog.csdn.net/bboyfeiyu/article/details/41980085?utm_source=copy
+ 版权声明：本文为博主原创文章，转载请附上博文链接！
+ */
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone
+{
+    return [NCacheManager share];
+}
+
+-(id) copyWithZone:(struct _NSZone *)zone
+{
+    return [NCacheManager share] ;
+}
+
++ (id)copyWithZone:(struct _NSZone *)zone
+{
+    return [NCacheManager share];
+}
+
 //注册要保存对象的类型
 - (void)registerClass:(Class)aClass
 {
