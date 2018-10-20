@@ -14,6 +14,8 @@
 #import "NObserverViewController.h"
 #import "NImageDecodeViewController.h"
 #import "NUIViewCALayerViewController.h"
+#import "NURLSessionViewController.h"
+#import "NResponderViewController.h"
 
 static NSString * const ReuseIdentifier = @"ReuseIdentifier";
 
@@ -36,7 +38,7 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     self.title = @"练习";
     [self.tableView  registerClass:[UITableViewCell  class] forCellReuseIdentifier:ReuseIdentifier];
 
-    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度", @"组件化", @"观察者", @"大图解码", @"UIView和CALayer的联系和区别"];
+    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度", @"组件化", @"观察者", @"大图解码", @"UIView和CALayer的联系和区别", @"NSURLSession/AFNetworking 3.1.0", @"响应者"];
     self.tableView.tableFooterView = [UIView new];
 }
 
@@ -93,6 +95,12 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
     }else if (indexPath.row == 6){//UIView和CALayer的联系和区别
         NUIViewCALayerViewController *calayerVC = [[NUIViewCALayerViewController alloc] init];
         [self.navigationController pushViewController:calayerVC animated:YES];
+    }else if (indexPath.row == 7){//网络请求、AFNetworking 3.1.0
+        NURLSessionViewController *urlSessionVC = [[NURLSessionViewController alloc] init];
+        [self.navigationController pushViewController:urlSessionVC animated:YES];
+    }else if (indexPath.row == 8){//响应者
+        NResponderViewController *responderVC = [[NResponderViewController alloc] init];
+        [self.navigationController pushViewController:responderVC animated:YES];
     }
     
 }

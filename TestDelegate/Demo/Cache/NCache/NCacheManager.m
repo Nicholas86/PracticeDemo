@@ -44,21 +44,21 @@
  版权声明：本文为博主原创文章，转载请附上博文链接！
  */
 
-+ (instancetype)allocWithZone:(struct _NSZone *)zone
-{
-    return [NCacheManager share];
-}
+//+ (instancetype)allocWithZone:(struct _NSZone *)zone
+//{
+//    return [NCacheManager share];
+//}
 
--(id) copyWithZone:(struct _NSZone *)zone
-{
-    return [NCacheManager share] ;
-}
+//-(id) copyWithZone:(struct _NSZone *)zone
+//{
+//    return [NCacheManager share] ;
+//}
 
-+ (id)copyWithZone:(struct _NSZone *)zone
-{
-    return [NCacheManager share];
-}
-
+//+ (id)copyWithZone:(struct _NSZone *)zone
+//{
+//    return [NCacheManager share];
+//}
+//
 //注册要保存对象的类型
 - (void)registerClass:(Class)aClass
 {

@@ -116,7 +116,7 @@
 }
 
 #pragma mark -
-
+//GET请求, 不带进度progress
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(id)parameters
                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
@@ -126,6 +126,7 @@
     return [self GET:URLString parameters:parameters progress:nil success:success failure:failure];
 }
 
+//GET请求, 带进度progress
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(id)parameters
                      progress:(void (^)(NSProgress * _Nonnull))downloadProgress
@@ -146,6 +147,7 @@
     return dataTask;
 }
 
+//HEAD请求
 - (NSURLSessionDataTask *)HEAD:(NSString *)URLString
                     parameters:(id)parameters
                        success:(void (^)(NSURLSessionDataTask *task))success
@@ -162,6 +164,7 @@
     return dataTask;
 }
 
+//POST请求, 不带进度uploadProgress
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters
                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
@@ -170,6 +173,7 @@
     return [self POST:URLString parameters:parameters progress:nil success:success failure:failure];
 }
 
+//POST请求, 带进度uploadProgress
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters
                       progress:(void (^)(NSProgress * _Nonnull))uploadProgress
@@ -183,6 +187,7 @@
     return dataTask;
 }
 
+//POST请求, 带进度uploadProgress
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(nullable id)parameters
      constructingBodyWithBlock:(nullable void (^)(id<AFMultipartFormData> _Nonnull))block
@@ -192,6 +197,7 @@
     return [self POST:URLString parameters:parameters constructingBodyWithBlock:block progress:nil success:success failure:failure];
 }
 
+//POST请求
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters
      constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
@@ -228,6 +234,7 @@
     return task;
 }
 
+//PUT请求
 - (NSURLSessionDataTask *)PUT:(NSString *)URLString
                    parameters:(id)parameters
                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
@@ -240,6 +247,7 @@
     return dataTask;
 }
 
+//PATCH请求
 - (NSURLSessionDataTask *)PATCH:(NSString *)URLString
                      parameters:(id)parameters
                         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
@@ -264,6 +272,7 @@
     return dataTask;
 }
 
+#pragma mark 所有请求都会走这个方法
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters

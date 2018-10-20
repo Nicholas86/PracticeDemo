@@ -115,6 +115,7 @@
 		F3145CB52172374400F8712F /* gift_cupid_1_41@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3145C652172374400F8712F /* gift_cupid_1_41@2x.png */; };
 		F3145CB62172374400F8712F /* gift_cupid_1_22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3145C662172374400F8712F /* gift_cupid_1_22@2x.png */; };
 		F31AF4C020CABE4E00284A67 /* NStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AF4BF20CABE4E00284A67 /* NStudent.m */; };
+		F337552821771EB70060E3FE /* NURLSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F337552721771EB70060E3FE /* NURLSessionViewController.m */; };
 		F37A4FC320B43FDE0076825D /* NCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC220B43FDE0076825D /* NCacheManager.m */; };
 		F37A4FC720B442FD0076825D /* NMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC620B442FD0076825D /* NMemoryCache.m */; };
 		F37A4FCA20B450ED0076825D /* NFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F37A4FC920B450ED0076825D /* NFileCache.m */; };
@@ -142,6 +143,12 @@
 		F37ECF5320B0428600CC579B /* NComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37ECF5120B0428600CC579B /* NComposeViewController.xib */; };
 		F393BB1A20D4FA30003BBE93 /* NNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F393BB1920D4FA30003BBE93 /* NNode.m */; };
 		F393BB1D20D4FA42003BBE93 /* NNodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F393BB1C20D4FA42003BBE93 /* NNodeManager.m */; };
+		F39A553E217AFE39004614B6 /* NResponderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39A553C217AFE39004614B6 /* NResponderViewController.m */; };
+		F39A553F217AFE39004614B6 /* NResponderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F39A553D217AFE39004614B6 /* NResponderViewController.xib */; };
+		F39A5543217AFF4C004614B6 /* NRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F39A5542217AFF4C004614B6 /* NRedView.m */; };
+		F39A5546217AFF5F004614B6 /* NBlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = F39A5545217AFF5F004614B6 /* NBlueView.m */; };
+		F39A5549217AFF75004614B6 /* NYellowView.m in Sources */ = {isa = PBXBuildFile; fileRef = F39A5548217AFF75004614B6 /* NYellowView.m */; };
+		F39A554C217AFF94004614B6 /* NLightBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F39A554B217AFF94004614B6 /* NLightBtn.m */; };
 		F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C2F209D81F500439244 /* YYWeakProxy.m */; };
 		F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C31209D81F500439244 /* YYFPSLabel.m */; };
 		F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C39209D968C00439244 /* NetWorkingSessionManager.m */; };
@@ -310,6 +317,8 @@
 		F3145C662172374400F8712F /* gift_cupid_1_22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gift_cupid_1_22@2x.png"; sourceTree = "<group>"; };
 		F31AF4BE20CABE4E00284A67 /* NStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NStudent.h; sourceTree = "<group>"; };
 		F31AF4BF20CABE4E00284A67 /* NStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NStudent.m; sourceTree = "<group>"; };
+		F337552621771EB70060E3FE /* NURLSessionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NURLSessionViewController.h; sourceTree = "<group>"; };
+		F337552721771EB70060E3FE /* NURLSessionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NURLSessionViewController.m; sourceTree = "<group>"; };
 		F37A4FC120B43FDE0076825D /* NCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCacheManager.h; sourceTree = "<group>"; };
 		F37A4FC220B43FDE0076825D /* NCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCacheManager.m; sourceTree = "<group>"; };
 		F37A4FC520B442FD0076825D /* NMemoryCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMemoryCache.h; sourceTree = "<group>"; };
@@ -361,6 +370,17 @@
 		F393BB1920D4FA30003BBE93 /* NNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNode.m; sourceTree = "<group>"; };
 		F393BB1B20D4FA42003BBE93 /* NNodeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNodeManager.h; sourceTree = "<group>"; };
 		F393BB1C20D4FA42003BBE93 /* NNodeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNodeManager.m; sourceTree = "<group>"; };
+		F39A553B217AFE39004614B6 /* NResponderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NResponderViewController.h; sourceTree = "<group>"; };
+		F39A553C217AFE39004614B6 /* NResponderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NResponderViewController.m; sourceTree = "<group>"; };
+		F39A553D217AFE39004614B6 /* NResponderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NResponderViewController.xib; sourceTree = "<group>"; };
+		F39A5541217AFF4C004614B6 /* NRedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NRedView.h; sourceTree = "<group>"; };
+		F39A5542217AFF4C004614B6 /* NRedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NRedView.m; sourceTree = "<group>"; };
+		F39A5544217AFF5F004614B6 /* NBlueView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBlueView.h; sourceTree = "<group>"; };
+		F39A5545217AFF5F004614B6 /* NBlueView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBlueView.m; sourceTree = "<group>"; };
+		F39A5547217AFF75004614B6 /* NYellowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYellowView.h; sourceTree = "<group>"; };
+		F39A5548217AFF75004614B6 /* NYellowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYellowView.m; sourceTree = "<group>"; };
+		F39A554A217AFF94004614B6 /* NLightBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NLightBtn.h; sourceTree = "<group>"; };
+		F39A554B217AFF94004614B6 /* NLightBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NLightBtn.m; sourceTree = "<group>"; };
 		F3A08C2F209D81F500439244 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		F3A08C30209D81F500439244 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		F3A08C31209D81F500439244 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
@@ -667,6 +687,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F337552421771E9A0060E3FE /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				F337552521771E9A0060E3FE /* ViewController */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		F337552521771E9A0060E3FE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F337552621771EB70060E3FE /* NURLSessionViewController.h */,
+				F337552721771EB70060E3FE /* NURLSessionViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		F33AFE2B209E02F0006BDCB6 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +758,8 @@
 		F37ECEFD20B02FD700CC579B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				F39A5539217AFE1F004614B6 /* Responder */,
+				F337552421771E9A0060E3FE /* URLSession */,
 				F30C1B682173536C004710DC /* UIViewCALayer */,
 				F3145C0E21722FF300F8712F /* ImageDecode */,
 				F37ECF4A20B0426400CC579B /* Composable */,
@@ -897,6 +936,40 @@
 				F37ECF5120B0428600CC579B /* NComposeViewController.xib */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F39A5539217AFE1F004614B6 /* Responder */ = {
+			isa = PBXGroup;
+			children = (
+				F39A5540217AFF2E004614B6 /* View */,
+				F39A553A217AFE1F004614B6 /* ViewController */,
+			);
+			path = Responder;
+			sourceTree = "<group>";
+		};
+		F39A553A217AFE1F004614B6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F39A553B217AFE39004614B6 /* NResponderViewController.h */,
+				F39A553C217AFE39004614B6 /* NResponderViewController.m */,
+				F39A553D217AFE39004614B6 /* NResponderViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F39A5540217AFF2E004614B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F39A5541217AFF4C004614B6 /* NRedView.h */,
+				F39A5542217AFF4C004614B6 /* NRedView.m */,
+				F39A5544217AFF5F004614B6 /* NBlueView.h */,
+				F39A5545217AFF5F004614B6 /* NBlueView.m */,
+				F39A5547217AFF75004614B6 /* NYellowView.h */,
+				F39A5548217AFF75004614B6 /* NYellowView.m */,
+				F39A554A217AFF94004614B6 /* NLightBtn.h */,
+				F39A554B217AFF94004614B6 /* NLightBtn.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F3A08C2E209D81F500439244 /* YYFPSLabel */ = {
@@ -1119,6 +1192,7 @@
 				F3145C7A2172374400F8712F /* gift_cupid_1_25@2x.png in Resources */,
 				F3145CB62172374400F8712F /* gift_cupid_1_22@2x.png in Resources */,
 				F3145C7E2172374400F8712F /* gift_cupid_1_50@2x.png in Resources */,
+				F39A553F217AFE39004614B6 /* NResponderViewController.xib in Resources */,
 				F37ECF5320B0428600CC579B /* NComposeViewController.xib in Resources */,
 				F3145C932172374400F8712F /* gift_cupid_1_34@2x.png in Resources */,
 				F3145CA22172374400F8712F /* gift_cupid_1_12@2x.png in Resources */,
@@ -1228,6 +1302,7 @@
 				F30C1B6F217355A1004710DC /* NBackView.m in Sources */,
 				F37ECF4320B034CB00CC579B /* UrlCacheViewController.m in Sources */,
 				F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */,
+				F39A553E217AFE39004614B6 /* NResponderViewController.m in Sources */,
 				F393BB1A20D4FA30003BBE93 /* NNode.m in Sources */,
 				F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */,
 				001FE11020284E820021FA46 /* PopViewController.m in Sources */,
@@ -1243,10 +1318,14 @@
 				001FE1142028546D0021FA46 /* CustomBtn.m in Sources */,
 				F3145C132172308000F8712F /* NImageDecodeViewController.m in Sources */,
 				008C187420B68FAC00836817 /* XYFileCacheBackgroundClean.m in Sources */,
+				F39A5549217AFF75004614B6 /* NYellowView.m in Sources */,
 				F3B5F9C620BA5774006B6039 /* NFileCacheBackgroundClean.m in Sources */,
+				F39A5546217AFF5F004614B6 /* NBlueView.m in Sources */,
 				F30C1B6C21735391004710DC /* NUIViewCALayerViewController.m in Sources */,
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
+				F39A554C217AFF94004614B6 /* NLightBtn.m in Sources */,
 				F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */,
+				F337552821771EB70060E3FE /* NURLSessionViewController.m in Sources */,
 				F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */,
 				F37ECF4020B034CB00CC579B /* NMatlabViewController.m in Sources */,
 				F37ECF4420B034CB00CC579B /* NTipsModel.m in Sources */,
@@ -1262,6 +1341,7 @@
 				F37ECF3920B034CB00CC579B /* XYThread.m in Sources */,
 				F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */,
 				F3E2241C20CB868C00B26A5A /* NEmployeeManager.m in Sources */,
+				F39A5543217AFF4C004614B6 /* NRedView.m in Sources */,
 				F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */,
 				00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */,
 				F31AF4C020CABE4E00284A67 /* NStudent.m in Sources */,
