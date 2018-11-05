@@ -17,12 +17,13 @@ target 'TestDelegate' do
   # 响应函数式框架
   pod 'ReactiveObjC', '~> 3.0.0'
   # 路由组件化解耦
-  pod 'JLRoutes', '~> 2.0.5'
+  # pod 'JLRoutes', '~> 2.0.5'
   # 提示组件框架
   pod 'SVProgressHUD', '~> 2.2.2'
   # 自动布局
   pod 'Masonry', '~> 1.0.2'
-
+  # YYKit
+  pod 'YYKit', '~> 1.0.9'
 
   target 'TestDelegateTests' do
     inherit! :search_paths
