@@ -148,7 +148,7 @@ static long curMemUsage = 0;
     int printFps = (int)round(fps);
     int printCPUUsage = (int)ceil(cpu_usage());
     curMemUsage = [self usedMemory];
-    NSString* content = [NSString stringWithFormat:@"%d FPS | CPU USAGE:%d%% | MEM USAGE:%luK", printFps, printCPUUsage, curMemUsage/1024];
+    NSString* content = [NSString stringWithFormat:@"%d FPS | CPU USAGE:%d%% | MEM USAGE:%.2fM", printFps, printCPUUsage, curMemUsage / 1024.0 / 1024.0];
     self.text = content;
     
 //    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d FPS",(int)round(fps)]];

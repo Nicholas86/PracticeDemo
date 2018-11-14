@@ -13,8 +13,9 @@
 
 #import "NImageDecodeViewController.h"
 #import "YYWeakProxy.h"
-#import <QuartzCore/QuartzCore.h>
-#import <ImageIO/ImageIO.h>
+//#import <QuartzCore/QuartzCore.h>
+//#import <ImageIO/ImageIO.h>
+#import <RH_Platform/RH_Platform.h>
 
 #define kFramesPerSecond 30
 #define kImageCount 80
@@ -67,6 +68,7 @@
     [self.mainButton2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.mainButton2 setTitle:@"imageWithContentsOfFile" forState:UIControlStateNormal];
     [self.view addSubview:self.mainButton2];
+    
     
 }
 
@@ -136,140 +138,146 @@
     };
     NSString *fileName = [NSString stringWithFormat:@"gift_cupid_1_%ld@2x", (long)self.index];
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"png"];
-    //    UIImage *image = [UIImage imageWithContentsOfFile:filePath];//并没有真正把图片数据加载到内存，渲染时才解压，在UIImage生命周期内保存解压后的数据
+    UIImage *image = [UIImage imageWithContentsOfFile:filePath];//并没有真正把图片数据加载到内存，渲染时才解压，在UIImage生命周期内保存解压后的数据
     
+    [UIImage forceDecodeImageWithContentOfFile:filePath block:^(UIImage *image) {
+        self.imageView.image = image;
+    }];
+    
+    /*
     //创建未解码的图片--还是二进制数据
     UIImage *image = [self imageAtFilePath:filePath];
-    
+
     //解码操作, 将二进制数据转换成原始像素(位图)数据
     [self decodeImage:image];
+     */
 }
 
-//ImageIO来创建图片，然后在图片的生命周期保留解压后的版本
-- (UIImage *)imageAtFilePath:(NSString *)filePath
-{
-    //kCGImageSourceShouldCacheImmediately表示是否在加载完后立刻开始解码，默认为NO表示在渲染时才解码
-    //kCGImageSourceShouldCache可以设置在图片的生命周期内是保存图片解码后的数据还是原始图片，64位设备默认为YES，32位设备默认为NO
-    CFDictionaryRef options = (__bridge CFDictionaryRef)@{(__bridge id)kCGImageSourceShouldCacheImmediately:@(NO), (__bridge id)kCGImageSourceShouldCache:@(NO)};
-    NSURL *imageURL = [NSURL fileURLWithPath:filePath];
-    CGImageSourceRef source = CGImageSourceCreateWithURL((__bridge CFURLRef)imageURL, NULL);
-    CGImageRef imageRef = CGImageSourceCreateImageAtIndex(source, 0, options);//创建一个未解码的CGImage
-    CGFloat scale = 1;
-    if ([filePath rangeOfString:@"@2x"].location != NSNotFound) {
-        scale = 2.0;
-    }
-    UIImage *image = [UIImage imageWithCGImage:imageRef scale:scale orientation:UIImageOrientationUp];//此时图片还没有解码
-    CGImageRelease(imageRef);
-    CFRelease(source);
-    return image;
-}
-
-#pragma mark imageNamed 按钮点击事件
-- (void)clickImageNamed:(id)sender
-{
-    //会对解码后的图片位图数据缓存
-    [self playAnimationImages:[self imageArrayWithCache:YES]];
-}
-
-#pragma mark clickImageWithContentsOfFile按钮点击事件
-- (void)clickImageWithContentsOfFile:(id)sender
-{
-    //不会对解码后的图片位图数据缓存
-    [self playAnimationImages:[self imageArrayWithCache:NO]];
-}
-
-//使用animationImages属性播放帧动画，会导致内存暴增
-- (void)playAnimationImages:(NSArray *)images
-{
-    self.imageView.animationDuration = kImageCount * 1./kFramesPerSecond;
-    self.imageView.animationRepeatCount = 1;
-    self.imageView.animationImages = images;//animationImages的copy属性会对images数组里面的uiimage进行指针拷贝，使得images里面的图片没有被释放
-    [self.imageView startAnimating];
-    [self performSelector:@selector(didFinishAnimation) withObject:nil afterDelay:self.imageView.animationDuration];
-}
-
-//帧动画结束后
-- (void)didFinishAnimation
-{
-    self.imageView.animationImages = nil;//释放拷贝的images以及存储的图片
-}
-
-- (void)decodeImage:(UIImage *)image
-{
-    //异步子线程图片解码
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        CGImageRef decodedImage = decodeImageWithCGImage(image.CGImage, YES);//强制解码
-        
-        // 回到主线程刷新UI
-        // 使用imageWithCGImage函数加载解码后的位图
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.imageView.image = [UIImage imageWithCGImage:decodedImage scale:image.scale orientation:UIImageOrientationUp];
-            CFRelease(decodedImage);
-        });
-    });
-}
-
-//返回解码后位图数据 Core Graphics offscreen rendering based on CPU
-CGImageRef decodeImageWithCGImage(CGImageRef imageRef, BOOL decodeForDisplay)
-{
-    if (!imageRef) return NULL;
-    size_t width = CGImageGetWidth(imageRef);
-    size_t height = CGImageGetHeight(imageRef);
-    if (width == 0 || height == 0) return NULL;
-    
-    if (decodeForDisplay) { //decode with redraw (may lose some precision)
-        CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(imageRef) & kCGBitmapAlphaInfoMask;
-        BOOL hasAlpha = NO;
-        if (alphaInfo == kCGImageAlphaPremultipliedLast ||
-            alphaInfo == kCGImageAlphaPremultipliedFirst ||
-            alphaInfo == kCGImageAlphaLast ||
-            alphaInfo == kCGImageAlphaFirst) {
-            hasAlpha = YES;
-        }
-        // BGRA8888 (premultiplied) or BGRX8888
-        // same as UIGraphicsBeginImageContext() and -[UIView drawRect:]
-        //先把图片绘制到 CGBitmapContext 中，然后从 Bitmap 直接创建图片
-        CGBitmapInfo bitmapInfo = kCGBitmapByteOrder32Host;
-        bitmapInfo |= hasAlpha ? kCGImageAlphaPremultipliedFirst : kCGImageAlphaNoneSkipFirst;
-        
-        /*
-         解码步骤:
-         1. 使用CGBitmapContextCreate函数创建一个位图上下文
-         2. 使用CGContextDrawImage函数将原始位图绘制到上下文中
-         3. 使用CGBitmapContextCreateImage函数创建一张新的解压缩后的位图
-         */
-        CGContextRef context = CGBitmapContextCreate(NULL, width, height, 8, 0, CGColorSpaceCreateDeviceRGB(), bitmapInfo);
-        if (!context) return NULL;
-        CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef); // decode
-        CGImageRef newImage = CGBitmapContextCreateImage(context);
-        CFRelease(context);
-        return newImage;
-    } else {
-        CGColorSpaceRef space = CGImageGetColorSpace(imageRef);
-        size_t bitsPerComponent = CGImageGetBitsPerComponent(imageRef);
-        size_t bitsPerPixel = CGImageGetBitsPerPixel(imageRef);
-        size_t bytesPerRow = CGImageGetBytesPerRow(imageRef);
-        CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
-        if (bytesPerRow == 0 || width == 0 || height == 0) return NULL;
-        
-        CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
-        if (!dataProvider) return NULL;
-        CFDataRef data = CGDataProviderCopyData(dataProvider); // decode
-        if (!data) return NULL;
-        
-        CGDataProviderRef newProvider = CGDataProviderCreateWithCFData(data);
-        CFRelease(data);
-        if (!newProvider) return NULL;
-        
-        CGImageRef newImage = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, space, bitmapInfo, newProvider, NULL, false, kCGRenderingIntentDefault);
-        CFRelease(newProvider);
-        return newImage;
-    }
-}
-
-NSUInteger cacheCostForImage(UIImage *image) {
-    return image.size.height * image.size.width * image.scale * image.scale;
-}
+////ImageIO来创建图片，然后在图片的生命周期保留解压后的版本
+//- (UIImage *)imageAtFilePath:(NSString *)filePath
+//{
+//    //kCGImageSourceShouldCacheImmediately表示是否在加载完后立刻开始解码，默认为NO表示在渲染时才解码
+//    //kCGImageSourceShouldCache可以设置在图片的生命周期内是保存图片解码后的数据还是原始图片，64位设备默认为YES，32位设备默认为NO
+//    CFDictionaryRef options = (__bridge CFDictionaryRef)@{(__bridge id)kCGImageSourceShouldCacheImmediately:@(NO), (__bridge id)kCGImageSourceShouldCache:@(NO)};
+//    NSURL *imageURL = [NSURL fileURLWithPath:filePath];
+//    CGImageSourceRef source = CGImageSourceCreateWithURL((__bridge CFURLRef)imageURL, NULL);
+//    CGImageRef imageRef = CGImageSourceCreateImageAtIndex(source, 0, options);//创建一个未解码的CGImage
+//    CGFloat scale = 1;
+//    if ([filePath rangeOfString:@"@2x"].location != NSNotFound) {
+//        scale = 2.0;
+//    }
+//    UIImage *image = [UIImage imageWithCGImage:imageRef scale:scale orientation:UIImageOrientationUp];//此时图片还没有解码
+//    CGImageRelease(imageRef);
+//    CFRelease(source);
+//    return image;
+//}
+//
+//#pragma mark imageNamed 按钮点击事件
+//- (void)clickImageNamed:(id)sender
+//{
+//    //会对解码后的图片位图数据缓存
+//    [self playAnimationImages:[self imageArrayWithCache:YES]];
+//}
+//
+//#pragma mark clickImageWithContentsOfFile按钮点击事件
+//- (void)clickImageWithContentsOfFile:(id)sender
+//{
+//    //不会对解码后的图片位图数据缓存
+//    [self playAnimationImages:[self imageArrayWithCache:NO]];
+//}
+//
+////使用animationImages属性播放帧动画，会导致内存暴增
+//- (void)playAnimationImages:(NSArray *)images
+//{
+//    self.imageView.animationDuration = kImageCount * 1./kFramesPerSecond;
+//    self.imageView.animationRepeatCount = 1;
+//    self.imageView.animationImages = images;//animationImages的copy属性会对images数组里面的uiimage进行指针拷贝，使得images里面的图片没有被释放
+//    [self.imageView startAnimating];
+//    [self performSelector:@selector(didFinishAnimation) withObject:nil afterDelay:self.imageView.animationDuration];
+//}
+//
+////帧动画结束后
+//- (void)didFinishAnimation
+//{
+//    self.imageView.animationImages = nil;//释放拷贝的images以及存储的图片
+//}
+//
+//- (void)decodeImage:(UIImage *)image
+//{
+//    //异步子线程图片解码
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        CGImageRef decodedImage = decodeImageWithCGImage(image.CGImage, YES);//强制解码
+//        
+//        // 回到主线程刷新UI
+//        // 使用imageWithCGImage函数加载解码后的位图
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.imageView.image = [UIImage imageWithCGImage:decodedImage scale:image.scale orientation:UIImageOrientationUp];
+//            CFRelease(decodedImage);
+//        });
+//    });
+//}
+//
+////返回解码后位图数据 Core Graphics offscreen rendering based on CPU
+//CGImageRef decodeImageWithCGImage(CGImageRef imageRef, BOOL decodeForDisplay)
+//{
+//    if (!imageRef) return NULL;
+//    size_t width = CGImageGetWidth(imageRef);
+//    size_t height = CGImageGetHeight(imageRef);
+//    if (width == 0 || height == 0) return NULL;
+//    
+//    if (decodeForDisplay) { //decode with redraw (may lose some precision)
+//        CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(imageRef) & kCGBitmapAlphaInfoMask;
+//        BOOL hasAlpha = NO;
+//        if (alphaInfo == kCGImageAlphaPremultipliedLast ||
+//            alphaInfo == kCGImageAlphaPremultipliedFirst ||
+//            alphaInfo == kCGImageAlphaLast ||
+//            alphaInfo == kCGImageAlphaFirst) {
+//            hasAlpha = YES;
+//        }
+//        // BGRA8888 (premultiplied) or BGRX8888
+//        // same as UIGraphicsBeginImageContext() and -[UIView drawRect:]
+//        //先把图片绘制到 CGBitmapContext 中，然后从 Bitmap 直接创建图片
+//        CGBitmapInfo bitmapInfo = kCGBitmapByteOrder32Host;
+//        bitmapInfo |= hasAlpha ? kCGImageAlphaPremultipliedFirst : kCGImageAlphaNoneSkipFirst;
+//        
+//        /*
+//         解码步骤:
+//         1. 使用CGBitmapContextCreate函数创建一个位图上下文
+//         2. 使用CGContextDrawImage函数将原始位图绘制到上下文中
+//         3. 使用CGBitmapContextCreateImage函数创建一张新的解压缩后的位图
+//         */
+//        CGContextRef context = CGBitmapContextCreate(NULL, width, height, 8, 0, CGColorSpaceCreateDeviceRGB(), bitmapInfo);
+//        if (!context) return NULL;
+//        CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef); // decode
+//        CGImageRef newImage = CGBitmapContextCreateImage(context);
+//        CFRelease(context);
+//        return newImage;
+//    } else {
+//        CGColorSpaceRef space = CGImageGetColorSpace(imageRef);
+//        size_t bitsPerComponent = CGImageGetBitsPerComponent(imageRef);
+//        size_t bitsPerPixel = CGImageGetBitsPerPixel(imageRef);
+//        size_t bytesPerRow = CGImageGetBytesPerRow(imageRef);
+//        CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
+//        if (bytesPerRow == 0 || width == 0 || height == 0) return NULL;
+//        
+//        CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
+//        if (!dataProvider) return NULL;
+//        CFDataRef data = CGDataProviderCopyData(dataProvider); // decode
+//        if (!data) return NULL;
+//        
+//        CGDataProviderRef newProvider = CGDataProviderCreateWithCFData(data);
+//        CFRelease(data);
+//        if (!newProvider) return NULL;
+//        
+//        CGImageRef newImage = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, space, bitmapInfo, newProvider, NULL, false, kCGRenderingIntentDefault);
+//        CFRelease(newProvider);
+//        return newImage;
+//    }
+//}
+//
+//NSUInteger cacheCostForImage(UIImage *image) {
+//    return image.size.height * image.size.width * image.scale * image.scale;
+//}
 
 
 @end
