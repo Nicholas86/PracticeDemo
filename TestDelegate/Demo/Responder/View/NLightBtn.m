@@ -62,7 +62,7 @@
         CGPoint childPoint = [self convertPoint:point toView:childView];
         if(childView && CGRectContainsPoint(childView.bounds, childPoint)) {
             // ******子控件必须调用hitTest: withEvent: 方法, 不然事件不传递到子控件 ******//
-            NSLog(@"返回子控件view, tag:%ld", childView.tag);
+            NSLog(@"返回子控件view, tag:%ld", (long)childView.tag);
             // 返回最合适的view
             return [childView hitTest:childPoint withEvent:event];
         }

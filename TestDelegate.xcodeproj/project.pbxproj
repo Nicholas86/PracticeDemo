@@ -152,6 +152,7 @@
 		F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C2F209D81F500439244 /* YYWeakProxy.m */; };
 		F3A08C34209D81F500439244 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C31209D81F500439244 /* YYFPSLabel.m */; };
 		F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A08C39209D968C00439244 /* NetWorkingSessionManager.m */; };
+		F3AB839921BC085500975E81 /* NDog.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AB839821BC085500975E81 /* NDog.m */; };
 		F3B5F9C620BA5774006B6039 /* NFileCacheBackgroundClean.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B5F9C520BA5774006B6039 /* NFileCacheBackgroundClean.m */; };
 		F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */; };
 		F3E2241920CB854600B26A5A /* NEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E2241820CB854600B26A5A /* NEmployee.m */; };
@@ -387,6 +388,8 @@
 		F3A08C32209D81F500439244 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		F3A08C38209D968C00439244 /* NetWorkingSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingSessionManager.h; sourceTree = "<group>"; };
 		F3A08C39209D968C00439244 /* NetWorkingSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingSessionManager.m; sourceTree = "<group>"; };
+		F3AB839721BC085500975E81 /* NDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NDog.h; sourceTree = "<group>"; };
+		F3AB839821BC085500975E81 /* NDog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NDog.m; sourceTree = "<group>"; };
 		F3B5F9C420BA5774006B6039 /* NFileCacheBackgroundClean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFileCacheBackgroundClean.h; sourceTree = "<group>"; };
 		F3B5F9C520BA5774006B6039 /* NFileCacheBackgroundClean.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFileCacheBackgroundClean.m; sourceTree = "<group>"; };
 		F3D18D6B20B86567009B4681 /* NetWorkingRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingRequest.h; sourceTree = "<group>"; };
@@ -558,6 +561,8 @@
 				F30C1B6B21735391004710DC /* NUIViewCALayerViewController.m */,
 				F30C1B6D217355A1004710DC /* NBackView.h */,
 				F30C1B6E217355A1004710DC /* NBackView.m */,
+				F3AB839721BC085500975E81 /* NDog.h */,
+				F3AB839821BC085500975E81 /* NDog.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1310,6 +1315,7 @@
 				001FE0E020284DDB0021FA46 /* ViewController.m in Sources */,
 				F3E2241920CB854600B26A5A /* NEmployee.m in Sources */,
 				F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */,
+				F3AB839921BC085500975E81 /* NDog.m in Sources */,
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
 				F37ECF3A20B034CB00CC579B /* XYObjectCache.m in Sources */,
 				0052080820B3BF0200AE3AB2 /* NPerson.m in Sources */,

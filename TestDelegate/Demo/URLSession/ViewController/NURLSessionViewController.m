@@ -59,7 +59,8 @@ NSURLSessionDownloadDelegate, NSURLSessionStreamDelegate>
     [self.view addSubview:self.imageview];
     [self.view addSubview:self.progressview];
     [self  url_session];
-    //[self  afurl_session_manager];
+    // [self  afurl_session_manager];
+    // [self  afurl_session_manager1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -149,6 +150,36 @@ NSURLSessionDownloadDelegate, NSURLSessionStreamDelegate>
         NSLog(@"get成功: %@", response);
         NSLog(@"get失败: %@", error);
     }];
+    
+    //4.调起网络请求
+    [dataTask resume];
+}
+
+
+- (void)afurl_session_manager1
+{
+    //1.先写个简单的网络请求
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    //AFURLSessionManager *manager = [[AFURLSessionManager alloc] init];
+    
+    //如果不添加反序列化、有可能会报错说传回来的res是text/html。
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //2、使用NSURLSession对象创建Task
+    NSURL *url = [NSURL URLWithString:@"https://www.jianshu.com/p/c1f5ec0ec459/"];
+    //创建请求对象里面包含请求体
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"GET";
+    //3.生成任务
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"上传进度1:%@", uploadProgress);
+    } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"下载进度1:%@", downloadProgress);
+    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSLog(@"get成功1: %@", response);
+        NSLog(@"get失败1: %@", error);
+    }];
+    
     //4.调起网络请求
     [dataTask resume];
 }

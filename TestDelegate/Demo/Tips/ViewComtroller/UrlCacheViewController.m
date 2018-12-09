@@ -98,7 +98,8 @@
     [self.tipsViewModel  requestTipsDataWithPage:self.page
                                            cache:^(NSMutableArray *responseObject) {
     if ([responseObject isKindOfClass:[NSArray class]] && [responseObject count] > 0) {
-        weakSelf.dataSource = (NSMutableArray *)responseObject;
+        NSMutableArray *temp_array = (NSMutableArray *)[responseObject mutableCopy];
+        weakSelf.dataSource = temp_array;
         [weakSelf.tableView  reloadData];
     }
     }successBlock:^(NSMutableArray <NTipsModel *>*responseObject, BOOL hasMoreData) {
