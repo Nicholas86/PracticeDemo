@@ -1,0 +1,6 @@
+framework module RH_Platform {
+  umbrella header "RH_Platform.h"
+
+  export *
+  module * { export * }
+}

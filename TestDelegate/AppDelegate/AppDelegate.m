@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <RH_Platform/RH_Platform.h>
 
 @interface AppDelegate ()
 
@@ -18,6 +19,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^(NSTimer *timer) {
+//        NSLog(@"😄");
+//    } repeats:YES];
+//    [timer fire];
+    
+  
     return YES;
 }
 

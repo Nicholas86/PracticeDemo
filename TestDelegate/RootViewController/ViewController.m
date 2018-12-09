@@ -12,6 +12,9 @@
 #import "NCacheManager.h"
 #import "NDemoTableViewController.h"
 
+#import "NTestView.h"
+
+
 #ifdef DEBUG
 #import "YYFPSLabel.h" //渲染帧 60FPS
 #endif
@@ -38,6 +41,12 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.title = @"Demo";
+    
+    CGRect frame = CGRectMake(30, 100, 200, 30);
+    NTestView *testView = [[NTestView  alloc] initWithFrame:frame];
+    testView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:testView];
+    
     //高度默认为0,代理方法里面,再动态改变
     CustomBtn *customBtn = [[CustomBtn alloc] initWithFrame:CGRectMake(60, 500, 300, 0)];
     customBtn.backgroundColor = [UIColor  lightGrayColor];
