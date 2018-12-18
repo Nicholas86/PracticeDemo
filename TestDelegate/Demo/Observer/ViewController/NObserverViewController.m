@@ -9,6 +9,7 @@
 #import "NObserverViewController.h"
 #import "NPerson.h"
 #import <objc/runtime.h>
+#import "NSObject+KVO.h"
 
 @interface NObserverViewController ()
 @property (nonatomic, assign) int page;
@@ -27,10 +28,13 @@
     self.person = [[NPerson  alloc] init];
     [self.person setName:@"谢霆锋"];
     
-    [self  addObserverForPage];
+    // [self  addObserverForPage];
     
-    [self  addObserverForPerson];
+    //[self  addObserverForPerson];
     
+    [self.person N_addObserver:self forKey:@"name" withBlock:^(id  _Nonnull observedObject, NSString * _Nonnull observedKey, id  _Nonnull oldValue, id  _Nonnull newValue) {
+        NSLog(@"观察者, oldValue: %@, newValue: %@", oldValue, newValue);
+    }];
     //动态生成类
     //[self  createCustomClass];
 }
@@ -64,7 +68,6 @@
     NSLog(@"监听之后, 类%@", object_getClass(self.person));
     //监听后方法名
     [self.person  methodForSelector:@selector(setName:)];
-
 }
 /*
  2018-05-22 11:09:10.598990+0800 TestDelegate[5895:1621960] 监听之前, 类NPerson
@@ -96,6 +99,7 @@
     //2.通过set方法对值(self.page++)进行改变, 会触发kvo
     self.page ++;
     [self.person  setName:[NSString stringWithFormat:@"谢霆锋:%d", self.page]];
+
     [sender  setTitle:[NSString stringWithFormat:@"page:%d, name:%@", self.page, self.person.name] forState:UIControlStateNormal];
 }
 
@@ -204,8 +208,9 @@ void custom_imp(id self, SEL _cmd, int a)
 
 - (void)dealloc
 {
-    [self  removeObserver:self forKeyPath:@"page"];
-    [self.person  removeObserver:self forKeyPath:@"name"];
+    // [self  removeObserver:self forKeyPath:@"page"];
+   //  [self.person  removeObserver:self forKeyPath:@"name"];
+    [self.person N_removeObserver:self forKey:@"name"];
 }
 
 @end

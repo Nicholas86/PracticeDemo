@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <RH_Platform/RH_Platform.h>
+#import "NBaseSingle.h"
 
 @interface AppDelegate ()
 

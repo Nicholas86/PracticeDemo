@@ -12,6 +12,9 @@
 
 #import "NUIViewCALayerViewController.h"
 #import "NDog.h"
+#import "NBaseSingle.h"
+#import "NSingle.h"
+#import "NAPPSingle.h"
 
 @interface NUIViewCALayerViewController (){
     NSTimer *timer;
@@ -108,7 +111,7 @@
     
     self.temp_array = (NSMutableArray *)[self.temp_set allObjects];
     [self.temp_array enumerateObjectsUsingBlock:^(NDog *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"temp_array, name: %@, idx: %ld", obj.name, idx);
+        NSLog(@"temp_array, name: %@, idx: %lu", obj.name, (unsigned long)idx);
     }];
 }
 
