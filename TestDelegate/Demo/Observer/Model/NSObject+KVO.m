@@ -67,11 +67,13 @@ static void PrintDescription(NSString *name, id obj)
 
 
 #pragma mark - Helpers
+// 根据setter方法名获得对应的getter方法名
 static NSString * getterForSetter(NSString *setter)
 {
     if (setter.length <=0 || ![setter hasPrefix:@"set"] || ![setter hasSuffix:@":"]) {
         return nil;
     }
+    // setName: -> Name -> name
     
     // remove 'set' at the begining and ':' at the end
     NSRange range = NSMakeRange(3, setter.length - 4);
@@ -79,18 +81,22 @@ static NSString * getterForSetter(NSString *setter)
     
     // lower case the first letter
     NSString *firstLetter = [[key substringToIndex:1] lowercaseString];
+    
+    
     key = [key stringByReplacingCharactersInRange:NSMakeRange(0, 1)
                                        withString:firstLetter];
     
     return key;
 }
 
-
+// 根据getter方法名获得对应的setter方法名
 static NSString * setterForGetter(NSString *getter)
 {
     if (getter.length <= 0) {
         return nil;
     }
+    
+    // name -> Name -> setName:
     
     // upper case the first letter
     NSString *firstLetter = [[getter substringToIndex:1] uppercaseString];
@@ -102,7 +108,6 @@ static NSString * setterForGetter(NSString *getter)
     return setter;
 }
 
-
 #pragma mark - Overridden Methods
 static void kvo_setter(id self, SEL _cmd, id newValue)
 {
@@ -110,6 +115,7 @@ static void kvo_setter(id self, SEL _cmd, id newValue)
     NSString *getterName = getterForSetter(setterName);
     
     if (!getterName) {
+        NSLog(@"找不到getter方法");
         NSString *reason = [NSString stringWithFormat:@"Object %@ does not have setter %@", self, setterName];
         @throw [NSException exceptionWithName:NSInvalidArgumentException
                                        reason:reason
@@ -117,14 +123,17 @@ static void kvo_setter(id self, SEL _cmd, id newValue)
         return;
     }
     
+    // 获取旧值
     id oldValue = [self valueForKey:getterName];
     
+     // 调用原类的setter方法
     struct objc_super superclazz = {
         .receiver = self,
         .super_class = class_getSuperclass(object_getClass(self))
     };
     
     // cast our pointer so the compiler won't complain
+    // 这里需要做个类型强转, 否则会报too many argument的错误
     void (*objc_msgSendSuperCasted)(void *, SEL, id) = (void *)objc_msgSendSuper;
     
     // call super's setter, which is original class's setter method
@@ -142,6 +151,8 @@ static void kvo_setter(id self, SEL _cmd, id newValue)
 }
 
 
+// 这个方法还是很直观明了的, 可能不太明白的是为什么要为kvo_class这个类重写class方法呢? 原因是我们要把这个kvo_class隐藏掉, 让别人觉得自己的类没有发生过任何改变, 以前是Person, 添加观察者之后还是Person, 而不是KVO_Person.
+
 static Class kvo_class(id self, SEL _cmd)
 {
     return class_getSuperclass(object_getClass(self));
@@ -155,6 +166,7 @@ static Class kvo_class(id self, SEL _cmd)
                 forKey:(NSString *)key
              withBlock:(NObservingBlock)block
 {
+    // 1. 检查对象的类有没有相应的 setter 方法。如果没有抛出异常；
     SEL setterSelector = NSSelectorFromString(setterForGetter(key));
     Method setterMethod = class_getInstanceMethod([self class], setterSelector);
     if (!setterMethod) {
@@ -166,6 +178,8 @@ static Class kvo_class(id self, SEL _cmd)
         return;
     }
     
+    
+    // 2. 检查对象 isa 指向的类是不是一个 KVO 类。如果不是，新建一个继承原来类的子类，并把 isa 指向这个新建的子类；
     Class clazz = object_getClass(self);
     NSString *clazzName = NSStringFromClass(clazz);
     
@@ -176,12 +190,15 @@ static Class kvo_class(id self, SEL _cmd)
         object_setClass(self, clazz);
     }
     
+    // 3. 检查对象的 KVO 类重写过没有这个 setter 方法。如果没有，添加重写的 setter 方法；
+    //  为kvo class添加setter方法的实现
     // add our kvo setter if this class (not superclasses) doesn't implement the setter?
     if (![self hasSelector:setterSelector]) {
         const char *types = method_getTypeEncoding(setterMethod);
         class_addMethod(clazz, setterSelector, (IMP)kvo_setter, types);
     }
     
+    // 4. 添加这个观察者
     NObservationInfo *info = [[NObservationInfo alloc] initWithObserver:observer Key:key block:block];
     NSMutableArray *observers = objc_getAssociatedObject(self, (__bridge const void *)(kPGKVOAssociatedObservers));
     if (!observers) {
@@ -218,8 +235,8 @@ static Class kvo_class(id self, SEL _cmd)
     }
     
     // class doesn't exist yet, make it
-    Class originalClazz = object_getClass(self);
-    //创建一个类的class
+    Class originalClazz = object_getClass(self); // [self class];
+    //创建一个类的class 创建类
     Class kvoClazz = objc_allocateClassPair(originalClazz, kvoClazzName.UTF8String, 0);
     
     // grab class method's signature so we can borrow it

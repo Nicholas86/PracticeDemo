@@ -10,6 +10,7 @@
 #import "NPerson.h"
 #import <objc/runtime.h>
 #import "NSObject+KVO.h"
+#import "NObserverViewController+KVO.h"
 
 @interface NObserverViewController ()
 @property (nonatomic, assign) int page;
@@ -27,7 +28,6 @@
     self.page = 1;
     self.person = [[NPerson  alloc] init];
     [self.person setName:@"谢霆锋"];
-    
     // [self  addObserverForPage];
     
     //[self  addObserverForPerson];
@@ -91,14 +91,25 @@
      观察者原理, 简单说, 就是重写了被观察属性(page)的set方法。
      自然, 一般情况下, 只有通过set方法对值(self.page++)进行改变, 才会触发kvo。
      直接访问实例变量(_page++)修改值是不会触发kvo的。
-     */
+     
+     观察者观察的是属性，只有遵循 KVO 变更属性值的方式才会执行 KVO 的回调方法:
+        例如是否执行了 setter 方法、或者是否使用了 KVC 赋值。
+     如果赋值没有通过 setter 方法或者 KVC，而是直接修改属性对应的成员变量。
+        例如：仅调用 _name = @"newName"，这时是不会触发 KVO 机制，更加不会调用回调方法的。
+     所以使用 KVO 机制的前提是遵循 KVO 的属性设置方式来变更属性值。
+     链接：https://www.jianshu.com/p/e59bb8f59302
+    */
     
     //1.直接访问实例变量(_page++)修改值是不会触发kvo
     //_page ++;
     
     //2.通过set方法对值(self.page++)进行改变, 会触发kvo
     self.page ++;
-    [self.person  setName:[NSString stringWithFormat:@"谢霆锋:%d", self.page]];
+    
+    NSString *value = [NSString stringWithFormat:@"谢霆锋:%d", self.page];
+    // self.person.name = value; // 可以赋值
+    [self.person setValue:value forKey:@"name"]; // kvc 形式赋值 可以
+   // [self.person  setName:[NSString stringWithFormat:@"谢霆锋:%d", self.page]]; // setter方法赋值 也可以
 
     [sender  setTitle:[NSString stringWithFormat:@"page:%d, name:%@", self.page, self.person.name] forState:UIControlStateNormal];
 }
@@ -122,8 +133,7 @@
     class_addMethod(customClass, @selector(custom_method:), (IMP)custom_imp, "V@:");
     //3. 注册到运行时环境
     objc_registerClassPair(customClass);
-    
-    
+
     //4. 生成一个实例化对象
     id myObjc = [[customClass alloc] init];
     [myObjc  setValue:@10 forKey:@"age"];
@@ -133,7 +143,6 @@
     
     NSLog(@"自定义类对象方法: %@", [self copyMethodsByClass:customClass]);
     NSLog(@"自定义类对象属性: %@", [self copyIvarsByClass:customClass]);
-    
     
     //5.调用第2步添加的custom_method方法，也就是给myobj这个接受者发送custom_method这个消息
     [myObjc  custom_method:10];

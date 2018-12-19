@@ -176,6 +176,7 @@
 		F3BC25BF21C3ECF800665B3D /* NEqualViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3BC25BD21C3ECF800665B3D /* NEqualViewController.xib */; };
 		F3BC25C521C4000E00665B3D /* NCHPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BC25C421C4000E00665B3D /* NCHPerson.m */; };
 		F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */; };
+		F3D5AD4D21CA490100AB8CB4 /* NObserverViewController+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5AD4C21CA490100AB8CB4 /* NObserverViewController+KVO.m */; };
 		F3E2241920CB854600B26A5A /* NEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E2241820CB854600B26A5A /* NEmployee.m */; };
 		F3E2241C20CB868C00B26A5A /* NEmployeeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E2241B20CB868C00B26A5A /* NEmployeeManager.m */; };
 /* End PBXBuildFile section */
@@ -453,6 +454,8 @@
 		F3BC25C421C4000E00665B3D /* NCHPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHPerson.m; sourceTree = "<group>"; };
 		F3D18D6B20B86567009B4681 /* NetWorkingRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingRequest.h; sourceTree = "<group>"; };
 		F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingRequest.m; sourceTree = "<group>"; };
+		F3D5AD4B21CA490100AB8CB4 /* NObserverViewController+KVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NObserverViewController+KVO.h"; sourceTree = "<group>"; };
+		F3D5AD4C21CA490100AB8CB4 /* NObserverViewController+KVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NObserverViewController+KVO.m"; sourceTree = "<group>"; };
 		F3E2241720CB854600B26A5A /* NEmployee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEmployee.h; sourceTree = "<group>"; };
 		F3E2241820CB854600B26A5A /* NEmployee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEmployee.m; sourceTree = "<group>"; };
 		F3E2241A20CB868C00B26A5A /* NEmployeeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEmployeeManager.h; sourceTree = "<group>"; };
@@ -576,6 +579,8 @@
 				00A4A77020B261670023FAB4 /* NObserverViewController.h */,
 				00A4A77120B261670023FAB4 /* NObserverViewController.m */,
 				00A4A77220B261670023FAB4 /* NObserverViewController.xib */,
+				F3D5AD4B21CA490100AB8CB4 /* NObserverViewController+KVO.h */,
+				F3D5AD4C21CA490100AB8CB4 /* NObserverViewController+KVO.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1489,6 +1494,7 @@
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
 				E42AF5D12190309B00C94D6A /* YYTransaction.m in Sources */,
 				F39A554C217AFF94004614B6 /* NLightBtn.m in Sources */,
+				F3D5AD4D21CA490100AB8CB4 /* NObserverViewController+KVO.m in Sources */,
 				F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */,
 				F337552821771EB70060E3FE /* NURLSessionViewController.m in Sources */,
 				F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */,
