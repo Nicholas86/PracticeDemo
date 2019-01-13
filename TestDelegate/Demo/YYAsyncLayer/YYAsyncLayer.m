@@ -9,6 +9,16 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
+/*
+ 
+ YYAsyncLayer 是 CALayer 的子类，当它需要显示内容（比如调用了 [layer setNeedDisplay]）时，它会向 delegate，也就是 UIView 请求一个异步绘制的任务。在异步绘制时，Layer 会传递一个 BOOL(^isCancelled)() 这样的 block，绘制代码可以随时调用该 block 判断绘制任务是否已经被取消。
+ 
+ 作者：大神Q
+ 链接：https://www.jianshu.com/p/58e7571d7806
+ 來源：简书
+ 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+ */
+
 #import "YYAsyncLayer.h"
 #import "YYSentinel.h"
 
@@ -68,6 +78,9 @@ static dispatch_queue_t YYAsyncLayerGetReleaseQueue() {
 @end
 
 
+
+/* ******************************  YYAsyncLayer  *******************************/
+#pragma mark YYAsyncLayer
 @implementation YYAsyncLayer {
     //计数，用于取消异步绘制
     YYSentinel *_sentinel;

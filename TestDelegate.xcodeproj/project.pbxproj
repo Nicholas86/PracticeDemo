@@ -37,6 +37,7 @@
 		E42AF5D12190309B00C94D6A /* YYTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AF5CE2190309B00C94D6A /* YYTransaction.m */; };
 		E42AF5D3219030C600C94D6A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E42AF5D2219030C600C94D6A /* README.md */; };
 		E430BB45219C4F440070533D /* RHGridTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E430BB43219C4F430070533D /* RHGridTableViewCell.m */; };
+		F309D7F921EB5E4C002FAA0E /* NBackLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F309D7F821EB5E4C002FAA0E /* NBackLayer.m */; };
 		F30C1B6C21735391004710DC /* NUIViewCALayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C1B6B21735391004710DC /* NUIViewCALayerViewController.m */; };
 		F30C1B6F217355A1004710DC /* NBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C1B6E217355A1004710DC /* NBackView.m */; };
 		F3145C0D2171E84000F8712F /* nicholas.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F3145C0C2171E84000F8712F /* nicholas.PNG */; };
@@ -263,6 +264,8 @@
 		E430BB43219C4F430070533D /* RHGridTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHGridTableViewCell.m; sourceTree = "<group>"; };
 		E430BB44219C4F440070533D /* RHGridTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHGridTableViewCell.h; sourceTree = "<group>"; };
 		EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDelegate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F309D7F721EB5E4C002FAA0E /* NBackLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBackLayer.h; sourceTree = "<group>"; };
+		F309D7F821EB5E4C002FAA0E /* NBackLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBackLayer.m; sourceTree = "<group>"; };
 		F30C1B6A21735391004710DC /* NUIViewCALayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NUIViewCALayerViewController.h; sourceTree = "<group>"; };
 		F30C1B6B21735391004710DC /* NUIViewCALayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NUIViewCALayerViewController.m; sourceTree = "<group>"; };
 		F30C1B6D217355A1004710DC /* NBackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBackView.h; sourceTree = "<group>"; };
@@ -643,6 +646,8 @@
 				F30C1B6B21735391004710DC /* NUIViewCALayerViewController.m */,
 				F30C1B6D217355A1004710DC /* NBackView.h */,
 				F30C1B6E217355A1004710DC /* NBackView.m */,
+				F309D7F721EB5E4C002FAA0E /* NBackLayer.h */,
+				F309D7F821EB5E4C002FAA0E /* NBackLayer.m */,
 				F3AB839721BC085500975E81 /* NDog.h */,
 				F3AB839821BC085500975E81 /* NDog.m */,
 				F329973021C2891900DF3A07 /* NSingle.h */,
@@ -1489,6 +1494,7 @@
 				F39A5549217AFF75004614B6 /* NYellowView.m in Sources */,
 				F329973221C2891900DF3A07 /* NSingle.m in Sources */,
 				F3B5F9C620BA5774006B6039 /* NFileCacheBackgroundClean.m in Sources */,
+				F309D7F921EB5E4C002FAA0E /* NBackLayer.m in Sources */,
 				F39A5546217AFF5F004614B6 /* NBlueView.m in Sources */,
 				F30C1B6C21735391004710DC /* NUIViewCALayerViewController.m in Sources */,
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,

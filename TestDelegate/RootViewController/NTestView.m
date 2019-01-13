@@ -16,20 +16,54 @@
 
 @implementation NTestView
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
+
+
+- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
+    [super drawLayer:layer inContext:ctx];
+    count++;
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
+}
+
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+    [super drawRect:rect];
+    count++;
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
 }
-*/
 
-- (instancetype)init{
-    self = [super init];
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
     if (self) {
         count = 0;
         NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
     } return self;
+}
+
+- (void)willMoveToSuperview:(nullable UIView *)newSuperview{
+    [super willMoveToSuperview:newSuperview];
+    count++;
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
+}
+
+- (void)didMoveToSuperview{
+    [super didMoveToSuperview];
+    count++;
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
+}
+
+- (void)willMoveToWindow:(nullable UIWindow *)newWindow{
+    [super willMoveToWindow:newWindow]; count++;
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
+}
+
+- (void)didMoveToWindow{
+    [super didMoveToWindow];
+    count++;
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
     
 }
 
@@ -43,55 +77,29 @@
 - (void)didAddSubview:(UIView *)subview{
     [super didAddSubview:subview];
     count++;
-    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),count);
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
     
 }
 
 - (void)willRemoveSubview:(UIView *)subview{
     [super willRemoveSubview:subview];
     count++;
-    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),count);
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
     
 }
 
-- (void)willMoveToSuperview:(nullable UIView *)newSuperview{
-    [super willMoveToSuperview:newSuperview];
-    count++;
-    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),count);
-    
-}
-
-- (void)didMoveToSuperview{
-    [super didMoveToSuperview];
-    count++;
-    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),count);
-    
-}
-
-- (void)willMoveToWindow:(nullable UIWindow *)newWindow{
-    [super willMoveToWindow:newWindow]; count++;
-    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),count);
-    
-}
-
-- (void)didMoveToWindow{
-    [super didMoveToWindow];
-    count++;
-    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),count);
-    
-}
 
 - (void)removeFromSuperview{
     [super removeFromSuperview];
     count++;
-    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),count);
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
     
 }
 
 
 - (void)dealloc{
     count++;
-    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),count);
+    NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
     
 }
 
