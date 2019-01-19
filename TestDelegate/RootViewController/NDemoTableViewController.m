@@ -19,6 +19,7 @@
 #import "NSingle.h"
 #import "NEqualViewController.h"
 #import "NOperationViewController.h"
+#import "NRunloopViewController.h"
 
 static NSString * const ReuseIdentifier = @"ReuseIdentifier";
 
@@ -48,7 +49,7 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
 //        NSLog(@"single");
 //    }];
 
-    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度", @"组件化", @"观察者", @"大图解码", @"UIView和CALayer的联系和区别", @"NSURLSession/AFNetworking 3.1.0", @"响应者", @"对象等同性", @"NSOperationQueue"];
+    self.dataSource = @[@"算法", @"缓存/磁盘缓存", @"tableView流畅度", @"组件化", @"观察者", @"大图解码", @"UIView和CALayer的联系和区别", @"NSURLSession/AFNetworking 3.1.0", @"响应者", @"对象等同性", @"NSOperationQueue", @"Runloop"];
     self.tableView.tableFooterView = [UIView new];
 }
 
@@ -116,6 +117,9 @@ static NSString * const ReuseIdentifier = @"ReuseIdentifier";
         [self.navigationController pushViewController:equalVC animated:YES];
     }else if (indexPath.row == 10){//NSOperationQueue
         NOperationViewController *queueVC = [[NOperationViewController alloc] init];
+        [self.navigationController pushViewController:queueVC animated:YES];
+    }else if (indexPath.row == 11){//NSRunloop
+        NRunloopViewController *queueVC = [[NRunloopViewController alloc] init];
         [self.navigationController pushViewController:queueVC animated:YES];
     }
     

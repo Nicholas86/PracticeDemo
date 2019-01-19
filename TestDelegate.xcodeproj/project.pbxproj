@@ -123,6 +123,7 @@
 		F3145CB52172374400F8712F /* gift_cupid_1_41@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3145C652172374400F8712F /* gift_cupid_1_41@2x.png */; };
 		F3145CB62172374400F8712F /* gift_cupid_1_22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3145C662172374400F8712F /* gift_cupid_1_22@2x.png */; };
 		F31AF4C020CABE4E00284A67 /* NStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AF4BF20CABE4E00284A67 /* NStudent.m */; };
+		F3237C6921EB7E7900B5442A /* 20161110204231056.png in Resources */ = {isa = PBXBuildFile; fileRef = F3237C6821EB7E7800B5442A /* 20161110204231056.png */; };
 		F329973221C2891900DF3A07 /* NSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = F329973121C2891900DF3A07 /* NSingle.m */; };
 		F329973521C2943C00DF3A07 /* NBaseSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = F329973421C2943C00DF3A07 /* NBaseSingle.m */; };
 		F329973B21C2950000DF3A07 /* NAPPSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = F329973A21C2950000DF3A07 /* NAPPSingle.m */; };
@@ -176,6 +177,9 @@
 		F3BC25BE21C3ECF800665B3D /* NEqualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BC25BC21C3ECF800665B3D /* NEqualViewController.m */; };
 		F3BC25BF21C3ECF800665B3D /* NEqualViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3BC25BD21C3ECF800665B3D /* NEqualViewController.xib */; };
 		F3BC25C521C4000E00665B3D /* NCHPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BC25C421C4000E00665B3D /* NCHPerson.m */; };
+		F3CFC18321F30DA500A17788 /* NRunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC18221F30DA500A17788 /* NRunloopViewController.m */; };
+		F3CFC18621F30F4900A17788 /* NSubThread.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC18521F30F4900A17788 /* NSubThread.m */; };
+		F3CFC18B21F31EEF00A17788 /* NRunLoopThread.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC18A21F31EEF00A17788 /* NRunLoopThread.m */; };
 		F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */; };
 		F3D5AD4D21CA490100AB8CB4 /* NObserverViewController+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5AD4C21CA490100AB8CB4 /* NObserverViewController+KVO.m */; };
 		F3E2241920CB854600B26A5A /* NEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E2241820CB854600B26A5A /* NEmployee.m */; };
@@ -355,6 +359,7 @@
 		F3145C662172374400F8712F /* gift_cupid_1_22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gift_cupid_1_22@2x.png"; sourceTree = "<group>"; };
 		F31AF4BE20CABE4E00284A67 /* NStudent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NStudent.h; sourceTree = "<group>"; };
 		F31AF4BF20CABE4E00284A67 /* NStudent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NStudent.m; sourceTree = "<group>"; };
+		F3237C6821EB7E7800B5442A /* 20161110204231056.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20161110204231056.png; sourceTree = "<group>"; };
 		F329973021C2891900DF3A07 /* NSingle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSingle.h; sourceTree = "<group>"; };
 		F329973121C2891900DF3A07 /* NSingle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSingle.m; sourceTree = "<group>"; };
 		F329973321C2943C00DF3A07 /* NBaseSingle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBaseSingle.h; sourceTree = "<group>"; };
@@ -455,6 +460,12 @@
 		F3BC25BD21C3ECF800665B3D /* NEqualViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NEqualViewController.xib; sourceTree = "<group>"; };
 		F3BC25C321C4000E00665B3D /* NCHPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPerson.h; sourceTree = "<group>"; };
 		F3BC25C421C4000E00665B3D /* NCHPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHPerson.m; sourceTree = "<group>"; };
+		F3CFC18121F30DA500A17788 /* NRunloopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NRunloopViewController.h; sourceTree = "<group>"; };
+		F3CFC18221F30DA500A17788 /* NRunloopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NRunloopViewController.m; sourceTree = "<group>"; };
+		F3CFC18421F30F4900A17788 /* NSubThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSubThread.h; sourceTree = "<group>"; };
+		F3CFC18521F30F4900A17788 /* NSubThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSubThread.m; sourceTree = "<group>"; };
+		F3CFC18921F31EEF00A17788 /* NRunLoopThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NRunLoopThread.h; sourceTree = "<group>"; };
+		F3CFC18A21F31EEF00A17788 /* NRunLoopThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NRunLoopThread.m; sourceTree = "<group>"; };
 		F3D18D6B20B86567009B4681 /* NetWorkingRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingRequest.h; sourceTree = "<group>"; };
 		F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingRequest.m; sourceTree = "<group>"; };
 		F3D5AD4B21CA490100AB8CB4 /* NObserverViewController+KVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NObserverViewController+KVO.h"; sourceTree = "<group>"; };
@@ -521,6 +532,7 @@
 			children = (
 				F3145C152172374400F8712F /* Resource */,
 				F3145C0C2171E84000F8712F /* nicholas.PNG */,
+				F3237C6821EB7E7800B5442A /* 20161110204231056.png */,
 				E42AF5D2219030C600C94D6A /* README.md */,
 				F37ECEFD20B02FD700CC579B /* Demo */,
 				F3A08C37209D964000439244 /* NetWorking */,
@@ -877,6 +889,7 @@
 		F37ECEFD20B02FD700CC579B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				F3CFC17D21F30D5000A17788 /* Runloop */,
 				F3E89DE121C5F72E00D8714E /* NSOperationQueue */,
 				F3BC25B921C3EC9E00665B3D /* Equal */,
 				E42AF5C82190309B00C94D6A /* YYAsyncLayer */,
@@ -1136,6 +1149,43 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		F3CFC17D21F30D5000A17788 /* Runloop */ = {
+			isa = PBXGroup;
+			children = (
+				F3CFC18021F30D8A00A17788 /* ViewModel */,
+				F3CFC17F21F30D7B00A17788 /* View */,
+				F3CFC17E21F30D6E00A17788 /* ViewController */,
+			);
+			path = Runloop;
+			sourceTree = "<group>";
+		};
+		F3CFC17E21F30D6E00A17788 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F3CFC18121F30DA500A17788 /* NRunloopViewController.h */,
+				F3CFC18221F30DA500A17788 /* NRunloopViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F3CFC17F21F30D7B00A17788 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3CFC18021F30D8A00A17788 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3CFC18421F30F4900A17788 /* NSubThread.h */,
+				F3CFC18521F30F4900A17788 /* NSubThread.m */,
+				F3CFC18921F31EEF00A17788 /* NRunLoopThread.h */,
+				F3CFC18A21F31EEF00A17788 /* NRunLoopThread.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F3E89DE121C5F72E00D8714E /* NSOperationQueue */ = {
 			isa = PBXGroup;
 			children = (
@@ -1284,6 +1334,7 @@
 				F3145C922172374400F8712F /* gift_cupid_1_57@2x.png in Resources */,
 				F3145C862172374400F8712F /* gift_cupid_1_31@2x.png in Resources */,
 				001FE11120284E820021FA46 /* PopViewController.xib in Resources */,
+				F3237C6921EB7E7900B5442A /* 20161110204231056.png in Resources */,
 				F37ECF3F20B034CB00CC579B /* NMatlabViewController.xib in Resources */,
 				00A4A77420B261670023FAB4 /* NObserverViewController.xib in Resources */,
 				F3145C812172374400F8712F /* gift_cupid_1_78@2x.png in Resources */,
@@ -1468,6 +1519,7 @@
 				F30C1B6F217355A1004710DC /* NBackView.m in Sources */,
 				F37ECF4320B034CB00CC579B /* UrlCacheViewController.m in Sources */,
 				F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */,
+				F3CFC18321F30DA500A17788 /* NRunloopViewController.m in Sources */,
 				F39A553E217AFE39004614B6 /* NResponderViewController.m in Sources */,
 				F339DDAE21C91924005696C0 /* NSObject+KVO.m in Sources */,
 				F393BB1A20D4FA30003BBE93 /* NNode.m in Sources */,
@@ -1482,6 +1534,7 @@
 				F3BC25C521C4000E00665B3D /* NCHPerson.m in Sources */,
 				F3E2241920CB854600B26A5A /* NEmployee.m in Sources */,
 				F37ECF3620B034CB00CC579B /* XYFileCache.m in Sources */,
+				F3CFC18B21F31EEF00A17788 /* NRunLoopThread.m in Sources */,
 				F3AB839921BC085500975E81 /* NDog.m in Sources */,
 				001FE0EB20284DDB0021FA46 /* main.m in Sources */,
 				F37ECF3A20B034CB00CC579B /* XYObjectCache.m in Sources */,
@@ -1510,6 +1563,7 @@
 				F37ECF4420B034CB00CC579B /* NTipsModel.m in Sources */,
 				001FE0DD20284DDB0021FA46 /* AppDelegate.m in Sources */,
 				008CD34D204F7EE300876974 /* EOCSquare.m in Sources */,
+				F3CFC18621F30F4900A17788 /* NSubThread.m in Sources */,
 				F393BB1D20D4FA42003BBE93 /* NNodeManager.m in Sources */,
 				F37ECF3820B034CB00CC579B /* XYUserDefaults.m in Sources */,
 				F37ECF4120B034CB00CC579B /* NTipsViewModel.m in Sources */,

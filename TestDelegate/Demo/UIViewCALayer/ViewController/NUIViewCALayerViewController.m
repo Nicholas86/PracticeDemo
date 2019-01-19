@@ -49,6 +49,20 @@
  2、CALayer是用来绘制内容的，不能处理用户事件。直接继承NSObject。
  3、 UIView和CALayer是相互依赖的关系。UIView依赖于CALayer提供的内容，CALayer依赖UIView提供的容器来显示绘制的内容。
  
+ 1.由于UIView继承自UIResponse,所以它是可以相应时间的，而CALayer是继承自NSObject，没有可以相应时间的接口。
+ 
+ 2.UIView侧重于展示内容，而CALayer则侧重于图形和界面的绘制。
+ 
+ 3.当View展示的时候，View是layer的CALayerDelegate,View展示的内容是由CALayer进行display的。
+ 
+ 4.View内容的展示依赖于CALayer对于内容的绘制，UIView的frame也是由内部的CALayer进行绘制的。
+ 
+ 5.对于UIView的属性修改，不会引起动画效果，但是对于CALayer的属性修改，是支持默认动画效果的，在VIew执行动画的时候，VIew是layer的代理，layer通过actionForLayer：forkey相对应的代理VIew请求动画action。
+ ---------------------
+ 作者：NothingAndNone
+ 来源：CSDN
+ 原文：https://blog.csdn.net/zhanglei1239/article/details/50783773
+ 版权声明：本文为博主原创文章，转载请附上博文链接！
  */
 
 /*
@@ -73,6 +87,29 @@
  作者：Longshihua
  来源：CSDN
  原文：https://blog.csdn.net/longshihua/article/details/79422371
+ 版权声明：本文为博主原创文章，转载请附上博文链接！
+ */
+
+/*
+圆角(cornerRadius)和阴影(shadowColor), 二者不能同时出现, 所以可以通过两个重叠的UIView, 分别使其CALayer显示圆角和阴影.
+*/
+
+/*
+ 
+ 一个CALayer的frame是由其anchorPoint, position, bounds, transform共同决定的, 而一个UIView的的frame只是简单地返回CALayer的frame, 同样UIView的center和bounds也只是简单返回CALayer的Position和Bounds对应属性.
+ ---------------------
+ 作者：踩着七色的晕菜
+ 来源：CSDN
+ 原文：https://blog.csdn.net/icetime17/article/details/48154021
+ 版权声明：本文为博主原创文章，转载请附上博文链接！
+ */
+
+/*
+ UIView和CALayer的最明显区别在于他们的可交互性，即UIView可以响应用户事件，而CALayer则不可以，原因可以从这两个类的继承关系上看出，UIView是继承自UIRespinder的，明显是专门用来处理响应事件的，而CALayer是直接继承自NSObject无法进行交互。
+ ---------------------
+ 作者：Mr_厚厚
+ 来源：CSDN
+ 原文：https://blog.csdn.net/cordova/article/details/53127254
  版权声明：本文为博主原创文章，转载请附上博文链接！
  */
 
@@ -123,7 +160,7 @@
 {
     CGRect frame = CGRectMake(50, 220, 100, 100);
     NBackView  *backView = [[NBackView  alloc] initWithFrame:frame];
-    backView.backgroundColor = [UIColor orangeColor];
+    // backView.backgroundColor = [UIColor orangeColor];
     backView.layer.masksToBounds = YES;
     [self.view  addSubview:backView];
 }

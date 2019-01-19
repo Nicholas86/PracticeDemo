@@ -7,6 +7,7 @@
 //
 
 #import "NBackLayer.h"
+#import <UIKit/UIKit.h>
 
 @interface NBackLayer(){
     NSInteger count;
@@ -22,6 +23,18 @@
     if (self) {
         count = 0;
         NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
+        // 会在目标View上敷上一层黑色的透明薄膜。
+        self.backgroundColor = [[[UIColor blackColor] colorWithAlphaComponent:0.2] CGColor];
+        // 边框
+        self.borderColor = [[UIColor blueColor] CGColor];
+        self.borderWidth = 2.0;
+        // 圆角
+        self.cornerRadius = 10.0;
+        
+        // 阴影
+        self.shadowColor = [[UIColor greenColor] CGColor];
+        self.shadowOpacity = 0.5;
+        self.shadowOffset = CGSizeMake(2, 1);
     }return self;
 }
 
