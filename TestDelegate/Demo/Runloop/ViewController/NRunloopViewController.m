@@ -113,11 +113,14 @@
         NSLog(@"[Main] added new command: %@", cmd);
         
         if (0 != [thread.commands count]) {
-            [thread notifyWorker]; /// 唤醒runloop, 开始干活
+            [thread notifyWakeUp]; /// 唤醒runloop, 开始干活
         }
     }
     
 }
 
+/*
+ 实现这种模型的关键点在于：如何管理事件/消息，如何让线程在没有处理消息时休眠以避免资源占用、在有消息到来时立刻被唤醒。
+ */
 
 @end

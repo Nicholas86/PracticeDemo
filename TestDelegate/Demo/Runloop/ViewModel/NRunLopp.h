@@ -7,10 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class NRunLopp;
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol NRunLoppDelegate <NSObject>
+
+- (void)runLoop:(NRunLopp *)runLoop;
+
+@end
+
 @interface NRunLopp : NSObject
+
+@property (nonatomic, assign) id<NRunLoppDelegate>delegate;
+
+- (instancetype)initWithDelegate:(id<NRunLoppDelegate>)delegate;
+
+- (void)run;
+
+// 告诉 Worker 任务来了
+// 把 Worker 拎起来干事
+- (void)notifyWakeUp;
 
 @end
 

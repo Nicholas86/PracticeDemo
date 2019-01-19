@@ -28,7 +28,7 @@ typedef void(^Block)(id responseObject);
 
 // 告诉 Worker 任务来了
 // 把 Worker 拎起来干事
--(void)notifyWorker;
+-(void)notifyWakeUp;
 
 @end
 

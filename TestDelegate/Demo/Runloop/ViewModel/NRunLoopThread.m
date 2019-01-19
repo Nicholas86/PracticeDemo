@@ -9,25 +9,23 @@
 /// https://www.jianshu.com/p/58f44609bd50
 
 #import "NRunLoopThread.h"
+#import "NRunLopp.h"
 
-@interface NRunLoopThread ()
+/*
+ 实现这种模型的关键点在于：如何管理事件/消息，如何让线程在没有处理消息时休眠以避免资源占用、在有消息到来时立刻被唤醒。
+ */
 
-@property (nonatomic, strong, readwrite) NSMutableArray *commands;
 
-@property (nonatomic, assign) CFRunLoopSourceRef rlSource;
-
+@interface NRunLoopThread ()<NRunLoppDelegate>{
+    NRunLopp *_runloop;
+    NSMutableArray *_commands;
+}
 @end
 
 
 @implementation NRunLoopThread
 
 static NRunLoopThread *instance = nil;
-
-// Main 除了需要标记相关的 run loop source 是 ready-to-be-fired 之外，
-// 还需要调用 CFRunLoopWakeUp 来唤醒指定的 RunLoop
-// RunLoop 是不能手动创建的，所以必须注册这个回调来向 Main 暴露 Worker
-// 的 RunLoop，这样在 Main 中才知道要唤醒谁
-static CFRunLoopRef workerRunLoop = nil;
 
 + (instancetype)share
 {
@@ -54,32 +52,9 @@ static CFRunLoopRef workerRunLoop = nil;
     if (self) {
         self.name = @"subThread";
         _commands = [NSMutableArray array];
-        [self runLoopSource];
+        _runloop = [[NRunLopp alloc] initWithDelegate:self];
     }return self;
 }
-
-- (void)runLoopSource
-{
-    // run loop source 的上下文
-    // 就是一些 run loop source 相关的选项以及回调
-    // 另外我们这的第一个参数是 0，必须是 0
-    // 这样创建的 run loop source 就被添加在
-    // run loop 中的 _sources0，作为用户创建的
-    // 非自动触发的
-
-    // (__bridge void *)(self) 必须写, 否则void *info为空
-    CFRunLoopSourceContext context = {
-        0, (__bridge void *)(self), NULL, NULL, NULL, NULL, NULL,
-        RunLoopSourceScheduleRoutine,
-        NULL,
-        RunLoopSourcePerformRoutine
-    };
-
-    CFRunLoopSourceRef runLoopSource = CFRunLoopSourceCreate(kCFAllocatorDefault, 0, &context);
-
-    _rlSource = runLoopSource;
-}
-
 
 /*
  Worker 让 CPU 几乎满了 😂，看来 Worker 轮询消息队列的方式有很大的性能问题。回看 Worker 中这样的代码：
@@ -101,58 +76,22 @@ static CFRunLoopRef workerRunLoop = nil;
     NSLog(@"[Worker] is running...");
     // 往 RunLoop 中添加 run loop source
     // 我们的 Main 会通过 rls 和 Worker 协调工作
-    CFRunLoopAddSource(CFRunLoopGetCurrent(), _rlSource, kCFRunLoopDefaultMode);
-    // 线程需要手动运行 RunLoop
-    CFRunLoopRun();
+    if (_runloop) {
+        [_runloop run];
+    }
     NSLog(@"[Worker] is stopping...");
 }
 
 
-// run loop source 相关的回调函数
-// 在外部代码标记了 run loop 中的某个 run loop source
-// 是 ready-to-be-fired 时，那么在未来的某一时刻 run loop
-// 发现该 run loop source 需要被触发，那么就会调用到这个与其
-// 相关的回调
-void RunLoopSourcePerformRoutine(void *info)
-{
-    // 如果该方法被调用，那么说明其相关的 run loop source
-    // 已经准备好。在这个程序中就是 Main 通知了 Worker 『任务来了』
-    NRunLoopThread *thread = (__bridge NRunLoopThread *)info;
-    
-    NSLog(@"[Worker] executing command, thread: %@", thread);
-
-    NSString *last = [thread popCommand];
-    
-    while (last) {
-        NSLog(@"[Worker] executing command: %@", last);
-        sleep(0.5); // 模拟耗时的计算所需的时间
-        NSLog(@"[Worker] executed command: %@", last);
-        last = [thread popCommand];
-        
-        if (thread.blcok) {
-            thread.blcok(last);
-        }
-    }
-}
-
-
-// 这也是一个 run loop source 相关的回调，它发生在 run loop source 被添加到
-// run loop 时，通过注册这个回调来获取 Worker 的 run loop
-void RunLoopSourceScheduleRoutine(void *info, CFRunLoopRef rl, CFRunLoopMode mode)
-{
-    workerRunLoop = rl;
-}
-
 // 告诉 Worker 任务来了
 // 把 Worker 拎起来干事
--(void)notifyWorker
+- (void)notifyWakeUp
 {
-    if (workerRunLoop) {
-        CFRunLoopSourceSignal(_rlSource);
-        CFRunLoopWakeUp(workerRunLoop);
-    }
+    [_runloop notifyWakeUp];
 }
 
+
+#pragma mark private method
 
 /// 添加元素
 - (void)pushCommand:(NSString *)command
@@ -175,12 +114,21 @@ void RunLoopSourceScheduleRoutine(void *info, CFRunLoopRef rl, CFRunLoopMode mod
     }
 }
 
-
-- (void)dealloc
+#pragma mark NRunLoppDelegate
+- (void)runLoop:(NRunLopp *)runLoop
 {
-    NSLog(@"dealloc");
-    workerRunLoop = nil;
-    CFRelease(_rlSource);
+    NSString *last = [self popCommand];
+
+    while (last) {
+        NSLog(@"[Worker] executing command: %@", last);
+        sleep(0.5); // 模拟耗时的计算所需的时间
+        NSLog(@"[Worker] executed command: %@", last);
+        last = [self popCommand];
+
+        if (self.blcok) {
+            self.blcok(last);
+        }
+    }
 }
 
 @end

@@ -97,8 +97,6 @@ static NSubThread *instance = nil;
     
 }
 
-
-
 /// 添加元素
 - (void)pushCommand:(NSString *)command
 {
