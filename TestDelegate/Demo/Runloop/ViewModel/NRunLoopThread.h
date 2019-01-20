@@ -18,7 +18,8 @@ typedef void(^Block)(id responseObject);
 
 @property (nonatomic, copy) Block blcok;
 
-+ (instancetype)share;
+/// + (instancetype)share;
+
 
 /// 添加元素
 - (void)pushCommand:(NSString *)command;

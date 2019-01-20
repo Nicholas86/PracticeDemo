@@ -33,12 +33,9 @@ static CFRunLoopRef workerRunLoop = nil;
     }return self;
 }
 
-- (instancetype)init
++ (instancetype)runLoopWithDelegate:(id<NRunLoppDelegate>)delegate
 {
-    self = [super init];
-    if (self) {
-        [self runLoopSource];
-    }return self;
+    return [[self alloc] initWithDelegate:delegate];
 }
 
 - (void)runLoopSource

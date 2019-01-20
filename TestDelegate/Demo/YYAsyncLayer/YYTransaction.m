@@ -42,7 +42,8 @@ static void YYTransactionSetup() {
         CFRunLoopRef runloop = CFRunLoopGetMain();
         CFRunLoopObserverRef observer;
         
-        //注册runloop监听，在等待与退出前进行
+        // 注册runloop监听，在即将进入休眠、退出时执行回调
+        // YYRunLoopObserverCallBack 需要执行的回调
         observer = CFRunLoopObserverCreate(CFAllocatorGetDefault(),
                                            kCFRunLoopBeforeWaiting | kCFRunLoopExit,
                                            true,      // repeat

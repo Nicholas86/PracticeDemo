@@ -22,6 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDelegate:(id<NRunLoppDelegate>)delegate;
 
++ (instancetype)runLoopWithDelegate:(id<NRunLoppDelegate>)delegate;
+
+- (instancetype)init OBJC_UNAVAILABLE("use '-initWithDelegate:' or '+runLoopWithDelegate:' instead");
+
++ (instancetype)new OBJC_UNAVAILABLE("use '-initWithStrategy:' or '+runLoopWithDelegate:' instead");
+
 - (void)run;
 
 // 告诉 Worker 任务来了

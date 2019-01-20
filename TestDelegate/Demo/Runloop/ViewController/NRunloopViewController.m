@@ -26,6 +26,7 @@
 #import "NRunloopViewController.h"
 #import "NSubThread.h"
 #import "NRunLoopThread.h"
+#import "NRunLoopView.h"
 
 @interface NRunloopViewController ()
 @property (nonatomic, strong) UILabel *label;
@@ -47,7 +48,9 @@
     
     /// [self normal];
     
-    [self runloop];
+    // [self runloop];
+    
+    [self asyncView];
 }
 
 - (void)normal
@@ -105,7 +108,7 @@
         });
     };
     
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < 1000; i++) {
         NSString *cmd = [NSString stringWithFormat:@"%d", i];
         [thread  pushCommand:cmd];
         // 在主线程中 Log 这条信息，
@@ -122,5 +125,15 @@
 /*
  实现这种模型的关键点在于：如何管理事件/消息，如何让线程在没有处理消息时休眠以避免资源占用、在有消息到来时立刻被唤醒。
  */
+
+
+
+- (void)asyncView
+{
+    NRunLoopView *runLoppView = [[NRunLoopView alloc] init];
+    runLoppView.frame = CGRectMake(60, 300, 200, 60);
+    runLoppView.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:runLoppView];
+}
 
 @end

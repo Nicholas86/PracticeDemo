@@ -177,6 +177,7 @@
 		F3BC25BE21C3ECF800665B3D /* NEqualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BC25BC21C3ECF800665B3D /* NEqualViewController.m */; };
 		F3BC25BF21C3ECF800665B3D /* NEqualViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3BC25BD21C3ECF800665B3D /* NEqualViewController.xib */; };
 		F3BC25C521C4000E00665B3D /* NCHPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BC25C421C4000E00665B3D /* NCHPerson.m */; };
+		F3C9A95721F42CBD008F9042 /* NRunLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C9A95621F42CBD008F9042 /* NRunLoopView.m */; };
 		F3CFC18321F30DA500A17788 /* NRunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC18221F30DA500A17788 /* NRunloopViewController.m */; };
 		F3CFC18621F30F4900A17788 /* NSubThread.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC18521F30F4900A17788 /* NSubThread.m */; };
 		F3CFC18B21F31EEF00A17788 /* NRunLoopThread.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC18A21F31EEF00A17788 /* NRunLoopThread.m */; };
@@ -461,6 +462,8 @@
 		F3BC25BD21C3ECF800665B3D /* NEqualViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NEqualViewController.xib; sourceTree = "<group>"; };
 		F3BC25C321C4000E00665B3D /* NCHPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPerson.h; sourceTree = "<group>"; };
 		F3BC25C421C4000E00665B3D /* NCHPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHPerson.m; sourceTree = "<group>"; };
+		F3C9A95521F42CBD008F9042 /* NRunLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NRunLoopView.h; sourceTree = "<group>"; };
+		F3C9A95621F42CBD008F9042 /* NRunLoopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NRunLoopView.m; sourceTree = "<group>"; };
 		F3CFC18121F30DA500A17788 /* NRunloopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NRunloopViewController.h; sourceTree = "<group>"; };
 		F3CFC18221F30DA500A17788 /* NRunloopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NRunloopViewController.m; sourceTree = "<group>"; };
 		F3CFC18421F30F4900A17788 /* NSubThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSubThread.h; sourceTree = "<group>"; };
@@ -1174,6 +1177,8 @@
 		F3CFC17F21F30D7B00A17788 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3C9A95521F42CBD008F9042 /* NRunLoopView.h */,
+				F3C9A95621F42CBD008F9042 /* NRunLoopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1586,6 +1591,7 @@
 				F39A5543217AFF4C004614B6 /* NRedView.m in Sources */,
 				F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */,
 				00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */,
+				F3C9A95721F42CBD008F9042 /* NRunLoopView.m in Sources */,
 				F3CFC18E21F35F8000A17788 /* NRunLopp.m in Sources */,
 				E430BB45219C4F440070533D /* RHGridTableViewCell.m in Sources */,
 				F31AF4C020CABE4E00284A67 /* NStudent.m in Sources */,

@@ -17,6 +17,26 @@
  链接：https://www.jianshu.com/p/58e7571d7806
  來源：简书
  简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+ 
+ 
+ 
+ 
+ 
+ 这样一个调用链就形成了：用户操作->RunLoop(Waiting | Exiting)->调用observer的回调->[view layoutSubviews]->[view.layer setNeedsDisplay]->[layer display]->[layer _displayAsync]异步绘制开始（准确的说是_displayAsync方法的参数为true**的时候开始异步绘制）。
+ 
+ 但是这并没有用到RunLoop。所以代码会修改为每次调用layoutSubviews的时候给RunLoop提交一个异步绘制的任务：
+ 
+ - (void)layoutSubviews {
+ [super layoutSubviews];
+ [[YYTransaction transactionWithTarget:self selector:@selector(contentsNeedUpdated)] commit];
+ }
+ 
+ - (void)contentsNeedUpdated {
+ // do update
+ [self.layer setNeedsDisplay];
+ }
+ 
+ 这样每次RunLoop要进入休眠或者即将退出的时候会开始异步的绘制。这个任务是从[layer setNeedsDisplay]开始的。
  */
 
 #import "YYAsyncLayer.h"
@@ -116,10 +136,12 @@ static dispatch_queue_t YYAsyncLayerGetReleaseQueue() {
 
 //需要重新渲染的时候，取消原来没有完成的异步渲染
 - (void)setNeedsDisplay {
+    NSLog(@"setNeedsDisplay");
     [self _cancelAsyncDisplay];
     [super setNeedsDisplay];
 }
 
+/// 先执行 setNeedsDisplay方法, 再执行display方法
 
 /**
  重写展示方法，设置contents内容
@@ -133,6 +155,8 @@ static dispatch_queue_t YYAsyncLayerGetReleaseQueue() {
 
 
 - (void)_displayAsync:(BOOL)async {
+    NSLog(@"_displayAsync");
+
     //获取delegate对象，这边默认是CALayer的delegate，持有它的uiview
     __strong id<YYAsyncLayerDelegate> delegate = self.delegate;
     //delegate的初始化方法

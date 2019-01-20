@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) NSMutableArray *commands;
 
-
 @property (nonatomic, copy) Block blcok;
 
 + (instancetype)share;
