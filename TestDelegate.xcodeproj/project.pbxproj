@@ -27,6 +27,9 @@
 		008CD34D204F7EE300876974 /* EOCSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CD34C204F7EE300876974 /* EOCSquare.m */; };
 		00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4A77120B261670023FAB4 /* NObserverViewController.m */; };
 		00A4A77420B261670023FAB4 /* NObserverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A4A77220B261670023FAB4 /* NObserverViewController.xib */; };
+		04882D80222E074F00550746 /* NCTFrameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04882D7F222E074F00550746 /* NCTFrameViewController.m */; };
+		04882D83222E08DD00550746 /* UILabel+StringAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 04882D82222E08DD00550746 /* UILabel+StringAction.m */; };
+		04BE47322268450300577E2D /* NAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE47312268450300577E2D /* NAnimationVC.m */; };
 		2AE3E444C79BF4B6688A59A4 /* libPods-TestDelegateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D8734745CB9E909F2070D /* libPods-TestDelegateUITests.a */; };
 		9548BCBE00F7F2566FC66A83 /* libPods-TestDelegateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B6AA24EEDCE51711B1D56 /* libPods-TestDelegateTests.a */; };
 		9589FCB21274D3D624C3A592 /* libPods-TestDelegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE114D8CE69432FF68CBF3F8 /* libPods-TestDelegate.a */; };
@@ -244,6 +247,12 @@
 		00A4A77120B261670023FAB4 /* NObserverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NObserverViewController.m; sourceTree = "<group>"; };
 		00A4A77220B261670023FAB4 /* NObserverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NObserverViewController.xib; sourceTree = "<group>"; };
 		01D8C8DDD5A5E83FFB5C92C6 /* Pods-TestDelegateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateTests/Pods-TestDelegateTests.release.xcconfig"; sourceTree = "<group>"; };
+		04882D7E222E074F00550746 /* NCTFrameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCTFrameViewController.h; sourceTree = "<group>"; };
+		04882D7F222E074F00550746 /* NCTFrameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCTFrameViewController.m; sourceTree = "<group>"; };
+		04882D81222E08DD00550746 /* UILabel+StringAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+StringAction.h"; sourceTree = "<group>"; };
+		04882D82222E08DD00550746 /* UILabel+StringAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+StringAction.m"; sourceTree = "<group>"; };
+		04BE47302268450300577E2D /* NAnimationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAnimationVC.h; sourceTree = "<group>"; };
+		04BE47312268450300577E2D /* NAnimationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAnimationVC.m; sourceTree = "<group>"; };
 		0E4DDBD82929BA057648DD1D /* Pods-TestDelegateUITests.stagingrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateUITests.stagingrelease.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateUITests/Pods-TestDelegateUITests.stagingrelease.xcconfig"; sourceTree = "<group>"; };
 		27EC09078864DA12E442317B /* Pods-TestDelegateTests.stagingdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegateTests.stagingdebug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegateTests/Pods-TestDelegateTests.stagingdebug.xcconfig"; sourceTree = "<group>"; };
 		352BBEEB7C8EAD6F023FE68B /* Pods-TestDelegate.stagingrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDelegate.stagingrelease.xcconfig"; path = "Pods/Target Support Files/Pods-TestDelegate/Pods-TestDelegate.stagingrelease.xcconfig"; sourceTree = "<group>"; };
@@ -606,6 +615,74 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		04882D79222E06BD00550746 /* CTFrame */ = {
+			isa = PBXGroup;
+			children = (
+				04882D7A222E06BD00550746 /* viewmodel */,
+				04882D7B222E06BD00550746 /* model */,
+				04882D7C222E06BD00550746 /* view */,
+				04882D7D222E06BD00550746 /* viewcontroller */,
+			);
+			path = CTFrame;
+			sourceTree = "<group>";
+		};
+		04882D7A222E06BD00550746 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		04882D7B222E06BD00550746 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		04882D7C222E06BD00550746 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		04882D7D222E06BD00550746 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				04882D7E222E074F00550746 /* NCTFrameViewController.h */,
+				04882D7F222E074F00550746 /* NCTFrameViewController.m */,
+				04882D81222E08DD00550746 /* UILabel+StringAction.h */,
+				04882D82222E08DD00550746 /* UILabel+StringAction.m */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		04BE47292268446E00577E2D /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				04BE472B2268448900577E2D /* View */,
+				04BE472A2268447F00577E2D /* ViewController */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		04BE472A2268447F00577E2D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04BE47302268450300577E2D /* NAnimationVC.h */,
+				04BE47312268450300577E2D /* NAnimationVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		04BE472B2268448900577E2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		392444CE800215C065F96A75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -895,6 +972,8 @@
 		F37ECEFD20B02FD700CC579B /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				04BE47292268446E00577E2D /* Animation */,
+				04882D79222E06BD00550746 /* CTFrame */,
 				F3CFC17D21F30D5000A17788 /* Runloop */,
 				F3E89DE121C5F72E00D8714E /* NSOperationQueue */,
 				F3BC25B921C3EC9E00665B3D /* Equal */,
@@ -1563,6 +1642,7 @@
 				008CD34A204F7D0F00876974 /* EOCRectangle.m in Sources */,
 				E42AF5D12190309B00C94D6A /* YYTransaction.m in Sources */,
 				F39A554C217AFF94004614B6 /* NLightBtn.m in Sources */,
+				04882D83222E08DD00550746 /* UILabel+StringAction.m in Sources */,
 				F3D5AD4D21CA490100AB8CB4 /* NObserverViewController+KVO.m in Sources */,
 				F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */,
 				F337552821771EB70060E3FE /* NURLSessionViewController.m in Sources */,
@@ -1585,10 +1665,12 @@
 				F32DD5D621C67701001BB7B5 /* NOperationViewController.m in Sources */,
 				F37ECF3720B034CB00CC579B /* XYAutoCoding.m in Sources */,
 				F339DDA521C8F410005696C0 /* NCreateBlockOperation.m in Sources */,
+				04BE47322268450300577E2D /* NAnimationVC.m in Sources */,
 				F37ECF3920B034CB00CC579B /* XYThread.m in Sources */,
 				F37ECF4620B034CB00CC579B /* NTipsTableViewCell.m in Sources */,
 				F3E2241C20CB868C00B26A5A /* NEmployeeManager.m in Sources */,
 				F39A5543217AFF4C004614B6 /* NRedView.m in Sources */,
+				04882D80222E074F00550746 /* NCTFrameViewController.m in Sources */,
 				F3A08C3A209D968C00439244 /* NetWorkingSessionManager.m in Sources */,
 				00A4A77320B261670023FAB4 /* NObserverViewController.m in Sources */,
 				F3C9A95721F42CBD008F9042 /* NRunLoopView.m in Sources */,
@@ -1765,7 +1847,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Debug";
-				DEVELOPMENT_TEAM = HN2Y5ZFM4Y;
+				DEVELOPMENT_TEAM = WL5B984F9Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1786,7 +1868,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Release";
-				DEVELOPMENT_TEAM = HN2Y5ZFM4Y;
+				DEVELOPMENT_TEAM = WL5B984F9Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1925,7 +2007,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingDebug";
-				DEVELOPMENT_TEAM = HN2Y5ZFM4Y;
+				DEVELOPMENT_TEAM = WL5B984F9Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2027,7 +2109,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingRelease";
-				DEVELOPMENT_TEAM = HN2Y5ZFM4Y;
+				DEVELOPMENT_TEAM = WL5B984F9Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -16,11 +16,6 @@
 
 @implementation NTestView
 
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-
-
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
     [super drawLayer:layer inContext:ctx];
     count++;
@@ -71,7 +66,6 @@
     [super layoutSubviews];
     count++;
     NSLog(@"%@ ==> %ld",NSStringFromSelector(_cmd),(long)count);
-    
 }
 
 - (void)didAddSubview:(UIView *)subview{

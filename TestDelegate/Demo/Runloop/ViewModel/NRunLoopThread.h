@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
 typedef void(^Block)(id responseObject);
 
 @interface NRunLoopThread : NSThread
