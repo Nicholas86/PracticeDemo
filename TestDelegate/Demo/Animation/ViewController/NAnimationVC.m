@@ -32,20 +32,21 @@
     
     /// 已经进行的进度
     progressValue = 0;
-    //[self createSubViews];
-    //[self createSubLayer];
+    [self createSubViews];
+    [self createSubLayer];
+    [self createCAReplicatorLayer];
 }
 
 - (void)basicShareLayer
 {
     /// 创建贝塞尔曲线(圆形)
-    CGRect frame = CGRectMake(0, 0, 100, 100);
+    CGRect frame = CGRectMake(0, 0, 50, 50);
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:frame];
     
     /// 创建CAShapeLayer
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.bounds = CGRectMake(0, 0, 100, 100);
-    shapeLayer.position = self.view.center; /// 设置layer的位置
+    shapeLayer.frame = CGRectMake(150, 100, 50, 50);
+    //shapeLayer.position = self.view.center; /// 设置layer的位置
     shapeLayer.fillColor = [UIColor clearColor].CGColor; /// 设置layer的填充色
     shapeLayer.strokeColor = [UIColor redColor].CGColor; /// 设置layer边框的填充色
     shapeLayer.lineWidth = 2; /// 设置layer边框的宽度
@@ -55,31 +56,31 @@
     
     shapeLayer.path = path.CGPath;
     [self.view.layer addSublayer:shapeLayer];
-    
 }
 
 - (void)createSubViews
 {
-    CGRect frame = CGRectMake(50, 100, 200, 200);
+    CGRect frame = CGRectMake(20, 100, 100, 100);
     self.backView = [[UIView alloc] initWithFrame:frame];
     _backView.backgroundColor = [UIColor purpleColor];
     [self.view addSubview:_backView];
     
-    CGRect numberFrame = CGRectMake(0, 0, 100, 30);
+    CGRect numberFrame = CGRectMake(0, 0, 50, 30);
     self.numberLabel = [[UILabel alloc] initWithFrame:numberFrame];
     _numberLabel.backgroundColor = [UIColor whiteColor];
+    _numberLabel.font = [UIFont systemFontOfSize:13];
     _numberLabel.center = _backView.center;
     [self.view addSubview:_numberLabel];
     
-    CGRect textFieldFrame = CGRectMake(50, 380, 160, 30);
+    CGRect textFieldFrame = CGRectMake(20, 220, 70, 30);
     self.numberTextField = [[UITextField alloc] initWithFrame:textFieldFrame];
     _numberTextField.backgroundColor = [UIColor lightGrayColor];
     _numberTextField.placeholder = @"请输入数字(范围0~100)";
-    _numberTextField.font = [UIFont systemFontOfSize:13];
+    _numberTextField.font = [UIFont systemFontOfSize:12];
     _numberTextField.keyboardType = UIKeyboardTypeNumberPad;
     [self.view addSubview:_numberTextField];
     
-    CGRect buttonFrame = CGRectMake(230, 380, 100, 30);
+    CGRect buttonFrame = CGRectMake(100, 220, 60, 30);
     self.clickButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     _clickButton.frame = buttonFrame;
     _clickButton.backgroundColor = [UIColor lightGrayColor];
@@ -146,6 +147,63 @@
     } else {
         // Fallback on earlier versions
     }
+}
+
+
+#warning https://www.jianshu.com/p/2e6facd8142f
+/*
+ 1. CAReplicatorLayer可以将自己的子图层复制指定的次数,并且复制体 会保持被复制图层的各种基础属性以及动画
+ 2. CAReplicatorLayer是一个Layer容器，添加到容器上的子Layer可以复制若干份；
+ */
+
+///CAReplicatorLayer
+- (void)createCAReplicatorLayer
+{
+    // 2.创建一个图层对象  单条柱形 (原始层)
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(0, 0, 10, 150);
+    // 2.5.设置layer对象的颜色
+    layer.backgroundColor = [UIColor whiteColor].CGColor;
+    
+    // 3.创建一个基本动画
+    CABasicAnimation *basicAnimation = [CABasicAnimation animation];
+    // 3.1.设置动画的属性
+    basicAnimation.keyPath = @"transform.scale.y";
+    // 3.2.设置动画的属性值
+    basicAnimation.toValue = @0.1;
+    // 3.3.设置动画的重复次数
+    basicAnimation.repeatCount = MAXFLOAT;
+    // 3.4.设置动画的执行时间
+    basicAnimation.duration = 0.5;
+    // 3.5.设置动画反转
+    basicAnimation.autoreverses = YES;
+    
+    // 4.将动画添加到layer层上
+    [layer addAnimation:basicAnimation forKey:nil];
+    
+    // 1.创建一个复制图层对象，设置复制层的属性
+    CAReplicatorLayer *replicatorLayer = [CAReplicatorLayer layer];
+    replicatorLayer.frame = CGRectMake(20, 300, 300, 150);
+    replicatorLayer.backgroundColor = [UIColor redColor].CGColor;
+    // 1.1.设置复制图层中子层总数：这里包含原始层
+    replicatorLayer.instanceCount = 10;
+    // 1.2.设置复制子层偏移量，不包含原始层，这里是相对于原始层的x轴的偏移量
+    replicatorLayer.instanceTransform = CATransform3DMakeTranslation(25, 0, 0);
+    // 1.3. 设置子层相对于前一个层的延迟时间
+    replicatorLayer.instanceDelay = 0.1;
+    // 1.4.设置复制层的背景色，如果原始层设置了背景色，这里设置就失去效果
+    replicatorLayer.instanceColor = [UIColor greenColor].CGColor;
+    // 1.5.设置复制层颜色的偏移量
+    replicatorLayer.instanceRedOffset = -0.1; /// 设置每个复制图层相对上一个复制图层的红色偏移量
+    replicatorLayer.instanceGreenOffset = -0.1; ///  设置每个复制图层相对上一个复制图层的绿色偏移量
+    replicatorLayer.instanceBlueOffset = -0.1; /// 设置每个复制图层相对上一个复制图层的蓝色偏移量
+    replicatorLayer.instanceAlphaOffset = 0.2; /// 设置每个复制图层相对上一个复制图层的透明度偏移量
+
+    // 5.将layer层添加到复制层上
+    [replicatorLayer addSublayer:layer];
+    
+    // 6.将复制层添加到view视图层上
+    [self.view.layer addSublayer:replicatorLayer];
 }
 
 - (CGFloat)expectValue
