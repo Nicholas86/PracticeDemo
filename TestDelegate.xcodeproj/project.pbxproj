@@ -187,6 +187,7 @@
 		F3CFC18E21F35F8000A17788 /* NRunLopp.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC18D21F35F8000A17788 /* NRunLopp.m */; };
 		F3D18D6D20B86567009B4681 /* NetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */; };
 		F3D5AD4D21CA490100AB8CB4 /* NObserverViewController+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5AD4C21CA490100AB8CB4 /* NObserverViewController+KVO.m */; };
+		F3DA3DF923210A4600E95779 /* NOrangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DA3DF823210A4600E95779 /* NOrangeView.m */; };
 		F3E2241920CB854600B26A5A /* NEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E2241820CB854600B26A5A /* NEmployee.m */; };
 		F3E2241C20CB868C00B26A5A /* NEmployeeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E2241B20CB868C00B26A5A /* NEmployeeManager.m */; };
 /* End PBXBuildFile section */
@@ -485,6 +486,8 @@
 		F3D18D6C20B86567009B4681 /* NetWorkingRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingRequest.m; sourceTree = "<group>"; };
 		F3D5AD4B21CA490100AB8CB4 /* NObserverViewController+KVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NObserverViewController+KVO.h"; sourceTree = "<group>"; };
 		F3D5AD4C21CA490100AB8CB4 /* NObserverViewController+KVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NObserverViewController+KVO.m"; sourceTree = "<group>"; };
+		F3DA3DF723210A4600E95779 /* NOrangeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NOrangeView.h; sourceTree = "<group>"; };
+		F3DA3DF823210A4600E95779 /* NOrangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NOrangeView.m; sourceTree = "<group>"; };
 		F3E2241720CB854600B26A5A /* NEmployee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEmployee.h; sourceTree = "<group>"; };
 		F3E2241820CB854600B26A5A /* NEmployee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEmployee.m; sourceTree = "<group>"; };
 		F3E2241A20CB868C00B26A5A /* NEmployeeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEmployeeManager.h; sourceTree = "<group>"; };
@@ -1186,6 +1189,8 @@
 				F39A5545217AFF5F004614B6 /* NBlueView.m */,
 				F39A5547217AFF75004614B6 /* NYellowView.h */,
 				F39A5548217AFF75004614B6 /* NYellowView.m */,
+				F3DA3DF723210A4600E95779 /* NOrangeView.h */,
+				F3DA3DF823210A4600E95779 /* NOrangeView.m */,
 				F39A554A217AFF94004614B6 /* NLightBtn.h */,
 				F39A554B217AFF94004614B6 /* NLightBtn.m */,
 			);
@@ -1646,6 +1651,7 @@
 				F3D5AD4D21CA490100AB8CB4 /* NObserverViewController+KVO.m in Sources */,
 				F37ECF3420B034CB00CC579B /* XYMemoryCache.m in Sources */,
 				F337552821771EB70060E3FE /* NURLSessionViewController.m in Sources */,
+				F3DA3DF923210A4600E95779 /* NOrangeView.m in Sources */,
 				F3A08C33209D81F500439244 /* YYWeakProxy.m in Sources */,
 				E42AF5CF2190309B00C94D6A /* YYAsyncLayer.m in Sources */,
 				F37ECF4020B034CB00CC579B /* NMatlabViewController.m in Sources */,
@@ -1845,9 +1851,10 @@
 			baseConfigurationReference = D1A5134B5E4CD7182D7445B8 /* Pods-TestDelegate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Debug";
-				DEVELOPMENT_TEAM = WL5B984F9Z;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1857,6 +1864,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DispatchSemaphore.TestDelegate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1866,9 +1874,10 @@
 			baseConfigurationReference = 57EF5C30DA127D9BD6827446 /* Pods-TestDelegate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集Release";
-				DEVELOPMENT_TEAM = WL5B984F9Z;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1878,6 +1887,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DispatchSemaphore.TestDelegate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -2005,9 +2015,10 @@
 			baseConfigurationReference = C012BF0DAF69981E99DB8449 /* Pods-TestDelegate.stagingdebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingDebug";
-				DEVELOPMENT_TEAM = WL5B984F9Z;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2017,6 +2028,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DispatchSemaphore.TestDelegate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = StagingDebug;
@@ -2107,9 +2119,10 @@
 			baseConfigurationReference = 352BBEEB7C8EAD6F023FE68B /* Pods-TestDelegate.stagingrelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CusomAppName = "知识小集StagingRelease";
-				DEVELOPMENT_TEAM = WL5B984F9Z;
+				DEVELOPMENT_TEAM = Z2PP5K6334;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2119,6 +2132,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DispatchSemaphore.TestDelegate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = StagingRelease;

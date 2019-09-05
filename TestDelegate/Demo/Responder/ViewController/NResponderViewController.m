@@ -11,12 +11,14 @@
 #import "NBlueView.h"
 #import "NYellowView.h"
 #import "NLightBtn.h"
+#import "NOrangeView.h"
 
 @interface NResponderViewController ()
 @property (nonatomic, strong) NRedView *redView;
 @property (nonatomic, strong) NBlueView *blueView;
 @property (nonatomic, strong) NYellowView *yellowView;
 @property (nonatomic, strong) NLightBtn *lightBtn;
+@property (nonatomic, strong) NOrangeView *orangeView;
 @end
 
 @implementation NResponderViewController
@@ -31,17 +33,17 @@
     _redView.backgroundColor = [UIColor  redColor];
     [self.view  addSubview: _redView];
     
-    self.blueView = [[NBlueView  alloc] initWithFrame:CGRectMake(20, 30, 300, 450)];
+    self.blueView = [[NBlueView  alloc] initWithFrame:CGRectMake(20, 30, 300, 400)];
     _blueView.backgroundColor = [UIColor  blueColor];
     [_redView  addSubview: _blueView];
     
-    self.yellowView = [[NYellowView  alloc] initWithFrame:CGRectMake(30, 30, 180, 380)];
+    self.yellowView = [[NYellowView  alloc] initWithFrame:CGRectMake(30, 30, 180, 330)];
     _yellowView.backgroundColor = [UIColor  yellowColor];
     _yellowView.tag = 2000;
     [_blueView  addSubview: _yellowView];
     
     UIButton *btn0 = [UIButton  buttonWithType:UIButtonTypeCustom];
-    btn0.frame = CGRectMake(20, 80, 150, 120);
+    btn0.frame = CGRectMake(20, 50, 150, 120);
     btn0.backgroundColor = [UIColor blackColor];
     [btn0  addTarget:self action:@selector(handleBlackBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_yellowView  addSubview:btn0];
@@ -62,7 +64,7 @@
      链接：https://www.jianshu.com/p/933dd3ed2504
      來源：简书
      */
-    self.lightBtn = [[NLightBtn  alloc] initWithFrame:CGRectMake(30, 230, 230, 120)];
+    self.lightBtn = [[NLightBtn  alloc] initWithFrame:CGRectMake(30, 200, 230, 120)];
     _lightBtn.tag = 1000;
     _lightBtn.backgroundColor = [UIColor  lightGrayColor];
     [_lightBtn setTitle:@"测试点击超出父视图(黄色视图)区域" forState:UIControlStateNormal];
@@ -72,10 +74,24 @@
     
     UIButton *btn = [UIButton  buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(10, 15, 100, 90);
-    btn.backgroundColor = [UIColor orangeColor];
+    btn.backgroundColor = [UIColor purpleColor];
     btn.tag = 3000;
     [btn  addTarget:self action:@selector(handleOrangeBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_lightBtn  addSubview:btn];
+    
+    /// orangeView
+    self.orangeView = [[NOrangeView alloc] initWithFrame:CGRectMake(20, 450, 300, 100)];
+    _orangeView.backgroundColor = [UIColor  orangeColor];
+    _orangeView.tag = 600;
+    [_redView  addSubview: _orangeView];
+    
+    UIButton *_btn = [UIButton  buttonWithType:UIButtonTypeCustom];
+    _btn.frame = CGRectMake(50, 50, 200, 45);
+    _btn.backgroundColor = [UIColor redColor];
+    [_btn setTitle:@"底部(黄色视图)按钮" forState:UIControlStateNormal];
+    _btn.tag = 700;
+    [_btn  addTarget:self action:@selector(handleOverridBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_orangeView  addSubview:_btn];
 }
 
 - (void)handleBlackBtn:(UIButton *)sender
@@ -96,5 +112,10 @@
     self.title = @"灰色按钮触发事件";
 }
 
+- (void)handleOverridBtn:(UIButton *)sender
+{
+    NSLog(@"底部按钮触发事件");
+    self.title = @"底部按钮触发事件";
+}
 
 @end

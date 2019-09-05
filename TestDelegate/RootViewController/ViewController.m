@@ -40,6 +40,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    NSLog(@"类: %@", NSStringFromClass([self class]));
+    NSLog(@"类: %@", NSStringFromClass([super class]));
+    
     self.title = @"Demo";
     
     CGRect frame = CGRectMake(30, 100, 200, 30);
@@ -52,7 +55,7 @@
     customBtn.backgroundColor = [UIColor  lightGrayColor];
     customBtn.delegate = self;
     customBtn.dataSource = self;
-    [self.view   addSubview:customBtn];
+    [self.view  addSubview:customBtn];
     
 //    __block  int name = 10;
     NSObject *object = [[NSObject  alloc] init];
@@ -75,16 +78,15 @@
      2018-09-26 22:40:19.605941+0800 TestDelegate[2447:128652] 外部, Block1, name, 0x7ffeea7514c8, <NSObject: 0x60c000002a40>
      2018-09-26 22:40:19.606046+0800 TestDelegate[2447:128652] 外部, Block1, name, 0x608000241d68, <NSObject: 0x60c000002a40>
      2018-09-26 22:40:19.606135+0800 TestDelegate[2447:128652] 内部, Block1, name, 0x608000241d68, <NSObject: 0x60c000002a40>
-     
      */
+    
 /*
  必须记住在 block 底部释放掉 block 变量，这其实跟 MRC 的形式有些类似了，不太适合 ARC这种形式既能保证在 block 内部能够访问到 obj，又可以避免循环引用的问题，但是这种方法也不是完美的，其存在下面几个问题
  
  当在 block 外部修改了 blockObj 时，block 内部的值也会改变，反之在 block 内部修改 blockObj 在外部再使用时值也会改变。这就需要在写代码时注意这个特性可能会带来的一些隐患
  __block 其实提升了变量的作用域，在 block 内外访问的都是同一个 blockObj 可能会造成一些隐患
-
- 
  */
+    
     ///__weak、 __strong
     [self  weak_strong];
 
@@ -99,6 +101,8 @@
 #endif
     
     // [self   block];
+    
+    [self gcg];
 }
 
 
@@ -326,6 +330,32 @@
             NSLog(@"title啊: %@", title);
         });
     }
+}
+
+
+- (void)gcg
+{
+    //创建并行队列
+    dispatch_queue_t fetchFeedQueue = dispatch_queue_create("com.starming.fetchfeed.fetchfeed", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_group_async(group, fetchFeedQueue, ^{
+        NSLog(@"1");
+    });
+    
+    dispatch_barrier_async(fetchFeedQueue, ^{
+        NSLog(@"2");
+    });
+    
+    dispatch_group_async(group, fetchFeedQueue, ^{
+        NSLog(@"3");
+    });
+    
+    
+    dispatch_group_notify(group, fetchFeedQueue, ^{
+        NSLog(@"全部执行完成");
+    });
+    
 }
 
 
